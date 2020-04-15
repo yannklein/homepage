@@ -39,7 +39,7 @@ const addBackground = world => {
   const mesh = new THREE.Mesh(geometry, material);
   world.scene.add(mesh);
 
-  const animation = mesh => {
+  const animation = () => {
     mesh.rotation.x += 0.01;
     mesh.rotation.y += 0.02;
   };
@@ -56,7 +56,7 @@ const addIntroPopup = world => {
   const mesh = new THREE.Mesh(geometry, material);
   world.scene.add(mesh);
 
-  const animation = mesh => {
+  const animation = () => {
     mesh.rotation.x += 0.01;
   };
   const bindedAnimation = animation.bind(null, mesh);
