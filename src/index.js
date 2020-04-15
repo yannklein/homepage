@@ -17,5 +17,5 @@ if (document.querySelector('.background')) {
 
 if (document.querySelector('.intro-popup')) {
   const popupScene = initThree(document.querySelector('.intro-popup'));
-  addIntroPopup(popupScene);
+  addIntroPopup(document.querySelector('.intro-popup'), popupScene);
 }
