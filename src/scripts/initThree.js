@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+const cards = document.querySelector('.cards');
 
 const initThree = htmlElement => {
   const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
@@ -35,21 +36,128 @@ const initThree = htmlElement => {
   };
 };
 
-const addBackground = world => {
-  const textureLoader = new THREE.TextureLoader();
-  const porcelain = textureLoader.load('./src/images/matcap-porcelain-white.jpg');
-  const geometry = new THREE.IcosahedronGeometry(0.3, 0);
-  const material = new THREE.MeshMatcapMaterial({ matcap: porcelain });
-
+const createTimeSphere = (type, material, world) => {
+  const localOffset = 9;
+  const times = {
+    hour: {
+      now: date => date.getUTCHours() + localOffset + date.getUTCMinutes() / 60,
+      division: 12,
+      distCenter: 0.5,
+      sphereSize: 0.1
+    },
+    minute: {
+      now: date => date.getUTCMinutes() + date.getUTCSeconds() / 60,
+      division: 60,
+      distCenter: 0.4,
+      sphereSize: 0.04
+    },
+    second: {
+      now: date => date.getUTCSeconds() + date.getUTCMilliseconds() / 1000,
+      division: 60,
+      distCenter: 0.3,
+      sphereSize: 0.03
+    }
+  };
+  const geometry = new THREE.SphereBufferGeometry(times[type].sphereSize, 32, 32);
   const mesh = new THREE.Mesh(geometry, material);
-  world.scene.add(mesh);
+  mesh.position.x = Math.cos(Math.PI / 2 - (12 * 2 * Math.PI) / times[type].division) * times[type].distCenter;
+  mesh.position.y = Math.sin(Math.PI / 2 - (12 * 2 * Math.PI) / times[type].division) * times[type].distCenter;
 
   const animation = () => {
-    mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.02;
+    const date = new Date();
+    mesh.position.x = Math.cos(Math.PI / 2 - (times[type].now(date) * 2 * Math.PI) / times[type].division) * times[type].distCenter;
+    mesh.position.y = Math.sin(Math.PI / 2 - (times[type].now(date) * 2 * Math.PI) / times[type].division) * times[type].distCenter;
   };
   const bindedAnimation = animation.bind(null, mesh);
   world.animationQueue.push(bindedAnimation);
+
+  return mesh;
+};
+
+const addBackground = (htmlElement, world) => {
+  // Load the porcelain texture
+  const textureLoader = new THREE.TextureLoader();
+  const porcelain = textureLoader.load('./src/images/matcap-porcelain-white.jpg');
+  const material = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, matcap: porcelain });
+
+  const bgMeshes = new THREE.Group();
+  // Create the middle isocahedron
+  {
+    const geometry = new THREE.IcosahedronBufferGeometry(0.1, 0);
+
+    const mesh = new THREE.Mesh(geometry, material);
+    bgMeshes.add(mesh);
+
+    const animation = () => {
+      mesh.rotation.x += 0.005;
+      mesh.rotation.y += 0.01;
+    };
+    const bindedAnimation = animation.bind(null, mesh);
+    world.animationQueue.push(bindedAnimation);
+  }
+
+  // Create an orbiting clock
+  bgMeshes.add(createTimeSphere('hour', material, world));
+  bgMeshes.add(createTimeSphere('minute', material, world));
+  bgMeshes.add(createTimeSphere('second', material, world));
+
+  // Create a spaceship
+  {
+    const ship = new THREE.Group();
+    const geoBody = new THREE.CylinderBufferGeometry(0.025, 0.02, 0.15, 40);
+    const body = new THREE.Mesh(geoBody, material);
+    body.rotation.z = Math.PI / 2;
+    ship.add(body);
+
+    const geoHead = new THREE.CylinderBufferGeometry(0.02, 0.005, 0.04, 40);
+    const head = new THREE.Mesh(geoHead, material);
+    head.rotation.z = Math.PI / 2;
+    head.position.x = 0.095;
+    ship.add(head);
+
+    const x = -0.07;
+    const y = -0.08;
+    const wingShape = new THREE.Shape();
+    wingShape.moveTo(x, y);
+    wingShape.lineTo(x - 0.01, y + 0.03);
+    wingShape.lineTo(x + 0.07, y + 0.16);
+    wingShape.lineTo(x + 0.15, y + 0.03);
+    wingShape.lineTo(x + 0.14, y);
+    wingShape.lineTo(x, y);
+    const geoWing = new THREE.ShapeBufferGeometry(wingShape);
+    const wing = new THREE.Mesh(geoWing, material);
+    wing.rotation.z = -Math.PI / 2;
+    wing.position.x = 0.01;
+    ship.add(wing);
+
+    const shortWing = new THREE.Mesh(geoWing, material);
+    shortWing.rotation.z = -Math.PI / 2;
+    shortWing.rotation.x = Math.PI / 2;
+    shortWing.scale.multiplyScalar(0.6);
+    shortWing.position.x = -0.02;
+    ship.add(shortWing);
+
+    const geoFlag = new THREE.PlaneGeometry(0.2, 0.1);
+    const texFlag = new THREE.TextureLoader().load('./src/images/japan.png');
+    const matFlag = new THREE.MeshLambertMaterial({ map: texFlag });
+    const flag = new THREE.Mesh(geoFlag, matFlag);
+    flag.position.z = 0.03;
+    flag.position.x = 0.1;
+    ship.add(flag);
+
+    ship.position.z = 0.4;
+    bgMeshes.add(ship);
+  }
+
+  world.scene.add(bgMeshes);
+
+  // Show background only when clicked
+  const showHideBackground = () => {
+    // Show hide background
+    cards.classList.toggle('cards-visible');
+  };
+
+  htmlElement.addEventListener('click', showHideBackground);
 };
 
 const addIntroPopup = (htmlElement, world) => {
@@ -78,16 +186,16 @@ const addIntroPopup = (htmlElement, world) => {
   // Create the text
   {
     const line1 = '              Δ\n\n';
-    const line2 = '         I\'m Yann\n';
+    const line2 = "         I'm Yann\n";
     const line3 = '      and here is a\n';
     const line4 = 'glimpse of what I do';
-    const text =`${line1}${line2}${line3}${line4}`;
+    const text = `${line1}${line2}${line3}${line4}`;
     const loader = new THREE.FontLoader();
     let geometry;
     const size = 0.022;
     // const textLength = text.length / 10;
     // const textHeight = size / 10;
-    loader.load('./src/fonts/optimer_regular.typeface.json', function(font) {
+    loader.load('./src/fonts/optimer_regular.typeface.json', font => {
       geometry = new THREE.TextBufferGeometry(text, {
         font,
         size,
@@ -114,11 +222,27 @@ const addIntroPopup = (htmlElement, world) => {
   isocahedron.position.z = 0;
   world.scene.add(isocahedron);
 
+  const animation = () => {
+    isocahedron.rotation.x += 0.01;
+    isocahedron.rotation.y += 0.02;
+  };
+  const bindedAnimation = animation.bind(null, isocahedron);
+
+  // "Intro closing" event trigger when click the intro isocahedron
   const closeIntro = event => {
+    // Make the homepage cards visible
+    cards.classList.add('cards-visible');
+    // Make the isocahedron rotate
+    const introPopup = event.currentTarget;
+    world.animationQueue.push(bindedAnimation);
+    // Make the isocahedron progressively move backward
     const intervId = setInterval(() => {
-      isocahedron.position.z -= 0.03;
-      if (isocahedron.position.z >= -1) {
-        event.currentTarget.style.display = 'none';
+      isocahedron.position.z -= 0.01;
+      // When the isocahedron totally disappear beneath the invisible wall
+      // make it vanish
+      if (isocahedron.position.z <= -1) {
+        introPopup.style.display = 'none';
+        world.scene.remove(isocahedron);
         clearInterval(intervId);
       }
     }, 30);

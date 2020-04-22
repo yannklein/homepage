@@ -10,12 +10,15 @@ import { initThree, addBackground, addIntroPopup } from './scripts/initThree';
 
 OfflinePluginRuntime.install();
 
-if (document.querySelector('.background')) {
-  const bgWorld = initThree(document.querySelector('.background'));
-  addBackground(bgWorld);
+// Initialize ThreeJS background
+const bgElement = document.querySelector('.background');
+if (bgElement) {
+  const bgWorld = initThree(bgElement);
+  addBackground(bgElement, bgWorld);
 }
-
-if (document.querySelector('.intro-popup')) {
-  const popupScene = initThree(document.querySelector('.intro-popup'));
-  addIntroPopup(document.querySelector('.intro-popup'), popupScene);
+// Initialize ThreeJS intro popup
+const ipElement = document.querySelector('.intro-popup');
+if (ipElement) {
+  const popupScene = initThree(ipElement);
+  addIntroPopup(ipElement, popupScene);
 }

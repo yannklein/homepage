@@ -1,0 +1,25 @@
+.container {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+@include respond-to('wrapper') {
+  .container {
+    width: 900px;
+  }
+}
+@include respond-to('desktop') {
+  .container {
+    width: 700px;
+  }
+}
+@include respond-to('tablet') {
+  .container {
+    width: 400px;
+  }
+}
+@include respond-to('mobile') {
+  .container {
+    width: 90%;
+  }
+}

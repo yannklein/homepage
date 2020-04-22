@@ -14,10 +14,11 @@
 @import "./styles/global/typography"; // global typography
 @import "./styles/global/global"; // global styles
 
-//! sections
-@import "./styles/layout/header";
+//! page layouts
+@import "./styles/pages/index";
 
 //! components
 @import "./styles/components/background";
 @import "./styles/components/introPopup";
 @import "./styles/components/card";
+@import "./styles/components/container";
