@@ -14,14 +14,21 @@
   right: 0px;
 }
 
+.sidebar-right a{
+  color: rgba(240, 240, 240, 0.4);
+}
+
 .sidebar-left {
   left: 0px;
+}
+
+.sidebar-left a{
+  color: rgba(80, 80, 80, 0.4);
 }
 
 .sidebar a {
   display: inline-block;
   margin: 16px 0;
-  color: rgba(240, 240, 240, 0.4);
   text-decoration: none;
 }
 

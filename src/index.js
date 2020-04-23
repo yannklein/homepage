@@ -7,6 +7,7 @@ import './index.html';
 import './index.scss';
 import './scripts/script';
 import { initThree, addBackground, addIntroPopup } from './scripts/initThree';
+import initSideBarFilter from './scripts/sidebar';
 
 OfflinePluginRuntime.install();
 
@@ -21,4 +22,10 @@ const ipElement = document.querySelector('.intro-popup');
 if (ipElement) {
   const popupScene = initThree(ipElement);
   addIntroPopup(ipElement, popupScene);
+}
+
+// Init sidebar
+const sidebarLeft = document.querySelector('.sidebar-left');
+if (sidebarLeft) {
+  initSideBarFilter(sidebarLeft);
 }
