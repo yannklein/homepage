@@ -2,7 +2,7 @@ import * as THREE from 'three';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import fetchGithubActivity from './github_activity';
 
-const cards = document.querySelector('.cards');
+const mainContent = document.querySelector('.main-content');
 const bgLegend = document.querySelector('.background-legend');
 
 const initThree = htmlElement => {
@@ -199,7 +199,7 @@ const addBackground = (htmlElement, world) => {
   // Show background only when clicked
   const showHideBackground = () => {
     // Show hide background
-    cards.classList.toggle('cards-visible');
+    mainContent.classList.toggle('main-content-visible');
     bgLegend.classList.toggle('background-legend-show');
   };
 
@@ -277,7 +277,7 @@ const addIntroPopup = (htmlElement, world) => {
   // "Intro closing" event trigger when click the intro isocahedron
   const closeIntro = event => {
     // Make the homepage cards visible
-    cards.classList.add('cards-visible');
+    mainContent.classList.add('main-content-visible');
     // Make the isocahedron rotate
     const introPopup = event.currentTarget;
     world.animationQueue.push(bindedAnimation);

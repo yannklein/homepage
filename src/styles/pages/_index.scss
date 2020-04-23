@@ -1,17 +1,20 @@
+.main-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.main-content-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
 .cards {
   padding: 24px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 1fr;
   grid-gap: 24px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s;
-}
-
-.cards-visible {
-  opacity: 1;
-  visibility: visible;
 }
 
 .cards::before {
