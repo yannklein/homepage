@@ -5,11 +5,13 @@
   grid-auto-rows: 1fr;
   grid-gap: 24px;
   opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
 }
 
 .cards-visible {
-  transition: opacity 1s;
   opacity: 1;
+  visibility: visible;
 }
 
 .cards::before {

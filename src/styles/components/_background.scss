@@ -5,3 +5,19 @@
   background: linear-gradient(to right, #F8CDDA, #1D2B64); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
+.background-legend {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  width: 100vw;
+  bottom: 4px;
+  font-size: 16px;
+  color: rgb(20,20,20);
+  text-align: center;
+}
+
+.background-legend-show {
+  visibility: visible;
+  opacity: 1;
+}

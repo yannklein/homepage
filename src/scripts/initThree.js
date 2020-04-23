@@ -1,6 +1,9 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import fetchGithubActivity from './github_activity';
+
 const cards = document.querySelector('.cards');
+const bgLegend = document.querySelector('.background-legend');
 
 const initThree = htmlElement => {
   const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
@@ -12,7 +15,7 @@ const initThree = htmlElement => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   htmlElement.appendChild(renderer.domElement);
 
-  const controls = new OrbitControls(camera, renderer.domElement);
+  // const controls = new OrbitControls(camera, renderer.domElement);
 
   const animationQueue = [];
 
@@ -22,7 +25,7 @@ const initThree = htmlElement => {
       animation();
     });
 
-    controls.update();
+    // controls.update();
 
     renderer.render(scene, camera);
   };
@@ -104,7 +107,7 @@ const addBackground = (htmlElement, world) => {
   // Create a spaceship
   {
     const ship = new THREE.Group();
-    const geoBody = new THREE.CylinderBufferGeometry(0.025, 0.02, 0.15, 40);
+    const geoBody = new THREE.CylinderBufferGeometry(0.023, 0.02, 0.15, 40);
     const body = new THREE.Mesh(geoBody, material);
     body.rotation.z = Math.PI / 2;
     ship.add(body);
@@ -137,17 +140,59 @@ const addBackground = (htmlElement, world) => {
     shortWing.position.x = -0.02;
     ship.add(shortWing);
 
-    const geoFlag = new THREE.PlaneGeometry(0.2, 0.1);
-    const texFlag = new THREE.TextureLoader().load('./src/images/japan.png');
-    const matFlag = new THREE.MeshLambertMaterial({ map: texFlag });
+    const geoFlag = new THREE.PlaneGeometry(0.12, 0.07);
+    const texFlag = textureLoader.load('./src/images/japan.png');
+    const matFlag = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, map: texFlag });
     const flag = new THREE.Mesh(geoFlag, matFlag);
-    flag.position.z = 0.03;
-    flag.position.x = 0.1;
+    flag.scale.multiplyScalar(0.3);
+    flag.position.z = 0.0001;
+    flag.position.y = -0.04;
+    flag.position.x = -0.04;
     ship.add(flag);
+    const flagBack = new THREE.Mesh(geoFlag, matFlag);
+    flagBack.scale.multiplyScalar(0.3);
+    flagBack.position.z = -0.0001;
+    flagBack.position.y = -0.04;
+    flagBack.position.x = -0.04;
+    ship.add(flagBack);
 
-    ship.position.z = 0.4;
+    // ship.position.z = 0.4;
     bgMeshes.add(ship);
+    const speed = 0.0005;
+    let position = 0.1;
+    const distCenter = 1.1;
+    ship.rotation.y = -position * Math.PI - Math.PI / 2;
+    ship.position.x = Math.cos(position * Math.PI) * distCenter;
+    ship.position.z = Math.sin(position * Math.PI) * distCenter;
+
+    const animation = () => {
+      position += speed;
+      // ship.rotation.x = -0.2 * Math.cos(position * Math.PI - Math.PI / 2);
+      ship.rotation.z = -0.2 * Math.cos(position * Math.PI - Math.PI / 4);
+      ship.rotation.y = -position * Math.PI - Math.PI / 2;
+      ship.position.x = Math.cos(position * Math.PI) * distCenter;
+      ship.position.z = Math.sin(position * Math.PI) * distCenter;
+      ship.position.y = 0.2 * Math.cos(position * Math.PI);
+    };
+    const bindedAnimation = animation.bind(null, ship);
+    world.animationQueue.push(bindedAnimation);
   }
+
+  fetchGithubActivity('yannklein', new Date(), activity => {
+    if (activity > 3) activity = 3;
+    const geometry = new THREE.TorusBufferGeometry(0.3, 0.04, 16, activity);
+    const mesh = new THREE.Mesh(geometry, material);
+    bgMeshes.add(mesh);
+    mesh.rotation.x = -Math.PI / 4;
+    mesh.rotation.y = -Math.PI / 4;
+
+    const animation = () => {
+      // ship.rotation.x = -0.2 * Math.cos(position * Math.PI - Math.PI / 2);
+      mesh.rotation.z += 0.001;
+    };
+    const bindedAnimation = animation.bind(null, mesh);
+    world.animationQueue.push(bindedAnimation);
+  });
 
   world.scene.add(bgMeshes);
 
@@ -155,6 +200,7 @@ const addBackground = (htmlElement, world) => {
   const showHideBackground = () => {
     // Show hide background
     cards.classList.toggle('cards-visible');
+    bgLegend.classList.toggle('background-legend-show');
   };
 
   htmlElement.addEventListener('click', showHideBackground);
