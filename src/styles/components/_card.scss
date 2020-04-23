@@ -1,4 +1,13 @@
 .card {
   background-color: rgba(240,240,240,0.2);
   backdrop-filter: blur(4px);
+  position: relative;
+}
+
+.card .icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: gray;
+  font-size: 32px;
 }

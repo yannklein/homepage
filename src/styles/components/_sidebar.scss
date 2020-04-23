@@ -2,12 +2,12 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   width: 10%;
   align-items: center;
   justify-content: center;
   font-size: 48px;
-  top: 0px;
+  top: 50%;
+  transform: translatey(-50%);
 }
 
 .sidebar-right {
