@@ -80,7 +80,7 @@ const createTimeSphere = (type, material, world) => {
 const addBackground = (htmlElement, world) => {
   // Load the porcelain texture
   const textureLoader = new THREE.TextureLoader();
-  const porcelain = textureLoader.load('./src/images/matcap-porcelain-white.jpg');
+  const porcelain = textureLoader.load(`${window.location.host.match(/.*localhost.*/) ? './src/' : './'}images/matcap-porcelain-white.jpg`);
   const material = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, matcap: porcelain });
 
   const bgMeshes = new THREE.Group();
@@ -141,7 +141,7 @@ const addBackground = (htmlElement, world) => {
     ship.add(shortWing);
 
     const geoFlag = new THREE.PlaneGeometry(0.12, 0.07);
-    const texFlag = textureLoader.load('./src/images/japan.png');
+    const texFlag = textureLoader.load(`${window.location.host.match(/.*localhost.*/) ? './src/' : './'}images/japan.png`);
     const matFlag = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, map: texFlag });
     const flag = new THREE.Mesh(geoFlag, matFlag);
     flag.scale.multiplyScalar(0.3);
@@ -221,7 +221,7 @@ const addIntroPopup = (htmlElement, world) => {
   // Create the isocahedron
   {
     const textureLoader = new THREE.TextureLoader();
-    const porcelain = textureLoader.load('./src/images/matcap-porcelain-white.jpg');
+    const porcelain = textureLoader.load(`${window.location.host.match(/.*localhost.*/) ? './src/' : './'}images/matcap-porcelain-white.jpg`);
     const geometry = new THREE.IcosahedronGeometry(0.4, 0);
     const material = new THREE.MeshMatcapMaterial({ matcap: porcelain });
     const mesh = new THREE.Mesh(geometry, material);
@@ -241,7 +241,7 @@ const addIntroPopup = (htmlElement, world) => {
     const size = 0.022;
     // const textLength = text.length / 10;
     // const textHeight = size / 10;
-    loader.load('./src/fonts/optimer_regular.typeface.json', font => {
+    loader.load(`${window.location.host.match(/.*localhost.*/) ? './src/' : './'}/fonts/optimer_regular.typeface.json`, font => {
       geometry = new THREE.TextBufferGeometry(text, {
         font,
         size,
