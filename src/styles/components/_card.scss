@@ -2,6 +2,7 @@
   background-color: rgba(240,240,240,0.2);
   backdrop-filter: blur(4px);
   position: relative;
+  padding: 16px;
 }
 
 .card .icon {
@@ -10,4 +11,21 @@
   right: 16px;
   color: gray;
   font-size: 32px;
+}
+
+.card a {
+  display: flex;
+  flex-direction: column;
+  color: rgb(40,40,40);
+  height: 100%;
+}
+
+.card h1, p {
+  margin-bottom: 8px;
+}
+
+.card img {
+  flex-grow: 1;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
