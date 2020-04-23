@@ -33,5 +33,7 @@
 @include respond-to('mobile') {
   .cards {
     grid-template-columns: 1fr;
+    padding: 0;
+    padding-bottom: 64px;
   }
 }

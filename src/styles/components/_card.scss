@@ -2,15 +2,15 @@
   background-color: rgba(240,240,240,0.2);
   backdrop-filter: blur(4px);
   position: relative;
-  padding: 16px;
+  padding: 40px;
 }
 
 .card .icon {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 40px;
+  right: 40px;
   color: gray;
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .card a {
@@ -20,12 +20,60 @@
   height: 100%;
 }
 
-.card h1, p {
-  margin-bottom: 8px;
+.card-title {
+  height: 96px;
+}
+
+.card-title h2 {
+  margin-bottom: 16px;
 }
 
 .card img {
   flex-grow: 1;
+  width: 100%;
+
   object-fit: cover;
   object-position: 50% 50%;
 }
+
+.card-img-gif {
+  display: none;
+}
+
+.card a:hover .card-img-fix {
+  display: none;
+}
+
+.card a:hover .card-img-gif {
+  display: block;
+}
+
+@include respond-to('wrapper') {
+}
+@include respond-to('desktop') {
+  .card {
+    padding: 16px;
+  }
+  .card-title {
+    margin-bottom: 16px;
+  }
+  .card .icon {
+    top: 16px;
+    right: 16px;
+  }
+}
+@include respond-to('tablet') {
+  .card {
+    padding: 8px;
+  }
+  .card-title {
+    margin-bottom: 8px;
+  }
+  .card .icon {
+    top: 8px;
+    right: 8px;
+  }
+}
+@include respond-to('mobile') {
+}
+

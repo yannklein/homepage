@@ -1,17 +1,17 @@
 .sidebar {
   position: fixed;
   display: flex;
-  flex-direction: column;
   width: 10%;
   align-items: center;
   justify-content: center;
   font-size: 48px;
-  top: 50%;
-  transform: translatey(-50%);
 }
 
 .sidebar-right {
+  flex-direction: column;
   right: 0px;
+  top: 50%;
+  transform: translatey(-50%);
 }
 
 .sidebar-right a{
@@ -19,7 +19,10 @@
 }
 
 .sidebar-left {
+  flex-direction: column;
   left: 0px;
+  top: 50%;
+  transform: translatey(-50%);
 }
 
 .sidebar-left a{
@@ -45,7 +48,17 @@
   }
 }
 @include respond-to('mobile') {
-  .sidebar {
+  .sidebar-right {
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    transform: none;
+    justify-content: space-evenly;
+  }
+  .sidebar-left {
     display: none;
+  }
+  .sidebar a {
+    font-size: 40px;
   }
 }
