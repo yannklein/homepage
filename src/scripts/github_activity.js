@@ -3,7 +3,7 @@ const fetchGithubActivity = (username, day, action) => {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      const activity = Number.parseInt(data.data[day.getFullYear()][day.getMonth()][day.getDay()], 10);
+      const activity = Number.parseInt(data.data[day.getFullYear()][day.getMonth() + 1][day.getDate()], 10);
       action(activity);
     });
 };

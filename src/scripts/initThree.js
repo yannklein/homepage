@@ -179,7 +179,7 @@ const addBackground = (htmlElement, world) => {
   }
 
   fetchGithubActivity('yannklein', new Date(), activity => {
-    if (activity > 3) activity = 3;
+    if (activity < 3) activity = 3;
     const geometry = new THREE.TorusBufferGeometry(0.3, 0.04, 16, activity);
     const mesh = new THREE.Mesh(geometry, material);
     bgMeshes.add(mesh);
