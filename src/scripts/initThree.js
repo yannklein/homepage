@@ -284,8 +284,6 @@ const addIntroPopup = (htmlElement, world) => {
 
   // "Intro closing" event trigger when click the intro isocahedron
   const closeIntro = event => {
-    // Make the homepage cards visible
-    mainContent.classList.add('main-content-visible');
     // Make the isocahedron rotate
     const introPopup = event.currentTarget;
     world.animationQueue.push(bindedAnimation);
@@ -294,6 +292,10 @@ const addIntroPopup = (htmlElement, world) => {
       isocahedron.position.z -= 0.01;
       // When the isocahedron totally disappear beneath the invisible wall
       // make it vanish
+      if (isocahedron.position.z <= -0.6) {
+        // Make the homepage cards visible
+        mainContent.classList.add('main-content-visible');
+      }
       if (isocahedron.position.z <= -1) {
         introPopup.style.display = 'none';
         world.scene.remove(isocahedron);
