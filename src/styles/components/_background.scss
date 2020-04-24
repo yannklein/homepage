@@ -12,11 +12,15 @@
   position: fixed;
   width: 100vw;
   bottom: 0px;
-  font-size: 16px;
+  font-size: 14px;
   color: #282828;
   background-color: rgba(255, 255, 255, 0.1);
   text-align: center;
   padding: 2px;
+}
+
+.background-legend i {
+  color: white;
 }
 
 .background-legend-show {
