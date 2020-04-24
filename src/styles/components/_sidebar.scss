@@ -32,21 +32,21 @@
   left: 0px;
 }
 
-.sidebar-left-icon {
+.sidebar-left .icon {
   color: rgba(80, 80, 80, 0.4);
 }
 
 
-.sidebar-left-icon .icon-text {
+.sidebar-left .icon-text {
   font-size: 24px;
   display: none;
 }
 
-.sidebar-left-icon:hover .icon-text {
+.sidebar-left .icon:hover .icon-text {
   display: block;
 }
 
-.sidebar-left-icon:hover .icon {
+.sidebar-left .icon:hover i {
   display: none;
 }
 
@@ -56,7 +56,7 @@
   .sidebar a {
     font-size: 32px;
   }
-  .sidebar-left-icon .icon-text {
+  .sidebar-left .icon-text {
     font-size: 16px;
   }
 }
@@ -64,7 +64,7 @@
   .sidebar a {
     font-size: 24px;
   }
-  .sidebar-left-icon .icon-text {
+  .sidebar-left .icon-text {
     font-size: 8px;
   }
 }
