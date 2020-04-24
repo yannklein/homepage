@@ -1,7 +1,7 @@
 {
-  "name": "tris-webpack-boilerplate",
-  "short_name": "tris-webpack-boilerplate",
-  "description": "A Webpack boilerplate for static websites that has all the necessary modern tools and optimizations built-in. Score a perfect 10/10 on performance.",
+  "name": "Yann's Portfolio",
+  "short_name": "Yann's Portfolio",
+  "description": "I'm Yann and here is a glimpse of what I do.",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",

@@ -94,12 +94,11 @@ module.exports = merge(common, {
       ]
     }),
     new FaviconsWebpackPlugin({
-      logo: './src/images/favicon.svg',
+      logo: './src/images/yann.jpeg',
       favicons: {
-        appName: 'tris-webpack-boilerplate',
-        appDescription:
-          'A Webpack boilerplate for static websites that has all the necessary modern tools and optimizations built-in. Score a perfect 10/10 on performance.',
-        developerName: 'Tristan Michael Lawrence',
+        appName: "Yann's Portfolio",
+        appDescription: "I'm Yann and here is a glimpse of what I do.",
+        developerName: 'Yann Klein',
         developerURL: null, // prevent retrieving from the nearest package.json
         background: '#fafafa',
         theme_color: '#FFA8A8',
