@@ -8,6 +8,7 @@ import porcelainImg from '../images/matcap-porcelain-white.jpg';
 const mainContent = document.querySelector('.main-content');
 mainContent.classList.remove('main-content-visible');
 const bgLegend = document.querySelector('.background-legend');
+bgLegend.classList.remove('background-legend-show');
 
 const initThree = htmlElement => {
   const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
