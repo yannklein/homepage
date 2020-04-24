@@ -31,7 +31,7 @@
 .card img {
   flex-grow: 1;
   width: 100%;
-
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
   object-fit: cover;
   object-position: 50% 50%;
 }
