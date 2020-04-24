@@ -1,38 +1,53 @@
 .sidebar {
   position: fixed;
   display: flex;
+  flex-direction: column;
   width: 10%;
   align-items: center;
   justify-content: center;
   font-size: 48px;
-}
-
-.sidebar-right {
-  flex-direction: column;
-  right: 0px;
   top: 50%;
   transform: translatey(-50%);
-}
-
-.sidebar-right a{
-  color: rgba(240, 240, 240, 0.4);
-}
-
-.sidebar-left {
-  flex-direction: column;
-  left: 0px;
-  top: 50%;
-  transform: translatey(-50%);
-}
-
-.sidebar-left a{
-  color: rgba(80, 80, 80, 0.4);
 }
 
 .sidebar a {
   display: inline-block;
   margin: 16px 0;
   text-decoration: none;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-right {
+  right: 0px;
+}
+
+.sidebar-right a{
+  color: rgba(140, 140, 140, 0.4);
+}
+
+.sidebar-left {
+  left: 0px;
+}
+
+.sidebar-left-icon {
+  color: rgba(80, 80, 80, 0.4);
+}
+
+
+.sidebar-left-icon .icon-text {
+  font-size: 24px;
+  display: none;
+}
+
+.sidebar-left-icon:hover .icon-text {
+  display: block;
+}
+
+.sidebar-left-icon:hover .icon {
+  display: none;
 }
 
 @include respond-to('wrapper') {
@@ -41,10 +56,16 @@
   .sidebar a {
     font-size: 32px;
   }
+  .sidebar-left-icon .icon-text {
+    font-size: 16px;
+  }
 }
 @include respond-to('tablet') {
   .sidebar a {
     font-size: 24px;
+  }
+  .sidebar-left-icon .icon-text {
+    font-size: 8px;
   }
 }
 @include respond-to('mobile') {
