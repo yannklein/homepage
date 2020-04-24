@@ -34,7 +34,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff|woff2|ttf|otf)$/,
+        test: /\.(woff|woff2|ttf|otf|json)$/,
         use: [
           {
             loader: 'file-loader',
@@ -65,7 +65,7 @@ module.exports = {
     new CopyPlugin([
       {
         from: path.resolve(__dirname, 'src', 'robots.txt'),
-        to: path.resolve(__dirname, 'dist', 'robots.txt')
+        to: path.resolve(__dirname, 'docs', 'robots.txt')
       }
     ]),
     new HtmlWebpackPlugin({
@@ -83,9 +83,9 @@ module.exports = {
     new PreloadWebpackPlugin({
       rel: 'preload',
       as(entry) {
-        if (/\.(woff|woff2|ttf|otf)$/.test(entry)) return 'font';
+        if (/\.(woff|woff2|ttf|otf|json)$/.test(entry)) return 'font';
       },
-      fileWhitelist: [/\.(woff|woff2|ttf|otf)$/],
+      fileWhitelist: [/\.(woff|woff2|ttf|otf|json)$/],
       include: 'allAssets'
     }),
     new ScriptExtHtmlWebpackPlugin({

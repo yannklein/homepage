@@ -241,28 +241,29 @@ const addIntroPopup = (htmlElement, world) => {
     const size = 0.022;
     // const textLength = text.length / 10;
     // const textHeight = size / 10;
-    loader.load(`${window.location.host.match(/.*localhost.*/) ? './src/' : './'}/fonts/optimer_regular.typeface.json`, font => {
-      geometry = new THREE.TextBufferGeometry(text, {
-        font,
-        size,
-        height: -0.08 * size,
-        curveSegments: 6
-      });
-      const materials = [
-        new THREE.MeshBasicMaterial({ color: 0x222222 }),
-        new THREE.MeshBasicMaterial({ color: 0xcccccc })
-      ];
-      const mesh = new THREE.Mesh(geometry, materials);
-      mesh.position.z = 0.32;
+    loader.load(`${window.location.host.match(/.*localhost.*/) ? './src/' : './'}fonts/optimer_regular.typeface.json`, font => {
+        geometry = new THREE.TextBufferGeometry(text, {
+          font,
+          size,
+          height: -0.08 * size,
+          curveSegments: 6
+        });
+        const materials = [
+          new THREE.MeshBasicMaterial({ color: 0x222222 }),
+          new THREE.MeshBasicMaterial({ color: 0xcccccc })
+        ];
+        const mesh = new THREE.Mesh(geometry, materials);
+        mesh.position.z = 0.32;
 
-      mesh.geometry.computeBoundingBox();
-      const textLength = Math.abs(mesh.geometry.boundingBox.max.x - mesh.geometry.boundingBox.min.x);
-      const textHeight = Math.abs(mesh.geometry.boundingBox.max.y - mesh.geometry.boundingBox.min.y);
-      mesh.position.x -= textLength / 2;
-      mesh.position.y += textHeight / 2;
-      mesh.rotation.x -= Math.PI * 0.015;
-      isocahedron.add(mesh);
-    });
+        mesh.geometry.computeBoundingBox();
+        const textLength = Math.abs(mesh.geometry.boundingBox.max.x - mesh.geometry.boundingBox.min.x);
+        const textHeight = Math.abs(mesh.geometry.boundingBox.max.y - mesh.geometry.boundingBox.min.y);
+        mesh.position.x -= textLength / 2;
+        mesh.position.y += textHeight / 2;
+        mesh.rotation.x -= Math.PI * 0.015;
+        isocahedron.add(mesh);
+      }
+    );
   }
   isocahedron.renderOrder = 2;
   isocahedron.position.z = 0;
