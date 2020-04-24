@@ -2,7 +2,11 @@ import * as THREE from 'three';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import fetchGithubActivity from './github_activity';
 
+import japanImg from '../images/japan.png';
+import porcelainImg from '../images/matcap-porcelain-white.jpg';
+
 const mainContent = document.querySelector('.main-content');
+mainContent.classList.remove('main-content-visible');
 const bgLegend = document.querySelector('.background-legend');
 
 const initThree = htmlElement => {
@@ -80,130 +84,131 @@ const createTimeSphere = (type, material, world) => {
 const addBackground = (htmlElement, world) => {
   // Load the porcelain texture
   const textureLoader = new THREE.TextureLoader();
-  const porcelain = textureLoader.load(`${window.location.host.match(/.*localhost.*/) ? './src/' : './'}images/matcap-porcelain-white.jpg`);
-  const material = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, matcap: porcelain });
+  textureLoader.load(porcelainImg, porcelain => {
+    const material = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, matcap: porcelain });
+    const bgMeshes = new THREE.Group();
+    // Create the middle isocahedron
+    {
+      const geometry = new THREE.IcosahedronBufferGeometry(0.1, 0);
 
-  const bgMeshes = new THREE.Group();
-  // Create the middle isocahedron
-  {
-    const geometry = new THREE.IcosahedronBufferGeometry(0.1, 0);
+      const mesh = new THREE.Mesh(geometry, material);
+      bgMeshes.add(mesh);
 
-    const mesh = new THREE.Mesh(geometry, material);
-    bgMeshes.add(mesh);
+      const animation = () => {
+        mesh.rotation.x += 0.005;
+        mesh.rotation.y += 0.01;
+      };
+      const bindedAnimation = animation.bind(null, mesh);
+      world.animationQueue.push(bindedAnimation);
+    }
 
-    const animation = () => {
-      mesh.rotation.x += 0.005;
-      mesh.rotation.y += 0.01;
-    };
-    const bindedAnimation = animation.bind(null, mesh);
-    world.animationQueue.push(bindedAnimation);
-  }
+    // Create an orbiting clock
+    bgMeshes.add(createTimeSphere('hour', material, world));
+    bgMeshes.add(createTimeSphere('minute', material, world));
+    bgMeshes.add(createTimeSphere('second', material, world));
 
-  // Create an orbiting clock
-  bgMeshes.add(createTimeSphere('hour', material, world));
-  bgMeshes.add(createTimeSphere('minute', material, world));
-  bgMeshes.add(createTimeSphere('second', material, world));
+    // Create a spaceship
+    {
+      const ship = new THREE.Group();
+      const geoBody = new THREE.CylinderBufferGeometry(0.023, 0.02, 0.15, 40);
+      const body = new THREE.Mesh(geoBody, material);
+      body.rotation.z = Math.PI / 2;
+      ship.add(body);
 
-  // Create a spaceship
-  {
-    const ship = new THREE.Group();
-    const geoBody = new THREE.CylinderBufferGeometry(0.023, 0.02, 0.15, 40);
-    const body = new THREE.Mesh(geoBody, material);
-    body.rotation.z = Math.PI / 2;
-    ship.add(body);
+      const geoHead = new THREE.CylinderBufferGeometry(0.02, 0.005, 0.04, 40);
+      const head = new THREE.Mesh(geoHead, material);
+      head.rotation.z = Math.PI / 2;
+      head.position.x = 0.095;
+      ship.add(head);
 
-    const geoHead = new THREE.CylinderBufferGeometry(0.02, 0.005, 0.04, 40);
-    const head = new THREE.Mesh(geoHead, material);
-    head.rotation.z = Math.PI / 2;
-    head.position.x = 0.095;
-    ship.add(head);
+      const x = -0.07;
+      const y = -0.08;
+      const wingShape = new THREE.Shape();
+      wingShape.moveTo(x, y);
+      wingShape.lineTo(x - 0.01, y + 0.03);
+      wingShape.lineTo(x + 0.07, y + 0.16);
+      wingShape.lineTo(x + 0.15, y + 0.03);
+      wingShape.lineTo(x + 0.14, y);
+      wingShape.lineTo(x, y);
+      const geoWing = new THREE.ShapeBufferGeometry(wingShape);
+      const wing = new THREE.Mesh(geoWing, material);
+      wing.rotation.z = -Math.PI / 2;
+      wing.position.x = 0.01;
+      ship.add(wing);
 
-    const x = -0.07;
-    const y = -0.08;
-    const wingShape = new THREE.Shape();
-    wingShape.moveTo(x, y);
-    wingShape.lineTo(x - 0.01, y + 0.03);
-    wingShape.lineTo(x + 0.07, y + 0.16);
-    wingShape.lineTo(x + 0.15, y + 0.03);
-    wingShape.lineTo(x + 0.14, y);
-    wingShape.lineTo(x, y);
-    const geoWing = new THREE.ShapeBufferGeometry(wingShape);
-    const wing = new THREE.Mesh(geoWing, material);
-    wing.rotation.z = -Math.PI / 2;
-    wing.position.x = 0.01;
-    ship.add(wing);
+      const shortWing = new THREE.Mesh(geoWing, material);
+      shortWing.rotation.z = -Math.PI / 2;
+      shortWing.rotation.x = Math.PI / 2;
+      shortWing.scale.multiplyScalar(0.6);
+      shortWing.position.x = -0.02;
+      ship.add(shortWing);
 
-    const shortWing = new THREE.Mesh(geoWing, material);
-    shortWing.rotation.z = -Math.PI / 2;
-    shortWing.rotation.x = Math.PI / 2;
-    shortWing.scale.multiplyScalar(0.6);
-    shortWing.position.x = -0.02;
-    ship.add(shortWing);
+      const geoFlag = new THREE.PlaneGeometry(0.12, 0.07);
+      textureLoader.load(japanImg, texFlag => {
+        const matFlag = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, map: texFlag });
+        const flag = new THREE.Mesh(geoFlag, matFlag);
+        flag.scale.multiplyScalar(0.3);
+        flag.position.z = 0.0001;
+        flag.position.y = -0.04;
+        flag.position.x = -0.04;
+        ship.add(flag);
+        const flagBack = new THREE.Mesh(geoFlag, matFlag);
+        flagBack.scale.multiplyScalar(0.3);
+        flagBack.position.z = -0.0001;
+        flagBack.position.y = -0.04;
+        flagBack.position.x = -0.04;
+        ship.add(flagBack);
+      });
 
-    const geoFlag = new THREE.PlaneGeometry(0.12, 0.07);
-    const texFlag = textureLoader.load(`${window.location.host.match(/.*localhost.*/) ? './src/' : './'}images/japan.png`);
-    const matFlag = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, map: texFlag });
-    const flag = new THREE.Mesh(geoFlag, matFlag);
-    flag.scale.multiplyScalar(0.3);
-    flag.position.z = 0.0001;
-    flag.position.y = -0.04;
-    flag.position.x = -0.04;
-    ship.add(flag);
-    const flagBack = new THREE.Mesh(geoFlag, matFlag);
-    flagBack.scale.multiplyScalar(0.3);
-    flagBack.position.z = -0.0001;
-    flagBack.position.y = -0.04;
-    flagBack.position.x = -0.04;
-    ship.add(flagBack);
-
-    // ship.position.z = 0.4;
-    bgMeshes.add(ship);
-    const speed = 0.0005;
-    let position = 0.1;
-    const distCenter = 1.1;
-    ship.rotation.y = -position * Math.PI - Math.PI / 2;
-    ship.position.x = Math.cos(position * Math.PI) * distCenter;
-    ship.position.z = Math.sin(position * Math.PI) * distCenter;
-
-    const animation = () => {
-      position += speed;
-      // ship.rotation.x = -0.2 * Math.cos(position * Math.PI - Math.PI / 2);
-      ship.rotation.z = -0.2 * Math.cos(position * Math.PI - Math.PI / 4);
+      // ship.position.z = 0.4;
+      bgMeshes.add(ship);
+      const speed = 0.0005;
+      let position = 0.1;
+      const distCenter = 1.1;
       ship.rotation.y = -position * Math.PI - Math.PI / 2;
       ship.position.x = Math.cos(position * Math.PI) * distCenter;
       ship.position.z = Math.sin(position * Math.PI) * distCenter;
-      ship.position.y = 0.2 * Math.cos(position * Math.PI);
-    };
-    const bindedAnimation = animation.bind(null, ship);
-    world.animationQueue.push(bindedAnimation);
-  }
 
-  fetchGithubActivity('yannklein', new Date(), activity => {
-    if (activity < 3) activity = 3;
-    const geometry = new THREE.TorusBufferGeometry(0.3, 0.04, 16, activity);
-    const mesh = new THREE.Mesh(geometry, material);
-    bgMeshes.add(mesh);
-    mesh.rotation.x = -Math.PI / 4;
-    mesh.rotation.y = -Math.PI / 4;
+      const animation = () => {
+        position += speed;
+        // ship.rotation.x = -0.2 * Math.cos(position * Math.PI - Math.PI / 2);
+        ship.rotation.z = -0.2 * Math.cos(position * Math.PI - Math.PI / 4);
+        ship.rotation.y = -position * Math.PI - Math.PI / 2;
+        ship.position.x = Math.cos(position * Math.PI) * distCenter;
+        ship.position.z = Math.sin(position * Math.PI) * distCenter;
+        ship.position.y = 0.2 * Math.cos(position * Math.PI);
+      };
+      const bindedAnimation = animation.bind(null, ship);
+      world.animationQueue.push(bindedAnimation);
+    }
 
-    const animation = () => {
-      // ship.rotation.x = -0.2 * Math.cos(position * Math.PI - Math.PI / 2);
-      mesh.rotation.z += 0.001;
+    fetchGithubActivity('yannklein', new Date(), activity => {
+      if (activity < 3) activity = 3;
+      const geometry = new THREE.TorusBufferGeometry(0.3, 0.04, 16, activity);
+      const mesh = new THREE.Mesh(geometry, material);
+      bgMeshes.add(mesh);
+      mesh.rotation.x = -Math.PI / 4;
+      mesh.rotation.y = -Math.PI / 4;
+
+      const animation = () => {
+        // ship.rotation.x = -0.2 * Math.cos(position * Math.PI - Math.PI / 2);
+        mesh.rotation.z += 0.001;
+      };
+      const bindedAnimation = animation.bind(null, mesh);
+      world.animationQueue.push(bindedAnimation);
+    });
+
+    world.scene.add(bgMeshes);
+
+    // Show background only when clicked
+    const showHideBackground = () => {
+      // Show hide background
+      mainContent.classList.toggle('main-content-visible');
+      bgLegend.classList.toggle('background-legend-show');
     };
-    const bindedAnimation = animation.bind(null, mesh);
-    world.animationQueue.push(bindedAnimation);
+
+    htmlElement.addEventListener('click', showHideBackground);
   });
-
-  world.scene.add(bgMeshes);
-
-  // Show background only when clicked
-  const showHideBackground = () => {
-    // Show hide background
-    mainContent.classList.toggle('main-content-visible');
-    bgLegend.classList.toggle('background-legend-show');
-  };
-
-  htmlElement.addEventListener('click', showHideBackground);
 };
 
 const addIntroPopup = (htmlElement, world) => {
@@ -221,12 +226,13 @@ const addIntroPopup = (htmlElement, world) => {
   // Create the isocahedron
   {
     const textureLoader = new THREE.TextureLoader();
-    const porcelain = textureLoader.load(`${window.location.host.match(/.*localhost.*/) ? './src/' : './'}images/matcap-porcelain-white.jpg`);
-    const geometry = new THREE.IcosahedronGeometry(0.4, 0);
-    const material = new THREE.MeshMatcapMaterial({ matcap: porcelain });
-    const mesh = new THREE.Mesh(geometry, material);
-    mesh.rotation.x += (Math.PI * 3) / 5;
-    isocahedron.add(mesh);
+    textureLoader.load(porcelainImg, porcelain => {
+      const geometry = new THREE.IcosahedronGeometry(0.4, 0);
+      const material = new THREE.MeshMatcapMaterial({ matcap: porcelain });
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.rotation.x += (Math.PI * 3) / 5;
+      isocahedron.add(mesh);
+    });
   }
 
   // Create the text
@@ -241,7 +247,7 @@ const addIntroPopup = (htmlElement, world) => {
     const size = 0.022;
     // const textLength = text.length / 10;
     // const textHeight = size / 10;
-    loader.load(`${window.location.host.match(/.*localhost.*/) ? './src/' : './'}fonts/optimer_regular.typeface.json`, font => {
+    loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/fonts/optimer_regular.typeface.json', font => {
         geometry = new THREE.TextBufferGeometry(text, {
           font,
           size,

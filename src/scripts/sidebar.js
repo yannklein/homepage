@@ -11,9 +11,6 @@ const initSideBarFilter = sidebarLeft => {
     }
   });
 
-  // Define the first card as the grid first card
-  cards[0].classList.add('card-first');
-
   iconNames.forEach(iconName => {
     const iconElmt = sidebarLeft.querySelector(`.icon-${iconName}`);
     const targetCards = document.querySelectorAll(`.card-${iconName}`);
