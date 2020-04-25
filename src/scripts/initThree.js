@@ -14,6 +14,13 @@ mainContent.classList.remove('main-content-visible');
 const bgLegend = document.querySelector('.background-legend');
 bgLegend.classList.remove('background-legend-show');
 
+THREE.DefaultLoadingManager.onLoad = () => {
+  const loadingElement = document.querySelector('.loading-mask');
+  if (loadingElement) {
+    outroLoading(document, loadingElement);
+  }
+};
+
 const initThree = htmlElement => {
   const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
   camera.position.z = 1;
@@ -221,13 +228,6 @@ const addBackground = (htmlElement, world) => {
 
     htmlElement.addEventListener('click', showHideBackground);
   });
-
-  THREE.DefaultLoadingManager.onLoad = () => {
-    const loadingElement = document.querySelector('.loading-mask');
-    if (loadingElement) {
-      outroLoading(document, loadingElement);
-    }
-  };
 };
 
 const addIntroPopup = (htmlElement, world) => {
