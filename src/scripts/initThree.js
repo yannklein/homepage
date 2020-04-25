@@ -114,11 +114,12 @@ const addBackground = (htmlElement, world) => {
     }
 
     // Create an orbiting clock
-    getUTCOffset(username, localOffset => {
-      bgMeshes.add(createTimeSphere('hour', material, world, localOffset));
-      bgMeshes.add(createTimeSphere('minute', material, world, localOffset));
-      bgMeshes.add(createTimeSphere('second', material, world, localOffset));
-    });
+    // getUTCOffset(username, localOffset => {
+    const localOffset = 9;
+    bgMeshes.add(createTimeSphere('hour', material, world, localOffset));
+    bgMeshes.add(createTimeSphere('minute', material, world, localOffset));
+    bgMeshes.add(createTimeSphere('second', material, world, localOffset));
+    // });
 
     // Create a spaceship
     {
