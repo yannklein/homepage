@@ -2,16 +2,12 @@ import * as THREE from 'three';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import fetchGithubActivity from './github_activity';
 import { getCountry, getUTCOffset } from './locationInfo';
+import outroLoading from './loading';
 
 import porcelainImg from '../images/matcap-porcelain-white.jpg';
 
 // GH username
 const username = 'yannklein';
-let country = 'jp';
-
-const localOffset = 9;
-
-getCountry(username);
 
 const mainContent = document.querySelector('.main-content');
 mainContent.classList.remove('main-content-visible');
@@ -52,10 +48,10 @@ const initThree = htmlElement => {
   };
 };
 
-const createTimeSphere = (type, material, world) => {
+const createTimeSphere = (type, material, world, offset) => {
   const times = {
     hour: {
-      now: date => date.getUTCHours() + localOffset + date.getUTCMinutes() / 60,
+      now: date => date.getUTCHours() + offset + date.getUTCMinutes() / 60,
       division: 12,
       distCenter: 0.5,
       sphereSize: 0.1
@@ -111,9 +107,11 @@ const addBackground = (htmlElement, world) => {
     }
 
     // Create an orbiting clock
-    bgMeshes.add(createTimeSphere('hour', material, world));
-    bgMeshes.add(createTimeSphere('minute', material, world));
-    bgMeshes.add(createTimeSphere('second', material, world));
+    getUTCOffset(username, localOffset => {
+      bgMeshes.add(createTimeSphere('hour', material, world, localOffset));
+      bgMeshes.add(createTimeSphere('minute', material, world, localOffset));
+      bgMeshes.add(createTimeSphere('second', material, world, localOffset));
+    });
 
     // Create a spaceship
     {
@@ -154,9 +152,8 @@ const addBackground = (htmlElement, world) => {
       const geoFlag = new THREE.PlaneGeometry(0.12, 0.08);
       // Update country according to GH location
       getCountry(username, fetchedCountry => {
-        country = fetchedCountry;
         textureLoader.load(
-          `https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/${country}.svg`,
+          `https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/${fetchedCountry}.svg`,
           texFlag => {
             const matFlag = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, map: texFlag });
             const flag = new THREE.Mesh(geoFlag, matFlag);
@@ -224,6 +221,13 @@ const addBackground = (htmlElement, world) => {
 
     htmlElement.addEventListener('click', showHideBackground);
   });
+
+  THREE.DefaultLoadingManager.onLoad = () => {
+    const loadingElement = document.querySelector('.loading-mask');
+    if (loadingElement) {
+      outroLoading(document, loadingElement);
+    }
+  };
 };
 
 const addIntroPopup = (htmlElement, world) => {
