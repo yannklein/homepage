@@ -5,14 +5,6 @@
   padding: 40px;
 }
 
-.card .icon {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  color: gray;
-  font-size: 24px;
-}
-
 .card a {
   display: flex;
   flex-direction: column;
@@ -20,12 +12,34 @@
   height: 100%;
 }
 
-.card-title {
-  height: 96px;
+.card-header {
+  height: 120px;
 }
+
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card .icon {
+  color: gray;
+  font-size: 24px;
+  display: flex;
+}
+
+.card .icon-lang {
+  font-size: 20px;
+  letter-spacing: 4px;
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
 
 .card-title h2 {
   margin-bottom: 16px;
+  width: 90%;
 }
 
 .card img {
@@ -54,8 +68,11 @@
   .card {
     padding: 16px;
   }
-  .card-title {
-    margin-bottom: 16px;
+  .card-header {
+    height: 102px;
+  }
+  .card-header h2 {
+    font-size: 20px;
   }
   .card .icon {
     top: 16px;
@@ -66,12 +83,26 @@
   .card {
     padding: 8px;
   }
-  .card-title {
-    margin-bottom: 8px;
+  .card-header {
+    height: 96px;
+  }
+  .card-header h2 {
+    font-size: 16px;
+  }
+  .card-header p {
+    font-size: 12px;
   }
   .card .icon {
     top: 8px;
     right: 8px;
+  }
+
+  .card .icon {
+    font-size: 16px;
+  }
+  .card .icon-lang {
+    font-size: 14px;
+    margin-right: 8px;
   }
 }
 @include respond-to('mobile') {
