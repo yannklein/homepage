@@ -16,9 +16,9 @@ const getCountry = (username, callback) => {
 const getUTCOffset = (username, callback) => {
   getLocation(username, location => {
     // callback(location);
-    fetch(`https://www.amdoren.com/api/timezone.php?api_key=${amKey}&loc=${location}`)
+    fetch(`https://www.amdoren.com/api/timezone.php?api_key=${amKey}&loc=${location.split(', ')[0].toLowerCase()}`)
       .then(r => r.json())
-      .then(d => callback(d.time));
+      .then(d => callback(d.offset / 60));
   });
 };
 

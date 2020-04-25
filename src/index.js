@@ -5,6 +5,7 @@ import './index.scss';
 
 import { initThree, addBackground, addIntroPopup } from './scripts/initThree';
 import initSideBarFilter from './scripts/sidebar';
+import outroLoading from './scripts/loading';
 
 OfflinePluginRuntime.install();
 
@@ -26,3 +27,8 @@ const sidebarLeft = document.querySelector('.sidebar-left');
 if (sidebarLeft) {
   initSideBarFilter(sidebarLeft);
 }
+
+// const loadingElement = document.querySelector('.loading-mask');
+// if (loadingElement) {
+//   outroLoading(document, loadingElement);
+// }
