@@ -1,9 +1,17 @@
 import * as THREE from 'three';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import fetchGithubActivity from './github_activity';
+import { getCountry, getUTCOffset } from './locationInfo';
 
-import japanImg from '../images/japan.png';
 import porcelainImg from '../images/matcap-porcelain-white.jpg';
+
+// GH username
+const username = 'yannklein';
+let country = 'jp';
+
+const localOffset = 9;
+
+getCountry(username);
 
 const mainContent = document.querySelector('.main-content');
 mainContent.classList.remove('main-content-visible');
@@ -45,7 +53,6 @@ const initThree = htmlElement => {
 };
 
 const createTimeSphere = (type, material, world) => {
-  const localOffset = 9;
   const times = {
     hour: {
       now: date => date.getUTCHours() + localOffset + date.getUTCMinutes() / 60,
@@ -144,21 +151,28 @@ const addBackground = (htmlElement, world) => {
       shortWing.position.x = -0.02;
       ship.add(shortWing);
 
-      const geoFlag = new THREE.PlaneGeometry(0.12, 0.07);
-      textureLoader.load(japanImg, texFlag => {
-        const matFlag = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, map: texFlag });
-        const flag = new THREE.Mesh(geoFlag, matFlag);
-        flag.scale.multiplyScalar(0.3);
-        flag.position.z = 0.0001;
-        flag.position.y = -0.04;
-        flag.position.x = -0.04;
-        ship.add(flag);
-        const flagBack = new THREE.Mesh(geoFlag, matFlag);
-        flagBack.scale.multiplyScalar(0.3);
-        flagBack.position.z = -0.0001;
-        flagBack.position.y = -0.04;
-        flagBack.position.x = -0.04;
-        ship.add(flagBack);
+      const geoFlag = new THREE.PlaneGeometry(0.12, 0.08);
+      // Update country according to GH location
+      getCountry(username, fetchedCountry => {
+        country = fetchedCountry;
+        textureLoader.load(
+          `https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/${country}.svg`,
+          texFlag => {
+            const matFlag = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, map: texFlag });
+            const flag = new THREE.Mesh(geoFlag, matFlag);
+            flag.scale.multiplyScalar(0.3);
+            flag.position.z = 0.0001;
+            flag.position.y = -0.04;
+            flag.position.x = -0.04;
+            ship.add(flag);
+            const flagBack = new THREE.Mesh(geoFlag, matFlag);
+            flagBack.scale.multiplyScalar(0.3);
+            flagBack.position.z = -0.0001;
+            flagBack.position.y = -0.04;
+            flagBack.position.x = -0.04;
+            ship.add(flagBack);
+          }
+        );
       });
 
       // ship.position.z = 0.4;
@@ -183,7 +197,7 @@ const addBackground = (htmlElement, world) => {
       world.animationQueue.push(bindedAnimation);
     }
 
-    fetchGithubActivity('yannklein', new Date(), activity => {
+    fetchGithubActivity(username, new Date(), activity => {
       if (activity < 3) activity = 3;
       const geometry = new THREE.TorusBufferGeometry(0.3, 0.04, 16, activity);
       const mesh = new THREE.Mesh(geometry, material);

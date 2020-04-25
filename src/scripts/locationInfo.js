@@ -1,0 +1,25 @@
+***REMOVED***
+// https://www.amdoren.com/api/timezone.php?api_key=IBZzdLmM2yCYaXjgTZ6x&loc=New+York
+
+const getLocation = (username, callback) => {
+  fetch(`https://api.github.com/users/${username}`)
+    .then(r => r.json())
+    .then(d => callback(d.location));
+};
+
+const getCountry = (username, callback) => {
+  getLocation(username, location => {
+    callback(location.split(', ')[1].toLowerCase());
+  });
+};
+
+const getUTCOffset = (username, callback) => {
+  getLocation(username, location => {
+    // callback(location);
+    fetch(`https://www.amdoren.com/api/timezone.php?api_key=${amKey}&loc=${location}`)
+      .then(r => r.json())
+      .then(d => callback(d.time));
+  });
+};
+
+export { getCountry, getUTCOffset };
