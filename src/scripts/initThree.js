@@ -14,10 +14,22 @@ mainContent.classList.remove('main-content-visible');
 const bgLegend = document.querySelector('.background-legend');
 bgLegend.classList.remove('background-legend-show');
 
-THREE.DefaultLoadingManager.onLoad = () => {
-  const loadingElement = document.querySelector('.loading-mask');
-  if (loadingElement) {
-    outroLoading(document, loadingElement);
+let assetsToLoad = 3;
+let assetsLoaded = 0;
+
+if (window.innerWidth <= 480) {
+  assetsToLoad = 2;
+  mainContent.classList.add('main-content-visible');
+}
+
+const fullSceneLoaded = () => {
+  assetsLoaded += 1;
+  if (assetsToLoad === assetsLoaded) {
+    // console.log('Full loading complete!');
+    const loadingElement = document.querySelector('.loading-mask');
+    if (loadingElement) {
+      outroLoading(document, loadingElement);
+    }
   }
 };
 
@@ -93,8 +105,15 @@ const createTimeSphere = (type, material, world, offset) => {
 };
 
 const addBackground = (htmlElement, world) => {
+  // Background loading manager
+  const manager = new THREE.LoadingManager();
+  manager.onLoad = () => {
+    // console.log('Loading complete! ');
+    fullSceneLoaded();
+  };
+
   // Load the porcelain texture
-  const textureLoader = new THREE.TextureLoader();
+  const textureLoader = new THREE.TextureLoader(manager);
   textureLoader.load(porcelainImg, porcelain => {
     const material = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, matcap: porcelain });
     const bgMeshes = new THREE.Group();
@@ -232,6 +251,12 @@ const addBackground = (htmlElement, world) => {
 };
 
 const addIntroPopup = (htmlElement, world) => {
+  // Intro loading manager
+  const manager = new THREE.LoadingManager();
+  manager.onLoad = () => {
+    // console.log('Loading complete!');
+    fullSceneLoaded();
+  };
   // Create invisible whole
   {
     const geometry = new THREE.CubeGeometry(1, 1, 1);
@@ -245,7 +270,7 @@ const addIntroPopup = (htmlElement, world) => {
   const isocahedron = new THREE.Group();
   // Create the isocahedron
   {
-    const textureLoader = new THREE.TextureLoader();
+    const textureLoader = new THREE.TextureLoader(manager);
     textureLoader.load(porcelainImg, porcelain => {
       const geometry = new THREE.IcosahedronGeometry(0.4, 0);
       const material = new THREE.MeshMatcapMaterial({ matcap: porcelain });
