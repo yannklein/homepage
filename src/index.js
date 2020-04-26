@@ -26,6 +26,8 @@ const ipElement = document.querySelector('.intro-popup');
 if (ipElement && window.innerWidth >= 480) {
   const popupScene = initThree(ipElement);
   addIntroPopup(ipElement, popupScene);
+} else {
+  ipElement.style.display = 'none';
 }
 
 // Init sidebar
