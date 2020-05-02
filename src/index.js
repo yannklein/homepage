@@ -10,12 +10,9 @@ OfflinePluginRuntime.install();
 
 // Load GIFs only if not mobile
 if (window.innerWidth >= 480) {
-  // 'https://res.cloudinary.com/yanninthesky/video/upload/w_640,h_640,c_fill,e_loop/wqz0lgbspas5no6eiwtq.gif'
-  // 'https://res.cloudinary.com/yanninthesky/video/upload/w_640,h_640,c_fill,so_0/wqz0lgbspas5no6eiwtq.png'
-  document.querySelectorAll('.card-img-gif').forEach((cardWithGif) => {
-    cardWithGif.src = cardWithGif.src.replace("png", "gif").replace("c_fill", "c_fill,e_loop");
+  document.querySelectorAll('.card-img-gif').forEach(cardWithGif => {
+    cardWithGif.src = cardWithGif.src.replace('png', 'gif').replace('c_fill', 'c_fill,e_loop');
   });
-
 }
 
 // Initialize ThreeJS background
