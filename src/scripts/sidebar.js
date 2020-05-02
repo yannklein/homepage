@@ -1,5 +1,6 @@
 const initSideBarFilter = sidebarLeft => {
   const cards = document.querySelectorAll('.card');
+  let currentFilter = 'all';
 
   // Retrieve the icon names (e.g.: .icon-vr => vr)
   const iconNames = [];
@@ -18,15 +19,21 @@ const initSideBarFilter = sidebarLeft => {
     iconElmt.addEventListener('click', event => {
       event.preventDefault();
       // Hide all the cards
-      cards.forEach(card => {
-        card.style.display = 'none';
-        card.classList.remove('card-first');
-      });
+      document.querySelector('.card-first').classList.remove('card-first');
+      cards.forEach(card => card.style.display = 'none');
+      // If the current filter is the one clicked show all
+      if (currentFilter === iconName) {
+        cards.forEach(card => card.style.display = 'block');
+        cards[0].classList.add('card-first');
+        currentFilter = 'all';
+      }
       // Only show the targetted cards
-      if (targetCards[0]) {
+      else if (targetCards[0]) {
         targetCards.forEach(card => card.style.display = 'block');
         // Redine the first card of the grid
         targetCards[0].classList.add('card-first');
+        // Update the current filter status
+        currentFilter = iconName;
       }
     });
   });
