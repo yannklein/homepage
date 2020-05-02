@@ -2,7 +2,7 @@
   background-color: rgba(240,240,240,0.2);
   backdrop-filter: blur(4px);
   position: relative;
-  padding: 40px;
+  padding: 24px;
 }
 
 .card a {
@@ -40,6 +40,7 @@
 .card-title h2 {
   margin-bottom: 16px;
   width: 90%;
+  font-size: 20px;
 }
 
 .card img {
