@@ -1,25 +1,28 @@
 import * as THREE from 'three';
-// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import fetchGithubActivity from './github_activity';
 import { getCountry, getUTCOffset } from './locationInfo';
 import outroLoading from './loading';
 
 import porcelainImg from '../images/matcap-porcelain-white.jpg';
+import starship from '../images/starship/scene.gltf';
+import starshipBin from '../images/starship/scene.bin';
 
 // GH username
 const username = 'yannklein';
 
 const mainContent = document.querySelector('.main-content');
-mainContent.classList.remove('main-content-visible');
+if (mainContent) mainContent.classList.remove('main-content-visible');
 const bgLegend = document.querySelector('.background-legend');
-bgLegend.classList.remove('background-legend-show');
+if (bgLegend) bgLegend.classList.remove('background-legend-show');
 
 let assetsToLoad = 3;
 let assetsLoaded = 0;
 
 if (window.innerWidth <= 480) {
   assetsToLoad = 2;
-  mainContent.classList.add('main-content-visible');
+  if (mainContent) mainContent.classList.add('main-content-visible');
 }
 
 const fullSceneLoaded = () => {
@@ -43,7 +46,7 @@ const initThree = htmlElement => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   htmlElement.appendChild(renderer.domElement);
 
-  // const controls = new OrbitControls(camera, renderer.domElement);
+  const controls = new OrbitControls(camera, renderer.domElement);
 
   const animationQueue = [];
 
@@ -53,7 +56,7 @@ const initThree = htmlElement => {
       animation();
     });
 
-    // controls.update();
+    controls.update();
 
     renderer.render(scene, camera);
   };
@@ -141,84 +144,81 @@ const addBackground = (htmlElement, world) => {
     // });
 
     // Create a spaceship
+
     {
+      // Load 3D object
       const ship = new THREE.Group();
-      const geoBody = new THREE.CylinderBufferGeometry(0.023, 0.02, 0.15, 40);
-      const body = new THREE.Mesh(geoBody, material);
-      body.rotation.z = Math.PI / 2;
-      ship.add(body);
+      const loader = new GLTFLoader();
+      loader.load(
+        starship,
+        gltf => {
+          gltf.scene.traverse(o => {
+            if (o.isMesh) {
+              o.material = material;
+            }
+          });
+          ship.add(gltf.scene);
+          // Resize/rescale the 3D Object
+          const bbox = new THREE.Box3().setFromObject(gltf.scene);
+          const cent = bbox.getCenter(new THREE.Vector3());
+          const size = bbox.getSize(new THREE.Vector3());
+          // Rescale the object to normalized space
+          const maxAxis = Math.max(size.x, size.y, size.z);
+          gltf.scene.scale.multiplyScalar(0.3 / maxAxis);
+          bbox.setFromObject(gltf.scene);
+          bbox.getCenter(cent);
+          bbox.getSize(size);
+          // Reposition to 0,halfY,0
+          gltf.scene.position.copy(cent).multiplyScalar(-1);
 
-      const geoHead = new THREE.CylinderBufferGeometry(0.02, 0.005, 0.04, 40);
-      const head = new THREE.Mesh(geoHead, material);
-      head.rotation.z = Math.PI / 2;
-      head.position.x = 0.095;
-      ship.add(head);
+          const geoFlag = new THREE.PlaneGeometry(0.12, 0.08);
+          // Update country according to GH location
+          getCountry(username, fetchedCountry => {
+            textureLoader.load(
+              `https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/${fetchedCountry}.svg`,
+              texFlag => {
+                const matFlag = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, map: texFlag });
+                const flag = new THREE.Mesh(geoFlag, matFlag);
+                flag.scale.multiplyScalar(0.3);
+                flag.position.z = -0.04;
+                flag.position.x = 0.02;
+                flag.rotation.y = Math.PI / 2;
+                ship.add(flag);
+                const flagBack = new THREE.Mesh(geoFlag, matFlag);
+                flagBack.scale.multiplyScalar(0.3);
+                flagBack.position.z = -0.04;
+                flagBack.position.x = -0.02;
+                flagBack.rotation.y = Math.PI / 2;
+                ship.add(flagBack);
+              }
+            );
+          });
 
-      const x = -0.07;
-      const y = -0.08;
-      const wingShape = new THREE.Shape();
-      wingShape.moveTo(x, y);
-      wingShape.lineTo(x - 0.01, y + 0.03);
-      wingShape.lineTo(x + 0.07, y + 0.16);
-      wingShape.lineTo(x + 0.15, y + 0.03);
-      wingShape.lineTo(x + 0.14, y);
-      wingShape.lineTo(x, y);
-      const geoWing = new THREE.ShapeBufferGeometry(wingShape);
-      const wing = new THREE.Mesh(geoWing, material);
-      wing.rotation.z = -Math.PI / 2;
-      wing.position.x = 0.01;
-      ship.add(wing);
+          const speed = 0.0005;
+          let position = 0.11;
+          const distCenter = 1.1;
+          ship.rotation.y = -position * Math.PI - Math.PI / 2;
+          ship.position.x = Math.cos(position * Math.PI) * distCenter;
+          ship.position.z = Math.sin(position * Math.PI) * distCenter;
+          bgMeshes.add(ship);
 
-      const shortWing = new THREE.Mesh(geoWing, material);
-      shortWing.rotation.z = -Math.PI / 2;
-      shortWing.rotation.x = Math.PI / 2;
-      shortWing.scale.multiplyScalar(0.6);
-      shortWing.position.x = -0.02;
-      ship.add(shortWing);
-
-      const geoFlag = new THREE.PlaneGeometry(0.12, 0.08);
-      // Update country according to GH location
-      getCountry(username, fetchedCountry => {
-        textureLoader.load(
-          `https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/${fetchedCountry}.svg`,
-          texFlag => {
-            const matFlag = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, map: texFlag });
-            const flag = new THREE.Mesh(geoFlag, matFlag);
-            flag.scale.multiplyScalar(0.3);
-            flag.position.z = 0.0001;
-            flag.position.y = -0.04;
-            flag.position.x = -0.04;
-            ship.add(flag);
-            const flagBack = new THREE.Mesh(geoFlag, matFlag);
-            flagBack.scale.multiplyScalar(0.3);
-            flagBack.position.z = -0.0001;
-            flagBack.position.y = -0.04;
-            flagBack.position.x = -0.04;
-            ship.add(flagBack);
-          }
-        );
-      });
-
-      // ship.position.z = 0.4;
-      bgMeshes.add(ship);
-      const speed = 0.0005;
-      let position = 0.1;
-      const distCenter = 1.1;
-      ship.rotation.y = -position * Math.PI - Math.PI / 2;
-      ship.position.x = Math.cos(position * Math.PI) * distCenter;
-      ship.position.z = Math.sin(position * Math.PI) * distCenter;
-
-      const animation = () => {
-        position += speed;
-        // ship.rotation.x = -0.2 * Math.cos(position * Math.PI - Math.PI / 2);
-        ship.rotation.z = -0.2 * Math.cos(position * Math.PI - Math.PI / 4);
-        ship.rotation.y = -position * Math.PI - Math.PI / 2;
-        ship.position.x = Math.cos(position * Math.PI) * distCenter;
-        ship.position.z = Math.sin(position * Math.PI) * distCenter;
-        ship.position.y = 0.2 * Math.cos(position * Math.PI);
-      };
-      const bindedAnimation = animation.bind(null, ship);
-      world.animationQueue.push(bindedAnimation);
+          const animation = () => {
+            position += speed;
+            ship.position.x = Math.cos(position * Math.PI) * distCenter;
+            ship.position.z = Math.sin(position * Math.PI) * distCenter;
+            ship.position.y = 0.2 * Math.cos(position * Math.PI);
+            ship.rotation.x = -0.2 * Math.cos(position * Math.PI);
+            ship.rotation.z = -0.2 * Math.cos(position * Math.PI - Math.PI / 4);
+            ship.rotation.y = -position * Math.PI;
+          };
+          const bindedAnimation = animation.bind(null, ship);
+          world.animationQueue.push(bindedAnimation);
+        },
+        undefined,
+        e => {
+          console.error(e);
+        }
+      );
     }
 
     fetchGithubActivity(username, new Date(), activity => {
