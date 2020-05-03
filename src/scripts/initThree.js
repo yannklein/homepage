@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import fetchGithubActivity from './github_activity';
 import { getCountry, getUTCOffset } from './locationInfo';
 import outroLoading from './loading';
@@ -46,7 +46,7 @@ const initThree = htmlElement => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   htmlElement.appendChild(renderer.domElement);
 
-  const controls = new OrbitControls(camera, renderer.domElement);
+  // const controls = new OrbitControls(camera, renderer.domElement);
 
   const animationQueue = [];
 
@@ -56,7 +56,7 @@ const initThree = htmlElement => {
       animation();
     });
 
-    controls.update();
+    // controls.update();
 
     renderer.render(scene, camera);
   };
@@ -179,13 +179,13 @@ const addBackground = (htmlElement, world) => {
               texFlag => {
                 const matFlag = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, map: texFlag });
                 const flag = new THREE.Mesh(geoFlag, matFlag);
-                flag.scale.multiplyScalar(0.3);
+                flag.scale.multiplyScalar(0.25);
                 flag.position.z = -0.04;
                 flag.position.x = 0.02;
                 flag.rotation.y = Math.PI / 2;
                 ship.add(flag);
                 const flagBack = new THREE.Mesh(geoFlag, matFlag);
-                flagBack.scale.multiplyScalar(0.3);
+                flagBack.scale.multiplyScalar(0.25);
                 flagBack.position.z = -0.04;
                 flagBack.position.x = -0.02;
                 flagBack.rotation.y = Math.PI / 2;
