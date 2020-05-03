@@ -23,11 +23,13 @@ if (bgElement) {
 }
 // Initialize ThreeJS intro popup
 const ipElement = document.querySelector('.intro-popup');
-if (ipElement && window.innerWidth >= 480) {
-  const popupScene = initThree(ipElement);
-  addIntroPopup(ipElement, popupScene);
-} else {
-  ipElement.style.display = 'none';
+if (ipElement) {
+  if (window.innerWidth >= 480) {
+    const popupScene = initThree(ipElement);
+    addIntroPopup(ipElement, popupScene);
+  } else {
+    ipElement.style.display = 'none';
+  }
 }
 
 // Init sidebar
