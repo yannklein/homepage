@@ -1,10 +1,10 @@
 const outroLoading = (doc, loadElement) => {
-  doc.addEventListener('DOMContentLoaded', () => {
+  const hideLoading = () => {
     loadElement.style.display = 'none';
-  });
-  setTimeout(() => {
-    loadElement.style.display = 'none';
-  }, 3000);
+  };
+
+  setTimeout(hideLoading, 5000);
+  doc.addEventListener('DOMContentLoaded', hideLoading);
 };
 
 export default outroLoading;
