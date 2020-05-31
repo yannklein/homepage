@@ -7,7 +7,7 @@ const getLocation = (username, callback) => {
     .then(d => callback(d.location))
     .catch(error => {
       console.log(error);
-      callback('jp');
+      callback('Tokyo, JP');
     });
 };
 
