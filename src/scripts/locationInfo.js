@@ -4,7 +4,11 @@ const amKey = 'PcVG2igYBtUqDCemPKAq9fgUR8ixhT';
 const getLocation = (username, callback) => {
   fetch(`https://api.github.com/users/${username}`)
     .then(r => r.json())
-    .then(d => callback(d.location));
+    .then(d => callback(d.location))
+    .catch(error => {
+      console.log(error);
+      callback('jp');
+    });
 };
 
 const getCountry = (username, callback) => {
