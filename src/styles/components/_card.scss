@@ -13,10 +13,8 @@
 }
 
 .card-header {
-  height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  height: 104px;
+  margin-bottom: 24px;
 }
 
 .card-title {
@@ -43,6 +41,11 @@
 .card-title h2 {
   width: 90%;
   font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.card-title p {
+  margin-bottom: 24px;
 }
 
 .card img {
