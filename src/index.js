@@ -5,8 +5,12 @@ import './index.scss';
 
 import { initThree, addBackground, addIntroPopup } from './scripts/initThree';
 import initSideBarFilter from './scripts/sidebar';
+import initVue from './scripts/vue/vue-app';
 
 OfflinePluginRuntime.install();
+
+// Init Vue.js
+initVue();
 
 // Load GIFs only if not mobile
 if (window.innerWidth >= 480) {
