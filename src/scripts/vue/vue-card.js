@@ -10,14 +10,14 @@ const initCardComponent = () => {
   };
 
   Vue.component('vueCard', {
-    props: ['type', 'url', 'img', 'title', 'description', 'lang1', 'lang2', 'lang3'],
+    props: ['type', 'url', 'img', 'title', 'description', 'lang1', 'lang2', 'lang3', 'gif', 'isFirst'],
     data: () => {
       return {
         icons: icons
       };
     },
     template: `
-      <div v-bind:class="'card-'+type" class="card card-first">
+      <div v-bind:class="'card-'+type+' '+isFirst" class="card">
         <a v-bind:href="url">
           <div class="card-header">
             <div class="card-title">
