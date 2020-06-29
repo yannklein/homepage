@@ -96,5 +96,10 @@ module.exports = {
     $: 'jquery',
     jquery: 'jQuery',
     'window.$': 'jquery'
+  },
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
   }
 };
