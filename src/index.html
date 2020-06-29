@@ -44,10 +44,6 @@
 </head>
 
 <body>
-  <div id="vueapp" v-show="display == 'visible'">
-    <p>That's a test</p>
-  </div>
-
   <div class="loading-mask">
     <img src="./images/loading.svg" alt="loading">
   </div>
@@ -101,9 +97,17 @@
       </a>
     </div>
     <div class="container">
-      <div class="cards">
-
-        <div class="card card-vr card-first">
+      <div class="cards" id="vueapp">
+        <vue-card
+          type="vr"
+          url="https://yannklein.github.io/lewagon-glasses"
+          img="images/lewagon-glasses.png"
+          title="Le Wagon AR glasses"
+          description="A WebAR experience that put Le Wagon Bootcamp logo's glasses on your nose! built with ThreeJS and JeelizAR."
+          lang1="javascript"
+          lang2=""
+          lang3=""/>
+        <div class="card card-vr">
           <a href="https://yannklein.github.io/lewagon-glasses">
             <div class="card-header">
               <div class="card-title">
@@ -112,7 +116,7 @@
                   <div class="icon-lang">
                     <i class="devicon-javascript-plain"></i>
                   </div>
-                  <i class="fas fa-laptop-code icon-vr"></i>
+                  <i class="fas fa-vr-cardboard icon-vr"></i>
                 </div>
               </div>
               <p>A WebAR experience that put Le Wagon Bootcamp logo's glasses on your nose! built with ThreeJS and JeelizAR</p>
