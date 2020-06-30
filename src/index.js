@@ -3,14 +3,13 @@ import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 import './index.html';
 import './index.scss';
 
+// Init Vue.js
+import './scripts/vue/index';
+
 import { initThree, addBackground, addIntroPopup } from './scripts/initThree';
 import initSideBarFilter from './scripts/sidebar';
-import initVue from './scripts/vue/vue-app';
 
 OfflinePluginRuntime.install();
-
-// Init Vue.js
-initVue();
 
 // Load GIFs only if not mobile
 if (window.innerWidth >= 480) {
