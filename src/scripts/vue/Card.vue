@@ -69,46 +69,46 @@ module.exports = {
       .header {
         height: 104px;
         margin-bottom: 24px;
+
+        .card-title {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+
+          h2 {
+            width: 90%;
+            font-size: 20px;
+            margin-bottom: 24px;
+          }
+
+          p {
+            margin-bottom: 24px;
+          }
+
+          .icon {
+            color: gray;
+            font-size: 24px;
+            display: flex;
+
+            .lang {
+              font-size: 20px;
+              letter-spacing: 4px;
+              display: flex;
+              align-items: center;
+              margin-right: 16px;
+            }
+          }
+        }
       }
     }
-  }
 
-  .card-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    h2 {
-      width: 90%;
-      font-size: 20px;
-      margin-bottom: 24px;
+    img {
+      flex-grow: 1;
+      width: 100%;
+      box-shadow: 0 0 4px rgba(0,0,0,0.3);
+      object-fit: cover;
+      object-position: 50% 50%;
     }
-
-    p {
-      margin-bottom: 24px;
-    }
-  }
-
-  .card .icon {
-    color: gray;
-    font-size: 24px;
-    display: flex;
-
-    .lang {
-      font-size: 20px;
-      letter-spacing: 4px;
-      display: flex;
-      align-items: center;
-      margin-right: 16px;
-    }
-  }
-
-  .card img {
-    flex-grow: 1;
-    width: 100%;
-    box-shadow: 0 0 4px rgba(0,0,0,0.3);
-    object-fit: cover;
-    object-position: 50% 50%;
   }
 
   .card-img-gif {
@@ -128,52 +128,50 @@ module.exports = {
     grid-column: 1 / 1;
   }
 
-  @media (max-width: 1170px) {
-  }
   @media (max-width: 969px) {
     .card {
       padding: 16px;
-    }
-    .header {
-      height: 102px;
-    }
-    .header h2 {
-      font-size: 20px;
-    }
-    .card .icon {
-      top: 16px;
-      right: 16px;
+
+      .header {
+        height: 102px;
+
+        h2 {
+          font-size: 20px;
+        }
+
+        .icon {
+          top: 16px;
+          right: 16px;
+        }
+      }
     }
   }
   @media (max-width: 769px) {
     .card {
       padding: 8px;
-    }
-    .card a .header {
-      height: 96px;
 
-      h2 {
-        font-size: 16px;
+      .header {
+        height: 96px;
+
+        h2 {
+          font-size: 20px;
+        }
+
+        p {
+          font-size: 16px;
+        }
+
+        .icon {
+          top: 8px;
+          right: 8px;
+          font-size: 16px;
+
+          .lang {
+            font-size: 14px;
+            margin-right: 8px;
+          }
+        }
       }
-
-      p {
-        font-size: 12px;
-      }
     }
-
-    .card .icon {
-      top: 8px;
-      right: 8px;
-    }
-
-    .card .icon {
-      font-size: 16px;
-    }
-    .card .lang {
-      font-size: 14px;
-      margin-right: 8px;
-    }
-  }
-  @media (max-width: 480px) {
   }
 </style>
