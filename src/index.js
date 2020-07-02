@@ -3,6 +3,9 @@ import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 import './index.html';
 import './index.scss';
 
+// Init Vue.js
+import './scripts/vue/index';
+
 import { initThree, addBackground, addIntroPopup } from './scripts/initThree';
 import initSideBarFilter from './scripts/sidebar';
 

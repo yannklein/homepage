@@ -1,0 +1,211 @@
+<template>
+  <div class="cards">
+    <Card
+      type="vr"
+      url="https://yannklein.github.io/lewagon-glasses"
+      img="images/lewagon-glasses.png"
+      title="Le Wagon AR glasses"
+      description="A WebAR experience that put Le Wagon Bootcamp logo's glasses on your nose! built with ThreeJS and JeelizAR."
+      lang1="javascript"
+      gif="false"
+      is-first="first"
+    ></Card>
+
+    <Card
+      type="code"
+      url="https://yanns-ai.onrender.com/"
+      img="images/sushiai.png"
+      title="Sushi AI 🍣"
+      description="An homemade AI web and mobile App that recognizes sushis. Built with FastAI deep learning library."
+      lang1="python"
+      lang2="react"
+      gif="false"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="vr"
+      url="https://www.holobooth.dev/"
+      img="https://res.cloudinary.com/yanninthesky/video/upload/w_640,h_640,c_fill,so_0/wqz0lgbspas5no6eiwtq.png"
+      title="Holobooth 👓"
+      description="Create your own AR hologram from any video with ThreeJS and shaders."
+      lang1="javascript"
+      lang2="rails"
+      gif="true"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="vr"
+      url="https://github.com/yannklein/hole-in-the-wall-v1"
+      title="Hole in the wall"
+      lang1="javascript"
+      description="A WebAR experience that let you peep through an AR hole in the wall."
+      img="https://res.cloudinary.com/yanninthesky/video/upload/w_640,h_640,c_fill,so_10/e0nb0lqhs68pgpypgku4.png"
+      gif="true"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="vr"
+      url="https://github.com/yannklein/iamyann"
+      title="AR business card"
+      lang1="javascript"
+      description="An simple experiment to improve a piece of paper people sometimes exchange during mondane delicacies."
+      img="https://res.cloudinary.com/yanninthesky/video/upload/w_640,h_640,c_fill,so_0,h_540,w_540,x_275/agddb5q60vd3nvlnyljr.png"
+      gif="true"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="vr"
+      url="https://augmented-graffiti.herokuapp.com/"
+      title="AR graffiti"
+      lang1="javascript"
+      lang2="rails"
+      description="An experiment that transforms a wall into a creative space to draw graffitis with WebSocket."
+      img="https://res.cloudinary.com/yanninthesky/video/upload/c_fill,so_43,h_540,w_540,x_275/zlrhhcevw2kdjsn8moap.png"
+      gif="true"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="code"
+      url="https://recettes-de-moselle-est.herokuapp.com"
+      title="Recipes from East-Mosel"
+      lang1="rails"
+      description="An initiative to keep and share the cooking recipes of East Mosel."
+      img="./images/recette-moselle.png"
+      gif="false"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="code"
+      url="https://github.com/yannklein/working-in-japan-oecd-data"
+      title="Working in Japan"
+      lang1="python"
+      description="What we can learn from OECD datasets about work in Japan with a Jupyter notebook."
+      img="./images/oecd.png"
+      gif="false"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="code"
+      url="https://tech2try.herokuapp.com/"
+      title="Tech2try"
+      lang1="rails"
+      description="Tech2try is a space to meet tech's & makers and try cool devices around you."
+      img="./images/tech2try.png"
+      gif="false"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="code"
+      url="https://github.com/yannklein/bob-the-bot"
+      title="Line chat bot"
+      lang1="ruby"
+      description="A Line chatbot with visual recognition (IBM Watson API)for Le Wagon Tokyo workshop."
+      img="./images/bot.png"
+      gif="false"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="code"
+      url="https://github.com/yannklein/q-learning-simple-game"
+      title="Q-learning AI game"
+      lang1="ruby"
+      description="“Get the cheese and avoid the holes” game against a Q-learning ruby AI."
+      img="/images/q-learning.png"
+      gif="false"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="maker"
+      url="https://medium.com/@yann.and.the.machines/yann-and-the-machines-50540e9ec088"
+      title="Apple Watch wristband 101"
+      description="The first of my, now many, leathercraft creations."
+      img="./images/apple-watch.png"
+      gif="false"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="love"
+      url="https://medium.com/@yann.and.the.machines/3-unusual-rules-that-broadened-my-reading-horizons-c5ddbbaf998d"
+      title="My golden rule for books"
+      description="3 rules that opened my mind and made me read fabulous books."
+      img="./images/books.jpg"
+      gif="false"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="maker"
+      url="https://medium.com/@yann.and.the.machines/the-day-trusting-people-brought-me-to-space-6fd7e99c9642"
+      title="The space balloon"
+      description="The story of my endeavor to record a video of a solar eclipse from near-space."
+      img="./images/balloon.png"
+      gif="false"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="help"
+      url="https://www.babyloan.org/en/prrng___390c253dca6f222f9718c2e05d18dc8d/direct_link___57715"
+      title="Babyloan micro-credit"
+      description="I am helping small businesses around the world, 40 funded so far and counting!"
+      img="./images/babyloan.png"
+      gif="false"
+      is-first=""
+    ></Card>
+  </div>
+</template>
+
+<script>
+import Card from './Card.vue'
+
+export default {
+  components: {
+    Card
+  }
+}
+</script>
+
+<style scoped>
+  .cards {
+    padding: 24px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-gap: 24px;
+  }
+
+  .cards::before {
+    content: '';
+    width: 0;
+    padding-bottom: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+  }
+
+  @media (max-width: 969px) {
+    .cards {
+      grid-template-columns: 1fr 1fr;
+      padding: 0;
+      padding-bottom: 64px;
+    }
+  }
+
+  @media (max-width: 480px){
+    .cards {
+      grid-template-columns: 1fr;
+      padding: 0;
+      padding-bottom: 64px;
+    }
+  }
+</style>
