@@ -8,7 +8,7 @@
       description="A WebAR experience that put Le Wagon Bootcamp logo's glasses on your nose! built with ThreeJS and JeelizAR."
       lang1="javascript"
       gif="false"
-      is-first="card-first"
+      is-first="first"
     ></Card>
 
     <Card
@@ -176,41 +176,36 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.cards {
-  padding: 24px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: 1fr;
-  grid-gap: 24px;
-}
-
-.cards::before {
-  content: '';
-  width: 0;
-  padding-bottom: 100%;
-  grid-row: 1 / 1;
-  grid-column: 1 / 1;
-}
-
-.card-first {
-  grid-row: 1 / 1;
-  grid-column: 1 / 1;
-}
-
-@media (max-width: 969px) {
+<style scoped>
   .cards {
-    grid-template-columns: 1fr 1fr;
-    padding: 0;
-    padding-bottom: 64px;
+    padding: 24px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    grid-gap: 24px;
   }
-}
 
-@media (max-width: 480px){
-  .cards {
-    grid-template-columns: 1fr;
-    padding: 0;
-    padding-bottom: 64px;
+  .cards::before {
+    content: '';
+    width: 0;
+    padding-bottom: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
   }
-}
+
+  @media (max-width: 969px) {
+    .cards {
+      grid-template-columns: 1fr 1fr;
+      padding: 0;
+      padding-bottom: 64px;
+    }
+  }
+
+  @media (max-width: 480px){
+    .cards {
+      grid-template-columns: 1fr;
+      padding: 0;
+      padding-bottom: 64px;
+    }
+  }
 </style>
