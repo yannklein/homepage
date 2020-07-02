@@ -6,6 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   mode: 'development',
@@ -56,6 +57,10 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       }
     ]
   },
@@ -90,11 +95,17 @@ module.exports = {
     }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer'
-    })
+    }),
+    new VueLoaderPlugin()
   ],
   externals: {
     $: 'jquery',
     jquery: 'jQuery',
     'window.$': 'jquery'
+  },
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
   }
 };
