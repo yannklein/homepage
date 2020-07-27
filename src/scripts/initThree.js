@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import fetchGithubActivity from './github_activity';
 import { getCountry, getUTCOffset } from './locationInfo';
@@ -7,24 +7,27 @@ import outroLoading from './loading';
 
 import porcelainImg from '../images/matcap-porcelain-white.jpg';
 import starship from '../images/starship/scene.gltf';
-import starshipBin from '../images/starship/scene.bin';
 
 // GH username
 const username = 'yannklein';
 
+// Initial state, the cards and sidebars are hidden
 const mainContent = document.querySelector('.main-content');
 if (mainContent) mainContent.classList.remove('main-content-visible');
 const bgLegend = document.querySelector('.background-legend');
 if (bgLegend) bgLegend.classList.remove('background-legend-show');
 
+// Variable to check the page loading state
 let assetsToLoad = 3;
 let assetsLoaded = 0;
 
+// For small screen, there is only 2 stuffs to load
 if (window.innerWidth <= 480) {
   assetsToLoad = 2;
   if (mainContent) mainContent.classList.add('main-content-visible');
 }
 
+// Function run when a main element of the page is loaded (bg, intro,..)
 const fullSceneLoaded = () => {
   assetsLoaded += 1;
   if (assetsToLoad === assetsLoaded) {
@@ -36,6 +39,7 @@ const fullSceneLoaded = () => {
   }
 };
 
+// Initialize ThreeJS canvas
 const initThree = htmlElement => {
   const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
   camera.position.z = 1;
@@ -55,9 +59,7 @@ const initThree = htmlElement => {
     animationQueue.forEach(animation => {
       animation();
     });
-
     // controls.update();
-
     renderer.render(scene, camera);
   };
   animate();
@@ -70,6 +72,7 @@ const initThree = htmlElement => {
   };
 };
 
+// Create the time spheres on the ThreeJS bg
 const createTimeSphere = (type, material, world, offset) => {
   const times = {
     hour: {
@@ -93,13 +96,17 @@ const createTimeSphere = (type, material, world, offset) => {
   };
   const geometry = new THREE.SphereBufferGeometry(times[type].sphereSize, 32, 32);
   const mesh = new THREE.Mesh(geometry, material);
-  mesh.position.x = Math.cos(Math.PI / 2 - (12 * 2 * Math.PI) / times[type].division) * times[type].distCenter;
-  mesh.position.y = Math.sin(Math.PI / 2 - (12 * 2 * Math.PI) / times[type].division) * times[type].distCenter;
+  mesh.position.x =
+    Math.cos(Math.PI / 2 - (12 * 2 * Math.PI) / times[type].division) * times[type].distCenter;
+  mesh.position.y =
+    Math.sin(Math.PI / 2 - (12 * 2 * Math.PI) / times[type].division) * times[type].distCenter;
 
   const animation = () => {
     const date = new Date();
-    mesh.position.x = Math.cos(Math.PI / 2 - (times[type].now(date) * 2 * Math.PI) / times[type].division) * times[type].distCenter;
-    mesh.position.y = Math.sin(Math.PI / 2 - (times[type].now(date) * 2 * Math.PI) / times[type].division) * times[type].distCenter;
+    mesh.position.x =
+      Math.cos(Math.PI / 2 - (times[type].now(date) * 2 * Math.PI) / times[type].division) * times[type].distCenter;
+    mesh.position.y =
+      Math.sin(Math.PI / 2 - (times[type].now(date) * 2 * Math.PI) / times[type].division) * times[type].distCenter;
   };
   const bindedAnimation = animation.bind(null, mesh);
   world.animationQueue.push(bindedAnimation);
@@ -107,6 +114,7 @@ const createTimeSphere = (type, material, world, offset) => {
   return mesh;
 };
 
+// Create ThreeJS background
 const addBackground = (htmlElement, world) => {
   // Background loading manager
   const manager = new THREE.LoadingManager();
@@ -120,6 +128,7 @@ const addBackground = (htmlElement, world) => {
   textureLoader.load(porcelainImg, porcelain => {
     const material = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, matcap: porcelain });
     const bgMeshes = new THREE.Group();
+
     // Create the middle isocahedron
     {
       const geometry = new THREE.IcosahedronBufferGeometry(0.1, 0);
@@ -144,7 +153,6 @@ const addBackground = (htmlElement, world) => {
     // });
 
     // Create a spaceship
-
     {
       // Load 3D object
       const ship = new THREE.Group();
@@ -177,7 +185,10 @@ const addBackground = (htmlElement, world) => {
             textureLoader.load(
               `https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/${fetchedCountry}.svg`,
               texFlag => {
-                const matFlag = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, map: texFlag });
+                const matFlag = new THREE.MeshMatcapMaterial({
+                  side: THREE.DoubleSide,
+                  map: texFlag
+                });
                 const flag = new THREE.Mesh(geoFlag, matFlag);
                 flag.scale.multiplyScalar(0.25);
                 flag.position.z = -0.04;
@@ -230,7 +241,7 @@ const addBackground = (htmlElement, world) => {
       mesh.rotation.y = -Math.PI / 4;
 
       const animation = () => {
-        // ship.rotation.x = -0.2 * Math.cos(position * Math.PI - Math.PI / 2);
+        // ship.rotation .x = -0.2 * Math.cos(position * Math.PI - Math.PI / 2);
         mesh.rotation.z += 0.001;
       };
       const bindedAnimation = animation.bind(null, mesh);
