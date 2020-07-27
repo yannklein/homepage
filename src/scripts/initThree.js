@@ -7,6 +7,7 @@ import outroLoading from './loading';
 
 import porcelainImg from '../images/matcap-porcelain-white.jpg';
 import starship from '../images/starship/scene.gltf';
+import starshipBin from '../images/starship/scene.bin';
 
 // GH username
 const username = 'yannklein';
