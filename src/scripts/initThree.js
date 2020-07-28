@@ -219,7 +219,7 @@ const createEventSpheres = (eventObject, material, world, bgMeshes) => {
     // mesh.position.y = Math.sin(Math.PI + config.initOffset) * config.distCenter;
     let cycle = 0;
     const animation = () => {
-      cycle += 0.005;
+      cycle += 0.002;
       mesh.position.x = -Math.cos(cycle * Math.PI + config.initOffset) * config.distCenter;
       mesh.position.z = Math.sin(cycle * Math.PI + config.initOffset) * config.distCenter;
       mesh.position.y = 0.2 * Math.cos(cycle * Math.PI + config.initOffset);
