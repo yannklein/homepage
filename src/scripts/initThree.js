@@ -3,6 +3,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import fetchGithubActivity from './github_activity';
 import { getCountry, getUTCOffset } from './locationInfo';
+import { fetchTokyoEvents } from './tokyo-events';
 import outroLoading from './loading';
 
 import porcelainImg from '../images/matcap-porcelain-white.jpg';
@@ -195,7 +196,20 @@ const createTimeSphere = (type, material, world, offset) => {
   return mesh;
 };
 
-const createEventSpheres = (spheresConfig, material, world) => {
+const formatEvents = eventObject => {
+  // console.log(eventObject);
+  return eventObject.map(event => {
+    return {
+      distCenter: 0.51 + (Math.random()/10),
+      sphereSize: 0.04 / (event.remainingDays + 1),
+      initOffset: Math.random() * 10
+    };
+  });
+};
+
+const createEventSpheres = (eventObject, material, world, bgMeshes) => {
+  const spheresConfig = formatEvents(eventObject);
+  // console.log(spheresConfig);
   const group = new THREE.Group();
   spheresConfig.forEach(config => {
     const geometry = new THREE.SphereBufferGeometry(config.sphereSize, 32, 32);
@@ -217,7 +231,7 @@ const createEventSpheres = (spheresConfig, material, world) => {
     world.animationQueue.push(bindedAnimation);
     group.add(mesh);
   });
-  return group;
+  bgMeshes.add(group);
 };
 
 // Create ThreeJS background
@@ -262,19 +276,10 @@ const addBackground = (htmlElement, world) => {
     createSpaceShip(textureLoader, material, bgMeshes, world);
 
     // Create event spheres
-    const spheresConfig = [
-    {
-      distCenter: 0.51,
-      sphereSize: 0.02,
-      initOffset: 1
-    },
-    {
-      distCenter: 0.49,
-      sphereSize: 0.01,
-      initOffset: 0.00
-    }
-  ];
-    bgMeshes.add(createEventSpheres(spheresConfig, material, world));
+    const bindedCreateEventSpheres = eventObject => {
+      createEventSpheres(eventObject, material, world, bgMeshes);
+    };
+    fetchTokyoEvents(bindedCreateEventSpheres);
 
     fetchGithubActivity(username, new Date(), activity => {
       if (activity < 3) activity = 3;
