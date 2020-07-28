@@ -216,7 +216,7 @@ const createEventSpheres = (eventObject, material, world, bgMeshes) => {
     const mesh = new THREE.Mesh(geometry, material);
     let cycle = 0;
     const animation = () => {
-      cycle += 0.002;
+      cycle += 0.001;
       mesh.position.x = -Math.cos(cycle * Math.PI + config.initOffset) * config.distCenter;
       mesh.position.z = Math.sin(cycle * Math.PI + config.initOffset) * config.distCenter;
       mesh.position.y = 0.2 * Math.cos(cycle * Math.PI + config.initOffset);
