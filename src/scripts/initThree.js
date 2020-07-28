@@ -195,6 +195,32 @@ const createTimeSphere = (type, material, world, offset) => {
   return mesh;
 };
 
+const createEventSpheres = (material, world) => {
+  const spheresConfig = {
+    distCenter: 0.5,
+    sphereSize: 0.01
+  };
+  const geometry = new THREE.SphereBufferGeometry(spheresConfig.sphereSize, 32, 32);
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.rotation.y = Math.PI / 2;
+  mesh.position.x = Math.cos(Math.PI) * spheresConfig.distCenter;
+  mesh.position.y = Math.sin(Math.PI) * spheresConfig.distCenter;
+  let cycle = 0;
+  const animation = () => {
+    cycle += 0.005;
+    mesh.position.x = -Math.cos(cycle * Math.PI) * spheresConfig.distCenter;
+    mesh.position.z = Math.sin(cycle * Math.PI) * spheresConfig.distCenter;
+    mesh.position.y = 0.2 * Math.cos(cycle * Math.PI);
+    mesh.rotation.x = Math.cos(cycle * Math.PI);
+    mesh.rotation.z = Math.cos(cycle * Math.PI - Math.PI / 4);
+    mesh.rotation.y = -cycle * Math.PI;
+  };
+  const bindedAnimation = animation.bind(null, mesh);
+  world.animationQueue.push(bindedAnimation);
+  window.sphere = mesh;
+  return mesh;
+};
+
 // Create ThreeJS background
 const addBackground = (htmlElement, world) => {
   // Background loading manager
@@ -235,6 +261,9 @@ const addBackground = (htmlElement, world) => {
 
     // Create a spaceship
     createSpaceShip(textureLoader, material, bgMeshes, world);
+
+    // Create event spheres
+    bgMeshes.add(createEventSpheres(material, world));
 
     fetchGithubActivity(username, new Date(), activity => {
       if (activity < 3) activity = 3;
