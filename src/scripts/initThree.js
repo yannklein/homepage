@@ -195,30 +195,29 @@ const createTimeSphere = (type, material, world, offset) => {
   return mesh;
 };
 
-const createEventSpheres = (material, world) => {
-  const spheresConfig = {
-    distCenter: 0.5,
-    sphereSize: 0.01
-  };
-  const geometry = new THREE.SphereBufferGeometry(spheresConfig.sphereSize, 32, 32);
-  const mesh = new THREE.Mesh(geometry, material);
-  mesh.rotation.y = Math.PI / 2;
-  mesh.position.x = Math.cos(Math.PI) * spheresConfig.distCenter;
-  mesh.position.y = Math.sin(Math.PI) * spheresConfig.distCenter;
-  let cycle = 0;
-  const animation = () => {
-    cycle += 0.005;
-    mesh.position.x = -Math.cos(cycle * Math.PI) * spheresConfig.distCenter;
-    mesh.position.z = Math.sin(cycle * Math.PI) * spheresConfig.distCenter;
-    mesh.position.y = 0.2 * Math.cos(cycle * Math.PI);
-    mesh.rotation.x = Math.cos(cycle * Math.PI);
-    mesh.rotation.z = Math.cos(cycle * Math.PI - Math.PI / 4);
-    mesh.rotation.y = -cycle * Math.PI;
-  };
-  const bindedAnimation = animation.bind(null, mesh);
-  world.animationQueue.push(bindedAnimation);
-  window.sphere = mesh;
-  return mesh;
+const createEventSpheres = (spheresConfig, material, world) => {
+  const group = new THREE.Group();
+  spheresConfig.forEach(config => {
+    const geometry = new THREE.SphereBufferGeometry(config.sphereSize, 32, 32);
+    const mesh = new THREE.Mesh(geometry, material);
+    // mesh.rotation.y = Math.PI / 2;
+    // mesh.position.x = Math.cos(Math.PI + config.initOffset) * config.distCenter;
+    // mesh.position.y = Math.sin(Math.PI + config.initOffset) * config.distCenter;
+    let cycle = 0;
+    const animation = () => {
+      cycle += 0.005;
+      mesh.position.x = -Math.cos(cycle * Math.PI + config.initOffset) * config.distCenter;
+      mesh.position.z = Math.sin(cycle * Math.PI + config.initOffset) * config.distCenter;
+      mesh.position.y = 0.2 * Math.cos(cycle * Math.PI + config.initOffset);
+      mesh.rotation.x = Math.cos(cycle * Math.PI);
+      mesh.rotation.z = Math.cos(cycle * Math.PI - Math.PI / 4);
+      mesh.rotation.y = -cycle * Math.PI;
+    };
+    const bindedAnimation = animation.bind(null, mesh);
+    world.animationQueue.push(bindedAnimation);
+    group.add(mesh);
+  });
+  return group;
 };
 
 // Create ThreeJS background
@@ -263,7 +262,19 @@ const addBackground = (htmlElement, world) => {
     createSpaceShip(textureLoader, material, bgMeshes, world);
 
     // Create event spheres
-    bgMeshes.add(createEventSpheres(material, world));
+    const spheresConfig = [
+    {
+      distCenter: 0.51,
+      sphereSize: 0.02,
+      initOffset: 1
+    },
+    {
+      distCenter: 0.49,
+      sphereSize: 0.01,
+      initOffset: 0.00
+    }
+  ];
+    bgMeshes.add(createEventSpheres(spheresConfig, material, world));
 
     fetchGithubActivity(username, new Date(), activity => {
       if (activity < 3) activity = 3;
