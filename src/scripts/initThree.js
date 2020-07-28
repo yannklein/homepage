@@ -200,7 +200,7 @@ const formatEvents = eventObject => {
   // console.log(eventObject);
   return eventObject.map(event => {
     return {
-      distCenter: 0.51 + (Math.random()/10),
+      distCenter: 0.55 - (Math.random() / 5),
       sphereSize: 0.04 / (event.remainingDays + 1),
       initOffset: Math.random() * 10
     };
@@ -214,9 +214,6 @@ const createEventSpheres = (eventObject, material, world, bgMeshes) => {
   spheresConfig.forEach(config => {
     const geometry = new THREE.SphereBufferGeometry(config.sphereSize, 32, 32);
     const mesh = new THREE.Mesh(geometry, material);
-    // mesh.rotation.y = Math.PI / 2;
-    // mesh.position.x = Math.cos(Math.PI + config.initOffset) * config.distCenter;
-    // mesh.position.y = Math.sin(Math.PI + config.initOffset) * config.distCenter;
     let cycle = 0;
     const animation = () => {
       cycle += 0.002;
