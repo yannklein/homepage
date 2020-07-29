@@ -212,17 +212,20 @@ const createEventSpheres = (eventObject, material, world, bgMeshes) => {
   // console.log(spheresConfig);
   const group = new THREE.Group();
   spheresConfig.forEach(config => {
-    const geometry = new THREE.SphereBufferGeometry(config.sphereSize, 32, 32);
+    const geometry = new THREE.BoxBufferGeometry(config.sphereSize, config.sphereSize, config.sphereSize);
     const mesh = new THREE.Mesh(geometry, material);
     let cycle = 0;
+    const rotSpeedX = Math.random();
+    const rotSpeedY = Math.random();
+    const rotSpeedZ = Math.random();
     const animation = () => {
       cycle += 0.001;
       mesh.position.x = -Math.cos(cycle * Math.PI + config.initOffset) * config.distCenter;
       mesh.position.z = Math.sin(cycle * Math.PI + config.initOffset) * config.distCenter;
       mesh.position.y = 0.2 * Math.cos(cycle * Math.PI + config.initOffset);
-      mesh.rotation.x = Math.cos(cycle * Math.PI);
-      mesh.rotation.z = Math.cos(cycle * Math.PI - Math.PI / 4);
-      mesh.rotation.y = -cycle * Math.PI;
+      mesh.rotation.x += rotSpeedX / 100;
+      mesh.rotation.z += rotSpeedY / 100;
+      mesh.rotation.y += rotSpeedZ / 100;
     };
     const bindedAnimation = animation.bind(null, mesh);
     world.animationQueue.push(bindedAnimation);
