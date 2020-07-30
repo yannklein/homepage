@@ -19,6 +19,8 @@ const mainContent = document.querySelector('.main-content');
 if (mainContent) mainContent.classList.remove('main-content-visible');
 const bgLegend = document.querySelector('.background-legend');
 if (bgLegend) bgLegend.classList.remove('background-legend-show');
+const eventLegend = document.querySelector('.event-cube-legend');
+if (eventLegend) eventLegend.classList.remove('event-cube-legend-show');
 
 // Variable to check the page loading state
 let assetsToLoad = 3;
@@ -83,11 +85,18 @@ const initThree = (name, htmlElement, raycasterOn = false) => {
       raycaster.setFromCamera(mouse, camera);
       // calculate objects intersecting the picking ray
       const eventCubes = scene.getObjectByName('eventCubesGroup');
+      const eventCubeLegend = document.querySelector('.event-cube-legend');
       if (eventCubes) {
         // console.log(eventCubes.children);
+        eventCubeLegend.classList.remove('event-cube-legend-show');
         const intersects = raycaster.intersectObjects(eventCubes.children);
         intersects.forEach(intersect => {
-          console.log(intersect.object.eventDetails);
+          // console.log(intersect.object.eventDetails);
+          const event = intersect.object.eventDetails;
+          eventCubeLegend.querySelector('.date').innerText = `${event.date} ${event.name.substring(1,6)}`;
+          eventCubeLegend.querySelector('.title').innerText = `${event.name.substring(9)} by ${event.group}`;
+          eventCubeLegend.querySelector('.place').innerText = `@ ${event.venue}`;
+          eventCubeLegend.classList.add('event-cube-legend-show');
         });
       }
     }
