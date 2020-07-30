@@ -39,9 +39,10 @@
   color: #282828;
   background-color: rgba(255, 255, 255, 0.4);
   padding: 16px;
+  transition: 1s;
 }
 
-.event-cube-legend {
+.event-cube-legend-show{
   visibility: visible;
   opacity: 1;
 }
