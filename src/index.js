@@ -6,7 +6,7 @@ import './index.scss';
 // Init Vue.js
 import './scripts/vue/index';
 
-import { initThree, addBackground, addIntroPopup } from './scripts/initThree';
+import { initThree, addBackground, addIntroPopup } from './scripts/three/initThree';
 import initSideBarFilter from './scripts/sidebar';
 
 OfflinePluginRuntime.install();
@@ -21,14 +21,14 @@ if (window.innerWidth >= 480) {
 // Initialize ThreeJS background
 const bgElement = document.querySelector('.background');
 if (bgElement) {
-  const bgWorld = initThree(bgElement);
+  const bgWorld = initThree("backgroundWorld", bgElement, true);
   addBackground(bgElement, bgWorld);
 }
 // Initialize ThreeJS intro popup
 const ipElement = document.querySelector('.intro-popup');
 if (ipElement) {
   if (window.innerWidth >= 480) {
-    const popupScene = initThree(ipElement);
+    const popupScene = initThree("introWorld", ipElement);
     addIntroPopup(ipElement, popupScene);
   } else {
     ipElement.style.display = 'none';
