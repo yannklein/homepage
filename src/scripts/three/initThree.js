@@ -84,12 +84,11 @@ const initThree = (name, htmlElement, raycasterOn = false) => {
       // calculate objects intersecting the picking ray
       const eventCubes = scene.getObjectByName('eventCubesGroup');
       if (eventCubes) {
-        console.log(eventCubes.children);
+        // console.log(eventCubes.children);
         const intersects = raycaster.intersectObjects(eventCubes.children);
-        for (let i = 0; i < intersects.length; i++) {
-          console.log(intersects[i].object.name, scene.name);
-          intersects[i].object.material.matcap = null;
-        }
+        intersects.forEach(intersect => {
+          console.log(intersect.object.eventDetails);
+        });
       }
     }
     renderer.render(scene, camera);

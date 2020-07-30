@@ -14,7 +14,8 @@ const spheresConfig = [
 const formatEventArray = data => {
   return data.map(event => {
     const remainingDays = Math.round((new Date(event.date) - new Date()) / (1000*60*60*24))
-    return { remainingDays };
+    const eventDetails = event;
+    return { remainingDays, eventDetails };
   });
 };
 

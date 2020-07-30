@@ -6,14 +6,14 @@ const formatEvents = eventObject => {
     return {
       distCenter: 0.55 - Math.random() / 5,
       sphereSize: 0.04 / (event.remainingDays + 1),
-      initOffset: Math.random() * 10
+      initOffset: Math.random() * 10,
+      eventDetails: event.eventDetails
     };
   });
 };
 
 const createEventCubes = (eventObject, material, world, bgMeshes) => {
   const spheresConfig = formatEvents(eventObject);
-  // console.log(spheresConfig);
   const group = new THREE.Group();
   group.name = 'eventCubesGroup';
   spheresConfig.forEach(config => {
@@ -37,6 +37,7 @@ const createEventCubes = (eventObject, material, world, bgMeshes) => {
       mesh.rotation.y += rotSpeedZ / 100;
     };
     mesh.name = 'eventCubes';
+    mesh.eventDetails = config.eventDetails;
     const bindedAnimation = animation.bind(null, mesh);
     world.animationQueue.push(bindedAnimation);
     group.add(mesh);
