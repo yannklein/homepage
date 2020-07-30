@@ -7,6 +7,8 @@ import outroLoading from '../loading';
 import porcelainImg from '../../images/matcap-porcelain-white.jpg';
 
 import { createSpaceShip } from './spaceship';
+import { createTimeSpheres } from './time-spheres';
+import { createEventCubes } from './event-cubes';
 
 // GH username
 const username = 'yannklein';
@@ -101,92 +103,6 @@ const initThree = (name, htmlElement, raycasterOn = false) => {
   };
 };
 
-// Create the time spheres on the ThreeJS bg
-const createTimeSphere = (type, material, world, offset) => {
-  const times = {
-    hour: {
-      now: date => date.getUTCHours() + offset + date.getUTCMinutes() / 60,
-      division: 12,
-      distCenter: 0.5,
-      sphereSize: 0.1
-    },
-    minute: {
-      now: date => date.getUTCMinutes() + date.getUTCSeconds() / 60,
-      division: 60,
-      distCenter: 0.4,
-      sphereSize: 0.04
-    },
-    second: {
-      now: date => date.getUTCSeconds() + date.getUTCMilliseconds() / 1000,
-      division: 60,
-      distCenter: 0.3,
-      sphereSize: 0.03
-    }
-  };
-  const geometry = new THREE.SphereBufferGeometry(times[type].sphereSize, 32, 32);
-  const mesh = new THREE.Mesh(geometry, material);
-  mesh.position.x =
-    Math.cos(Math.PI / 2 - (12 * 2 * Math.PI) / times[type].division) * times[type].distCenter;
-  mesh.position.y =
-    Math.sin(Math.PI / 2 - (12 * 2 * Math.PI) / times[type].division) * times[type].distCenter;
-  mesh.name = "timeSphere";
-  const animation = () => {
-    const date = new Date();
-    mesh.position.x =
-      Math.cos(Math.PI / 2 - (times[type].now(date) * 2 * Math.PI) / times[type].division) * times[type].distCenter;
-    mesh.position.y =
-      Math.sin(Math.PI / 2 - (times[type].now(date) * 2 * Math.PI) / times[type].division) * times[type].distCenter;
-  };
-  const bindedAnimation = animation.bind(null, mesh);
-  world.animationQueue.push(bindedAnimation);
-
-  return mesh;
-};
-
-const formatEvents = eventObject => {
-  // console.log(eventObject);
-  return eventObject.map(event => {
-    return {
-      distCenter: 0.55 - Math.random() / 5,
-      sphereSize: 0.04 / (event.remainingDays + 1),
-      initOffset: Math.random() * 10
-    };
-  });
-};
-
-const createEventCubes = (eventObject, material, world, bgMeshes) => {
-  const spheresConfig = formatEvents(eventObject);
-  // console.log(spheresConfig);
-  const group = new THREE.Group();
-  group.name = "eventCubesGroup";
-  spheresConfig.forEach(config => {
-    const geometry = new THREE.BoxBufferGeometry(
-      config.sphereSize,
-      config.sphereSize,
-      config.sphereSize
-    );
-    const mesh = new THREE.Mesh(geometry, material);
-    let cycle = 0;
-    const rotSpeedX = Math.random();
-    const rotSpeedY = Math.random();
-    const rotSpeedZ = Math.random();
-    const animation = () => {
-      cycle += 0.001;
-      mesh.position.x = -Math.cos(cycle * Math.PI + config.initOffset) * config.distCenter;
-      mesh.position.z = Math.sin(cycle * Math.PI + config.initOffset) * config.distCenter;
-      mesh.position.y = 0.2 * Math.cos(cycle * Math.PI + config.initOffset);
-      mesh.rotation.x += rotSpeedX / 100;
-      mesh.rotation.z += rotSpeedY / 100;
-      mesh.rotation.y += rotSpeedZ / 100;
-    };
-    mesh.name = "eventCubes";
-    const bindedAnimation = animation.bind(null, mesh);
-    world.animationQueue.push(bindedAnimation);
-    group.add(mesh);
-  });
-  bgMeshes.add(group);
-};
-
 // Create ThreeJS background
 const addBackground = (htmlElement, world) => {
   // Background loading manager
@@ -201,7 +117,7 @@ const addBackground = (htmlElement, world) => {
   textureLoader.load(porcelainImg, porcelain => {
     const material = new THREE.MeshMatcapMaterial({ side: THREE.DoubleSide, matcap: porcelain });
     const bgMeshes = new THREE.Group();
-    bgMeshes.name = "bgMesh";
+    bgMeshes.name = 'bgMesh';
 
     // Create the middle isocahedron
     {
@@ -221,9 +137,9 @@ const addBackground = (htmlElement, world) => {
     // Create an orbiting clock
     // getUTCOffset(username, localOffset => {
     const localOffset = 9;
-    bgMeshes.add(createTimeSphere('hour', material, world, localOffset));
-    bgMeshes.add(createTimeSphere('minute', material, world, localOffset));
-    bgMeshes.add(createTimeSphere('second', material, world, localOffset));
+    bgMeshes.add(createTimeSpheres('hour', material, world, localOffset));
+    bgMeshes.add(createTimeSpheres('minute', material, world, localOffset));
+    bgMeshes.add(createTimeSpheres('second', material, world, localOffset));
     // });
 
     // Create a spaceship
@@ -277,70 +193,76 @@ const addIntroPopup = (htmlElement, world) => {
   const wall = new THREE.Mesh(geometry, material);
   wall.renderOrder = 1;
   wall.position.z = -0.9;
-  wall.name = "invisibleWall";
+  wall.name = 'invisibleWall';
   world.scene.add(wall);
 
-  const isocahedron = new THREE.Group();
-  isocahedron.name = "isocahedronGroup"
-  // Create the isocahedron
-  {
-    const textureLoader = new THREE.TextureLoader(manager);
-    textureLoader.load(porcelainImg, porcelain => {
-      const geometry = new THREE.IcosahedronGeometry(0.4, 0);
-      const material = new THREE.MeshMatcapMaterial({ matcap: porcelain });
-      const mesh = new THREE.Mesh(geometry, material);
-      mesh.rotation.x += (Math.PI * 3) / 5;
-      mesh.name = "isocahedron";
-      isocahedron.add(mesh);
-    });
-  }
-
-  // Create the text
-  {
-    const line1 = '              Δ\n\n';
-    const line2 = "         I'm Yann\n";
-    const line3 = '      and here is a\n';
-    const line4 = 'glimpse of what I do';
-    const text = `${line1}${line2}${line3}${line4}`;
-    const loader = new THREE.FontLoader();
-    let geometry;
-    const size = 0.022;
-    // const textLength = text.length / 10;
-    // const textHeight = size / 10;
-    loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/fonts/optimer_regular.typeface.json', font => {
-        geometry = new THREE.TextBufferGeometry(text, {
-          font,
-          size,
-          height: -0.08 * size,
-          curveSegments: 6
-        });
-        const materials = [
-          new THREE.MeshBasicMaterial({ color: 0x222222 }),
-          new THREE.MeshBasicMaterial({ color: 0xcccccc })
-        ];
-        const mesh = new THREE.Mesh(geometry, materials);
-        mesh.position.z = 0.32;
-
-        mesh.geometry.computeBoundingBox();
-        const textLength = Math.abs(mesh.geometry.boundingBox.max.x - mesh.geometry.boundingBox.min.x);
-        const textHeight = Math.abs(mesh.geometry.boundingBox.max.y - mesh.geometry.boundingBox.min.y);
-        mesh.position.x -= textLength / 2;
-        mesh.position.y += textHeight / 2;
-        mesh.rotation.x -= Math.PI * 0.015;
-        mesh.name = "isocahedron";
+  const createIsocahedron = () => {
+    const isocahedron = new THREE.Group();
+    isocahedron.name = 'isocahedronGroup';
+    // Create the isocahedron
+    {
+      const textureLoader = new THREE.TextureLoader(manager);
+      textureLoader.load(porcelainImg, porcelain => {
+        const geometry = new THREE.IcosahedronGeometry(0.4, 0);
+        const material = new THREE.MeshMatcapMaterial({ matcap: porcelain });
+        const mesh = new THREE.Mesh(geometry, material);
+        mesh.rotation.x += (Math.PI * 3) / 5;
+        mesh.name = 'isocahedron';
         isocahedron.add(mesh);
-      }
-    );
-  }
-  isocahedron.renderOrder = 2;
-  isocahedron.position.z = 0;
-  world.scene.add(isocahedron);
+      });
+    }
 
-  const animation = () => {
-    isocahedron.rotation.x += 0.01;
-    isocahedron.rotation.y += 0.02;
+    // Create the text
+    {
+      const line1 = '              Δ\n\n';
+      const line2 = "         I'm Yann\n";
+      const line3 = '      and here is a\n';
+      const line4 = 'glimpse of what I do';
+      const text = `${line1}${line2}${line3}${line4}`;
+      const loader = new THREE.FontLoader();
+      let geometry;
+      const size = 0.022;
+      // const textLength = text.length / 10;
+      // const textHeight = size / 10;
+      loader.load(
+        'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/fonts/optimer_regular.typeface.json',
+        font => {
+          geometry = new THREE.TextBufferGeometry(text, {
+            font,
+            size,
+            height: -0.08 * size,
+            curveSegments: 6
+          });
+          const materials = [
+            new THREE.MeshBasicMaterial({ color: 0x222222 }),
+            new THREE.MeshBasicMaterial({ color: 0xcccccc })
+          ];
+          const mesh = new THREE.Mesh(geometry, materials);
+          mesh.position.z = 0.32;
+
+          mesh.geometry.computeBoundingBox();
+          const textLength = Math.abs(mesh.geometry.boundingBox.max.x - mesh.geometry.boundingBox.min.x);
+          const textHeight = Math.abs(mesh.geometry.boundingBox.max.y - mesh.geometry.boundingBox.min.y);
+          mesh.position.x -= textLength / 2;
+          mesh.position.y += textHeight / 2;
+          mesh.rotation.x -= Math.PI * 0.015;
+          mesh.name = "isocahedron";
+          isocahedron.add(mesh);
+        }
+      );
+    }
+    isocahedron.renderOrder = 2;
+    isocahedron.position.z = 0;
+    world.scene.add(isocahedron);
+
+    const animation = () => {
+      isocahedron.rotation.x += 0.01;
+      isocahedron.rotation.y += 0.02;
+    };
+    const bindedAnimation = animation.bind(null, isocahedron);
   };
-  const bindedAnimation = animation.bind(null, isocahedron);
+
+  createIsocahedron();
 
   // "Intro closing" event trigger when click the intro isocahedron
   const closeIntro = event => {
