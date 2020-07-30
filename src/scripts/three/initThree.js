@@ -93,9 +93,10 @@ const initThree = (name, htmlElement, raycasterOn = false) => {
         intersects.forEach(intersect => {
           // console.log(intersect.object.eventDetails);
           const event = intersect.object.eventDetails;
-          eventCubeLegend.querySelector('.date').innerText = `${event.date} ${event.name.substring(1,6)}`;
-          eventCubeLegend.querySelector('.title').innerText = `${event.name.substring(9)} by ${event.group}`;
-          eventCubeLegend.querySelector('.place').innerText = `@ ${event.venue}`;
+          eventCubeLegend.href = event.url;
+          eventCubeLegend.querySelector('.date').innerHTML = `<i class="fas fa-clock"></i> ${event.date} ${event.name.substring(1,6)}`;
+          eventCubeLegend.querySelector('.title').innerHTML = `<i class="fas fa-calendar-day"></i> ${event.name.substring(9)} by ${event.group}`;
+          eventCubeLegend.querySelector('.place').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${event.venue}`;
           eventCubeLegend.classList.add('event-cube-legend-show');
         });
       }
