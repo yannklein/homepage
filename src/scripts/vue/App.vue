@@ -1,5 +1,5 @@
 <template>
-  <div class="cards">
+  <div class="portfolio">
     <Card
       type="vr"
       url="https://yannklein.github.io/lewagon-glasses"
@@ -139,7 +139,7 @@
       url="https://medium.com/@yann.and.the.machines/3-unusual-rules-that-broadened-my-reading-horizons-c5ddbbaf998d"
       title="My golden rule for books"
       description="3 rules that opened my mind and made me read fabulous books."
-      img="./images/books.jpg"
+      img="./images/books"
       gif="false"
       is-first=""
     ></Card>
@@ -177,7 +177,7 @@ export default {
 </script>
 
 <style scoped>
-  .cards {
+  .portfolio {
     padding: 24px 0;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -185,7 +185,7 @@ export default {
     grid-gap: 24px;
   }
 
-  .cards::before {
+  .portfolio::before {
     content: '';
     width: 0;
     padding-bottom: 100%;
@@ -194,7 +194,7 @@ export default {
   }
 
   @media (max-width: 969px) {
-    .cards {
+    .portfolio {
       grid-template-columns: 1fr 1fr;
       padding: 0;
       padding-bottom: 64px;
@@ -202,7 +202,7 @@ export default {
   }
 
   @media (max-width: 480px){
-    .cards {
+    .portfolio {
       grid-template-columns: 1fr;
       padding: 0;
       padding-bottom: 64px;
