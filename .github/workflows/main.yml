@@ -30,4 +30,5 @@ jobs:
         echo 'Build finished! 💪'
         git add .
         git commit -m "homepage deployed"
+        git push origin master
         echo 'Deployed like a rockstar 🎸'
