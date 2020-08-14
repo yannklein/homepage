@@ -15,9 +15,9 @@
         </div>
         <p>{{description}}</p>
       </div>
-      <img v-if="gif == 'true'" class="card-img-fix" v-bind:src="img" alt="project preview">
-      <img v-if="gif == 'true'" class="card-img-gif" v-bind:src="img" alt="project preview">
-      <img v-else class="card-img" v-bind:src="img" alt="project preview">
+      <div class="card-media" v-bind:style="'background-image: url('+img+'.png)'">
+        <video v-if="gif == 'true'" loop="" muted="muted" autoplay="" v-bind:src="img+'.webm'"></video>
+      </div>
     </a>
   </div>
 </template>
@@ -111,15 +111,20 @@ module.exports = {
     }
   }
 
-  .card-img-gif {
-    display: none;
+  .card-media {
+    position: relative;
+    height: 280px;
+    background-size: cover;
+    video {
+      position: absolute;
+      z-index: 2;
+      display: none;
+      height: 100%;
+      width: 100%;
+    }
   }
 
-  .card a:hover .card-img-fix {
-    display: none;
-  }
-
-  .card a:hover .card-img-gif {
+  .card a:hover .card-media video {
     display: block;
   }
 

@@ -3,7 +3,7 @@
     <Card
       type="vr"
       url="https://yannklein.github.io/lewagon-glasses"
-      img="images/lewagon-glasses.png"
+      img="images/lewagon-glasses"
       title="Le Wagon AR glasses"
       description="A WebAR experience that put Le Wagon Bootcamp logo's glasses on your nose! built with ThreeJS and JeelizAR."
       lang1="javascript"
@@ -14,7 +14,7 @@
     <Card
       type="code"
       url="https://yanns-ai.onrender.com/"
-      img="images/sushiai.png"
+      img="images/sushiai"
       title="Sushi AI 🍣"
       description="An homemade AI web and mobile App that recognizes sushis. Built with FastAI deep learning library."
       lang1="python"
@@ -26,7 +26,7 @@
     <Card
       type="vr"
       url="https://www.holobooth.dev/"
-      img="https://res.cloudinary.com/yanninthesky/video/upload/w_640,h_640,c_fill,so_0/wqz0lgbspas5no6eiwtq.png"
+      img="https://res.cloudinary.com/yanninthesky/video/upload/w_640,h_640,c_fill,so_0/wqz0lgbspas5no6eiwtq"
       title="Holobooth 👓"
       description="Create your own AR hologram from any video with ThreeJS and shaders."
       lang1="javascript"
@@ -41,7 +41,7 @@
       title="Hole in the wall"
       lang1="javascript"
       description="A WebAR experience that let you peep through an AR hole in the wall."
-      img="https://res.cloudinary.com/yanninthesky/video/upload/w_640,h_640,c_fill,so_10/e0nb0lqhs68pgpypgku4.png"
+      img="https://res.cloudinary.com/yanninthesky/video/upload/w_640,h_640,c_fill,so_10/e0nb0lqhs68pgpypgku4"
       gif="true"
       is-first=""
     ></Card>
@@ -52,7 +52,7 @@
       title="AR business card"
       lang1="javascript"
       description="An simple experiment to improve a piece of paper people sometimes exchange during mondane delicacies."
-      img="https://res.cloudinary.com/yanninthesky/video/upload/w_640,h_640,c_fill,so_0,h_540,w_540,x_275/agddb5q60vd3nvlnyljr.png"
+      img="https://res.cloudinary.com/yanninthesky/video/upload/w_640,h_640,c_fill,so_0,h_540,w_540,x_275/agddb5q60vd3nvlnyljr"
       gif="true"
       is-first=""
     ></Card>
@@ -64,7 +64,7 @@
       lang1="javascript"
       lang2="rails"
       description="An experiment that transforms a wall into a creative space to draw graffitis with WebSocket."
-      img="https://res.cloudinary.com/yanninthesky/video/upload/c_fill,so_43,h_540,w_540,x_275/zlrhhcevw2kdjsn8moap.png"
+      img="https://res.cloudinary.com/yanninthesky/video/upload/c_fill,so_43,h_540,w_540,x_275/zlrhhcevw2kdjsn8moap"
       gif="true"
       is-first=""
     ></Card>
@@ -75,7 +75,7 @@
       title="Recipes from East-Mosel"
       lang1="rails"
       description="An initiative to keep and share the cooking recipes of East Mosel."
-      img="./images/recette-moselle.png"
+      img="./images/recette-moselle"
       gif="false"
       is-first=""
     ></Card>
@@ -86,7 +86,7 @@
       title="Working in Japan"
       lang1="python"
       description="What we can learn from OECD datasets about work in Japan with a Jupyter notebook."
-      img="./images/oecd.png"
+      img="./images/oecd"
       gif="false"
       is-first=""
     ></Card>
@@ -97,7 +97,7 @@
       title="Tech2try"
       lang1="rails"
       description="Tech2try is a space to meet tech's & makers and try cool devices around you."
-      img="./images/tech2try.png"
+      img="./images/tech2try"
       gif="false"
       is-first=""
     ></Card>
@@ -108,7 +108,7 @@
       title="Line chat bot"
       lang1="ruby"
       description="A Line chatbot with visual recognition (IBM Watson API)for Le Wagon Tokyo workshop."
-      img="./images/bot.png"
+      img="./images/bot"
       gif="false"
       is-first=""
     ></Card>
@@ -119,7 +119,7 @@
       title="Q-learning AI game"
       lang1="ruby"
       description="“Get the cheese and avoid the holes” game against a Q-learning ruby AI."
-      img="/images/q-learning.png"
+      img="/images/q-learning"
       gif="false"
       is-first=""
     ></Card>
@@ -129,7 +129,7 @@
       url="https://medium.com/@yann.and.the.machines/yann-and-the-machines-50540e9ec088"
       title="Apple Watch wristband 101"
       description="The first of my, now many, leathercraft creations."
-      img="./images/apple-watch.png"
+      img="./images/apple-watch"
       gif="false"
       is-first=""
     ></Card>
@@ -149,7 +149,7 @@
       url="https://medium.com/@yann.and.the.machines/the-day-trusting-people-brought-me-to-space-6fd7e99c9642"
       title="The space balloon"
       description="The story of my endeavor to record a video of a solar eclipse from near-space."
-      img="./images/balloon.png"
+      img="./images/balloon"
       gif="false"
       is-first=""
     ></Card>
@@ -159,7 +159,7 @@
       url="https://www.babyloan.org/en/prrng___390c253dca6f222f9718c2e05d18dc8d/direct_link___57715"
       title="Babyloan micro-credit"
       description="I am helping small businesses around the world, 40 funded so far and counting!"
-      img="./images/babyloan.png"
+      img="./images/babyloan"
       gif="false"
       is-first=""
     ></Card>

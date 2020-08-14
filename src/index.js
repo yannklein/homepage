@@ -12,11 +12,11 @@ import initSideBarFilter from './scripts/sidebar';
 OfflinePluginRuntime.install();
 
 // Load GIFs only if not mobile
-if (window.innerWidth >= 480) {
-  document.querySelectorAll('.card-img-gif').forEach(cardWithGif => {
-    cardWithGif.src = cardWithGif.src.replace('png', 'gif').replace('c_fill', 'c_fill,e_loop');
-  });
-}
+// if (window.innerWidth >= 480) {
+//   document.querySelectorAll('.card-img-gif').forEach(cardWithGif => {
+//     cardWithGif.src = cardWithGif.src.replace('png', 'webm');
+//   });
+// }
 
 // Initialize ThreeJS background
 const bgElement = document.querySelector('.background');
