@@ -25,5 +25,6 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Build webpack project
       run: |
+        npm i -D webpack-merge
         yarn build
         echo 'Build finished!'
