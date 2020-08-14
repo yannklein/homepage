@@ -26,5 +26,6 @@ jobs:
     - name: Build webpack project
       run: |
         npm i -D webpack-merge
+        npm i -D mini-css-extract-plugin
         yarn build
         echo 'Build finished!'
