@@ -8,6 +8,7 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 const TerserPlugin = require('terser-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const CnameWebpackPlugin = require('cname-webpack-plugin');
 
 const common = require('./webpack.common.js');
 
@@ -69,6 +70,9 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
+    new CnameWebpackPlugin({
+      domain: 'www.yannklein.me'
+    }),
     new MiniCssExtractPlugin({
       filename: 'style.[contentHash].css',
       chunkFilename: '[id].css'
