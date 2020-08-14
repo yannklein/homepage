@@ -28,6 +28,8 @@ jobs:
         yarn install
         yarn build
         echo 'Build finished! 💪'
+        git config --global user.email "yann.klein@me.com"
+        git config --global user.name "Yann Klein"
         git add .
         git commit -m "homepage deployed"
         git push origin master
