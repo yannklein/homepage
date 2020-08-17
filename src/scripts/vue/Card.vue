@@ -107,6 +107,7 @@
     position: relative;
     height: 320px;
     background-size: cover;
+    background-position: 50% 50%;
   }
 
   video {

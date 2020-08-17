@@ -38,18 +38,18 @@ module.exports = merge(common, {
               sourceMap: true
             }
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              config: {
-                path: `${__dirname}/postcss.config.js`,
-                ctx: {
-                  env: 'production'
-                }
-              }
-            }
-          },
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     sourceMap: true,
+          //     config: {
+          //       path: `${__dirname}/postcss.config.js`,
+          //       ctx: {
+          //         env: 'production'
+          //       }
+          //     }
+          //   }
+          // },
           {
             loader: 'sass-loader',
             options: {
