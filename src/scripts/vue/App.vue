@@ -1,6 +1,17 @@
 <template>
   <div class="portfolio">
     <Card
+      type="help"
+      url="https://www.lewagon.com/blog/meet-our-team-yann"
+      img="images/meet_yann"
+      title="Teaching at Le Wagon Tokyo"
+      description="A great article about what I do in our coding bootcamp. Proud to change the life of our students every day. 🚀"
+      lang1=""
+      gif="false"
+      is-first="first"
+    ></Card>
+
+    <Card
       type="vr"
       url="https://yannklein.github.io/lewagon-glasses"
       img="images/lewagon-glasses"
@@ -8,7 +19,7 @@
       description="A WebAR experience that put Le Wagon Bootcamp logo's glasses on your nose! built with ThreeJS and JeelizAR."
       lang1="javascript"
       gif="false"
-      is-first="first"
+      is-first=""
     ></Card>
 
     <Card
