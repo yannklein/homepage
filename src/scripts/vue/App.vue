@@ -1,6 +1,17 @@
 <template>
   <div class="portfolio">
     <Card
+      type="code"
+      url="https://yannklein.github.io/yann-uikit/"
+      img="images/yannui"
+      title="My personal UI kit"
+      description="A small repository of CSS (as Vanilla as possible) practices and UI components for my projects and the one of my students."
+      lang1="javascript"
+      gif="false"
+      is-first="first"
+    ></Card>
+
+    <Card
       type="help"
       url="https://www.lewagon.com/blog/meet-our-team-yann"
       img="images/meet_yann"
@@ -8,7 +19,7 @@
       description="A great article about what I do in our coding bootcamp. Proud to change the life of our students every day. 🚀"
       lang1=""
       gif="false"
-      is-first="first"
+      is-first=""
     ></Card>
 
     <Card
