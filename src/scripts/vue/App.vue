@@ -204,19 +204,16 @@ export default {
     grid-column: 1 / 1;
   }
 
-  @media (max-width: 969px) {
+  @media (max-width: 1100px) {
     .portfolio {
       grid-template-columns: 1fr 1fr;
-      padding: 0;
-      padding-bottom: 64px;
+      padding: 32px 0;
     }
   }
 
-  @media (max-width: 480px){
+  @media (max-width: 600px){
     .portfolio {
       grid-template-columns: 1fr;
-      padding: 0;
-      padding-bottom: 64px;
     }
   }
 </style>
