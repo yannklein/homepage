@@ -27,7 +27,7 @@ let assetsToLoad = 3;
 let assetsLoaded = 0;
 
 // For small screen, there is only 2 stuffs to load
-if (window.innerWidth <= 480) {
+if (window.innerWidth <= 1100) {
   assetsToLoad = 2;
   if (mainContent) mainContent.classList.add('main-content-visible');
 }
