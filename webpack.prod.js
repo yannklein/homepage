@@ -98,7 +98,7 @@ module.exports = merge(common, {
       ]
     }),
     new FaviconsWebpackPlugin({
-      logo: './src/images/yann.jpeg',
+      logo: './src/images/logo.png',
       favicons: {
         appName: "Yann's Portfolio",
         appDescription: "I'm Yann and here is a glimpse of what I do.",
