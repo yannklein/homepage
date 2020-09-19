@@ -46,16 +46,21 @@ const onMouseMove = event => {
 window.addEventListener('mousemove', onMouseMove, false);
 
 // Function run when a main element of the page is loaded (bg, intro,..)
+const loadingElement = document.querySelector('.loading-mask');
 const fullSceneLoaded = () => {
   assetsLoaded += 1;
   if (assetsToLoad === assetsLoaded) {
     // console.log('Full loading complete!');
-    const loadingElement = document.querySelector('.loading-mask');
     if (loadingElement) {
       outroLoading(document, loadingElement);
     }
   }
 };
+
+// Get rid of loading after 5sec even if loading not finished
+setTimeout(() => {
+  loadingElement.style.display = 'none';
+}, 5000);
 
 // Initialize ThreeJS canvas
 const initThree = (name, htmlElement) => {
