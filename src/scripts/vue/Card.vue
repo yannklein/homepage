@@ -57,6 +57,7 @@
   .card-frame {
     background-color: rgba(240,240,240,0.2);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     position: relative;
     padding: 24px;
   }
