@@ -11,13 +11,6 @@ import initSideBarFilter from './scripts/sidebar';
 
 OfflinePluginRuntime.install();
 
-// Load GIFs only if not mobile
-// if (window.innerWidth >= 480) {
-//   document.querySelectorAll('.card-img-gif').forEach(cardWithGif => {
-//     cardWithGif.src = cardWithGif.src.replace('png', 'webm');
-//   });
-// }
-
 // Initialize ThreeJS background
 const bgElement = document.querySelector('.background');
 if (bgElement) {
@@ -27,7 +20,7 @@ if (bgElement) {
 // Initialize ThreeJS intro popup
 const ipElement = document.querySelector('.intro-popup');
 if (ipElement) {
-  if (window.innerWidth >= 480) {
+  if (window.innerWidth >= 1100) {
     const popupScene = initThree('introWorld', ipElement);
     addIntroPopup(ipElement, popupScene);
   } else {
