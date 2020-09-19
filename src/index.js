@@ -14,7 +14,7 @@ OfflinePluginRuntime.install();
 // Initialize ThreeJS background
 const bgElement = document.querySelector('.background');
 if (bgElement) {
-  const bgWorld = initThree('backgroundWorld', bgElement, true);
+  const bgWorld = initThree('backgroundWorld', bgElement);
   addBackground(bgElement, bgWorld);
 }
 // Initialize ThreeJS intro popup

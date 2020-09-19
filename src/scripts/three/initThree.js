@@ -26,6 +26,9 @@ if (eventLegend) eventLegend.classList.remove('event-cube-legend-show');
 let assetsToLoad = 3;
 let assetsLoaded = 0;
 
+// Variable disabling/enabling raycast
+let raycasterOn = false;
+
 // For small screen, there is only 2 stuffs to load
 if (window.innerWidth <= 1100) {
   assetsToLoad = 2;
@@ -55,7 +58,7 @@ const fullSceneLoaded = () => {
 };
 
 // Initialize ThreeJS canvas
-const initThree = (name, htmlElement, raycasterOn = false) => {
+const initThree = (name, htmlElement) => {
   const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 10);
   camera.position.z = 1;
 
@@ -184,6 +187,7 @@ const addBackground = (htmlElement, world) => {
       // Show hide background
       mainContent.classList.toggle('main-content-visible');
       bgLegend.classList.toggle('background-legend-show');
+      raycasterOn = !raycasterOn;
     };
 
     htmlElement.addEventListener('click', showHideBackground);
