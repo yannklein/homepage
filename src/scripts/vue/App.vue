@@ -2,13 +2,36 @@
   <div class="portfolio">
     <Card
       type="code"
+      url="https://career-journey.herokuapp.com/"
+      img="images/career-journey"
+      title="Le Wagon Tokyo Career Journey"
+      description="An app to boost our LW student's post-bootcamp career. Powered by GraphQL/Apollo/VueJS."
+      lang1="rails"
+      lang2="vue"
+      gif="false"
+      is-first="first"
+    ></Card>
+
+    <Card
+      type="code"
+      url="https://www.satsuki.style/"
+      img="images/satsuki-style"
+      title="Satsuki's eyelash art portfolio"
+      description="A simple portfolio app connected to Instagram."
+      lang1="javascript"
+      gif="false"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="code"
       url="https://yannklein.github.io/yann-uikit/"
       img="images/yannui"
       title="My personal UI kit"
       description="A small repository of CSS (as Vanilla as possible) practices and UI components for my projects and the one of my students."
       lang1="javascript"
       gif="false"
-      is-first="first"
+      is-first=""
     ></Card>
 
     <Card
