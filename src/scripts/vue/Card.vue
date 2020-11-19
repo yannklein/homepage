@@ -39,7 +39,8 @@
     python: 'devicon-python-plain',
     javascript: 'devicon-javascript-plain',
     react: 'devicon-react-original',
-    ruby: 'devicon-ruby-plain'
+    ruby: 'devicon-ruby-plain',
+    vue: 'devicon-vuejs-plain'
   };
 
   module.exports = {
