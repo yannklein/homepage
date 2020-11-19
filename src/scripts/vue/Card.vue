@@ -40,7 +40,7 @@
     javascript: 'devicon-javascript-plain',
     react: 'devicon-react-original',
     ruby: 'devicon-ruby-plain',
-    vue: 'devicon-vuejs-plain'
+    vue: 'devicon-vuejs-line-wordmark'
   };
 
   module.exports = {
