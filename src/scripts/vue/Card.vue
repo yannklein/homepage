@@ -15,8 +15,14 @@
         </div>
         <p>{{description}}</p>
       </div>
-      <div class="media" v-bind:style="'background-image: url('+img+'.png)'">
-        <video v-if="gif == 'true'" loop="" muted="muted" autoplay="" v-bind:src="img+'.webm'"></video>
+      <div v-if="gif == 'true'">
+        <div class="media" v-bind:style="'background-image: url(https://res.cloudinary.com/yanninthesky/video/upload/'+img+'.webp)'">
+          <video loop="" muted="muted" autoplay="" v-bind:src="'https://res.cloudinary.com/yanninthesky/video/upload/'+img+'.webm'"></video>
+        </div>
+      </div>
+      <div v-else>
+        <div class="media" v-bind:style="'background-image: url(https://res.cloudinary.com/yanninthesky/image/upload/yannklein.me/'+img+'.webp)'">
+        </div>
       </div>
     </a>
   </div>
@@ -40,7 +46,7 @@
     javascript: 'devicon-javascript-plain',
     react: 'devicon-react-original',
     ruby: 'devicon-ruby-plain',
-    vue: 'devicon-vuejs-line-wordmark'
+    vue: 'devicon-vuejs-plain'
   };
 
   module.exports = {
