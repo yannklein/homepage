@@ -5,7 +5,7 @@
       url="https://career-journey.herokuapp.com/"
       img="career-journey_c1xrfe"
       title="Le Wagon Tokyo Career Journey"
-      description="An app to boost our LW student's post-bootcamp career. Powered by GraphQL/Apollo/VueJS."
+      description="An app to boost our LW student's post-bootcamp career. (Rails/GraphQL/Vue)"
       lang1="rails"
       lang2="vue"
       gif="false"
