@@ -47,7 +47,7 @@
 
     <Card
       type="vr"
-      url="https://yannklein.github.io/lewagon-glasses"
+      url="https://yannklein.github.io/lewagon-glasses-v2"
       img="lewagon-glasses_kvq0eg"
       title="Le Wagon AR glasses"
       description="A WebAR experience that put Le Wagon Bootcamp logo's glasses on your nose! built with ThreeJS and JeelizAR."
