@@ -16,12 +16,12 @@
         <p>{{description}}</p>
       </div>
       <div v-if="gif == 'true'">
-        <div class="media" v-bind:style="'background-image: url(https://res.cloudinary.com/yanninthesky/video/upload/'+img+'.webp)'">
+        <div class="media" v-bind:style="clBackgroundImage('video/upload')">
           <video loop="" muted="muted" autoplay="" v-bind:src="'https://res.cloudinary.com/yanninthesky/video/upload/'+img+'.webm'"></video>
         </div>
       </div>
       <div v-else>
-        <div class="media" v-bind:style="clBackgroundImage('image')">
+        <div class="media" v-bind:style="clBackgroundImage('image/upload/yannklein.me')">
         </div>
       </div>
     </a>
@@ -62,7 +62,7 @@
         return (/iPad/i.test(navigator.userAgent));
       },
       clBackgroundImage(type) {
-        return `background-image: url(https://res.cloudinary.com/yanninthesky/${type}/upload/yannklein.me/${this.img}${this.isPad() ? '.png' : '.webp'})`
+        return `background-image: url(https://res.cloudinary.com/yanninthesky/${type}/${this.img}${this.isPad() ? '.png' : '.webp'})`
       }
     }
   }
