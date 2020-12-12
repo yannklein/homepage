@@ -21,7 +21,7 @@
         </div>
       </div>
       <div v-else>
-        <div class="media" v-bind:style="'background-image: url(https://res.cloudinary.com/yanninthesky/image/upload/yannklein.me/'+img+'.webp)'">
+        <div class="media" v-bind:style="clBackgroundImage('image')">
         </div>
       </div>
     </a>
@@ -55,6 +55,14 @@
       return {
         icons: icons,
         langIcons: langIcons
+      }
+    },
+    methods: {
+      isPad() {
+        return (/iPad/i.test(navigator.userAgent));
+      },
+      clBackgroundImage(type) {
+        return `background-image: url(https://res.cloudinary.com/yanninthesky/${type}/upload/yannklein.me/${this.img}${this.isPad() ? '.png' : '.webp'})`
       }
     }
   }
