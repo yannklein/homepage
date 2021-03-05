@@ -1,9 +1,11 @@
 const fetchGithubActivity = (username, day, action) => {
-  let url = `https://gh-contrib-api.herokuapp.com/${username}/count`;
+  const url = `https://gh-contrib-api-scraper.herokuapp.com/${username}?format=nested`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      const activity = Number.parseInt(data.data[day.getFullYear()][day.getMonth() + 1][day.getDate()], 10);
+      const ghActivityData =
+        data.contributions.contributions[day.getFullYear()][day.getMonth() + 1][day.getDate()];
+      const activity = Number.parseInt(ghActivityData.count, 10);
       action(activity);
     });
 };
