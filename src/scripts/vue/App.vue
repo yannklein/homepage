@@ -58,7 +58,7 @@
 
     <Card
       type="code"
-      url="https://yanns-ai.onrender.com/"
+      url="https://github.com/yannklein/sushi-ai-backend"
       img="sushiai_epx84g"
       title="Sushi AI 🍣"
       description="An homemade AI web and mobile App that recognizes sushis. Built with FastAI deep learning library."
