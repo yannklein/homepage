@@ -120,6 +120,6 @@ module.exports = merge(common, {
   ],
   output: {
     filename: '[name].[contentHash].js',
-    path: path.resolve(__dirname, 'docs')
+    path: path.resolve(__dirname, 'dist')
   }
 });
