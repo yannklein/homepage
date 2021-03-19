@@ -1,6 +1,6 @@
 <template>
   <div v-bind:class="'card-'+type+' '+isFirst+' card-frame'">
-    <a v-bind:href="url">
+    <a v-bind:href="url" target="_blank">
       <div class="header">
         <div class="title">
           <h2>{{title}}</h2>
