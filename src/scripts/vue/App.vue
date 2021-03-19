@@ -2,6 +2,30 @@
   <div class="portfolio">
     <Card
       type="code"
+      url="https://yannklein.github.io/japan-pictograms/"
+      img="jp-picto_horpv9"
+      title="Japan pictograms icon font"
+      description="An icon font providing the pictograms of Experience Japan Pictograms, for your website."
+      lang1="ruby"
+      lang2="javascript"
+      gif="false"
+      is-first="first"
+    ></Card>
+
+    <Card
+      type="vr"
+      url="https://github.com/yannklein/arjs-webpack-boilerplate"
+      img="arjs_z5lbxs"
+      title="AR.js Webpack 5 boilerplate"
+      description="A boilerplate combining ThreeJS, ARjs and Webpack5 to build Web AR apps."
+      lang1="javascript"
+      lang2=""
+      gif="false"
+      is-first=""
+    ></Card>
+
+    <Card
+      type="code"
       url="https://career-journey.herokuapp.com/"
       img="career-journey_c1xrfe"
       title="Le Wagon Tokyo Career Journey"
@@ -9,7 +33,7 @@
       lang1="rails"
       lang2="vue"
       gif="false"
-      is-first="first"
+      is-first=""
     ></Card>
 
     <Card
