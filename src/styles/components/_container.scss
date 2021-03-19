@@ -1,0 +1,10 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@include respond-to('mobile') {
+  .container {
+    width: 90%;
+  }
+}
