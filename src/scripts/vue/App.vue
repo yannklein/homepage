@@ -1,31 +1,40 @@
 <template>
-  <div class="portfolio">
-    <Card v-for="project in projects"
-      :key="project.url"
-      :type="project.type"
-      :url="project.url"
-      :img="project.img"
-      :title="project.title"
-      :description="project.description"
-      :lang1="project.lang1"
-      :lang2="project.lang2"
-      :gif="project.gif"
-    ></Card>
+  <div class="main-content main-content-visible">
+    <SideBar></SideBar>
+    <div class="container">
+      <div class="portfolio">
+        <Card v-for="project in projects"
+          :key="project.url"
+          :type="project.type"
+          :url="project.url"
+          :img="project.img"
+          :title="project.title"
+          :description="project.description"
+          :lang1="project.lang1"
+          :lang2="project.lang2"
+          :gif="project.gif"
+        ></Card>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Card from './Card.vue'
+import SideBar from './SideBar.vue'
 
 export default {
   props: ['projects'],
   components: {
-    Card
+    Card,
+    SideBar
   }
 }
 </script>
 
 <style scoped>
+  @import "../../styles/utils/mixins";
+
   .portfolio {
     padding: 24px 0;
     display: grid;
@@ -45,6 +54,17 @@ export default {
   .portfolio .card-frame:first-child {
     grid-row: 1 / 1;
     grid-column: 1 / 1;
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  @include respond-to('mobile') {
+    .container {
+      width: 90%;
+    }
   }
 
   @media (max-width: 1100px) {
