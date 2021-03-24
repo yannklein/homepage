@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="'card-'+type+' '+isFirst+' card-frame'">
+  <div v-bind:class="'card-'+type+' card-frame'">
     <a v-bind:href="url" target="_blank">
       <div class="header">
         <div class="title">
@@ -50,7 +50,7 @@
   };
 
   module.exports = {
-    props: ['type', 'url', 'img', 'title', 'description', 'lang1', 'lang2', 'lang3', 'gif', 'isFirst'],
+    props: ['type', 'url', 'img', 'title', 'description', 'lang1', 'lang2', 'lang3', 'gif'],
     data: () => {
       return {
         icons: icons,
@@ -137,11 +137,6 @@
 
   a:hover video {
     display: block;
-  }
-
-  .first {
-    grid-row: 1 / 1;
-    grid-column: 1 / 1;
   }
 
   @media (max-width: 969px) {
