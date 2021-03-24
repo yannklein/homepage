@@ -30,7 +30,7 @@
 
 <script>
 
-  require.context('../../images', false, /\.(jpe?g|png|gif)$/);
+  require.context('../../assets', false, /\.(jpe?g|png|gif)$/);
 
   const icons = {
     vr: 'fa-vr-cardboard',
