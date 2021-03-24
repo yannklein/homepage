@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-import starship from '../../images/starship/scene.gltf';
+import starship from '../../assets/starship/scene.gltf';
 // starshipBin needed for webpack to take the bin into account
-import starshipBin from '../../images/starship/scene.bin';
+import starshipBin from '../../assets/starship/scene.bin';
 
 import { getCountry, getUTCOffset } from '../locationInfo';
 

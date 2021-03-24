@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import porcelainImg from '../../images/matcap-porcelain-white.jpg';
+import porcelainImg from '../../assets/matcap-porcelain-white.jpg';
 
 const createIsocahedron = (world, htmlElement, manager, mainContent) => {
   const isocahedron = new THREE.Group();

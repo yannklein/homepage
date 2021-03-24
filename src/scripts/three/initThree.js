@@ -4,7 +4,7 @@ import fetchGithubActivity from '../github_activity';
 import { fetchTokyoEvents } from '../tokyo-events';
 import outroLoading from '../loading';
 
-import porcelainImg from '../../images/matcap-porcelain-white.jpg';
+import porcelainImg from '../../assets/matcap-porcelain-white.jpg';
 
 import { createSpaceShip } from './spaceship';
 import { createTimeSpheres } from './time-spheres';
