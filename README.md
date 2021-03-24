@@ -1,7 +1,4 @@
-<!-- markdownlint-disable MD001 -->
-<!-- markdownlint-disable MD033 -->
-
-# Yann'sportfolio
+# Yann's portfolio
 
 Watch it [here](https://www.yannklein.me)
 
