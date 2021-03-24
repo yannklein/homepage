@@ -28,8 +28,8 @@ module.exports = {
             options: {
               esModule: false,
               name: '[name].[ext]',
-              outputPath: 'images/',
-              publicPath: '/images/'
+              outputPath: 'assets/',
+              publicPath: '/assets/'
             }
           }
         ]
