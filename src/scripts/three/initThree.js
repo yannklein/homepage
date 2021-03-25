@@ -207,7 +207,7 @@ const addIntroPopup = (htmlElement, world) => {
     fullSceneLoaded();
   };
   // Create invisible wall
-  const geometry = new THREE.CubeGeometry(1, 1, 1);
+  const geometry = new THREE.BoxGeometry(1, 1, 1);
   const material = new THREE.MeshPhongMaterial({ color: 0xff0000, colorWrite: false });
   const wall = new THREE.Mesh(geometry, material);
   wall.renderOrder = 1;

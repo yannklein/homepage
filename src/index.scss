@@ -1,5 +1,4 @@
 //! css framework
-// @import "../node_modules/bulma/bulma";
 @import url(https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css);
 
 //! utilities
@@ -21,7 +20,4 @@
 //! components
 @import "./styles/components/background";
 @import "./styles/components/introPopup";
-// @import "./styles/components/card";
-// @import "./styles/components/container";
-// @import "./styles/components/sidebar";
 @import "./styles/components/loading";
