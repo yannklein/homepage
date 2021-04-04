@@ -19,19 +19,24 @@ const initSideBarFilter = sidebarLeft => {
     iconElmt.addEventListener('click', event => {
       event.preventDefault();
       // Hide all the cards
-      document.querySelector('.first').classList.remove('first');
-      cards.forEach(card => card.style.display = 'none');
+      cards.forEach(card => {
+        card.style.display = 'none';
+        card.classList.remove('visible');
+      });
       // If the current filter is the one clicked show all
       if (currentFilter === iconName) {
-        cards.forEach(card => card.style.display = 'block');
-        cards[0].classList.add('first');
+        cards.forEach(card => {
+          card.style.display = 'block';
+          card.classList.add('visible');
+        });
         currentFilter = 'all';
       }
       // Only show the targetted cards
       else if (targetCards[0]) {
-        targetCards.forEach(card => card.style.display = 'block');
-        // Redine the first card of the grid
-        targetCards[0].classList.add('first');
+        targetCards.forEach(card => {
+          card.style.display = 'block';
+          card.classList.add('visible');
+        });
         // Update the current filter status
         currentFilter = iconName;
       }

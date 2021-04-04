@@ -51,9 +51,14 @@ export default {
     grid-column: 1 / 1;
   }
 
-  .portfolio .card-frame:first-child {
+  .card-frame.visible {
     grid-row: 1 / 1;
     grid-column: 1 / 1;
+  }
+
+  .card-frame.visible ~ .card-frame.visible {
+    grid-row: unset;
+    grid-column: unset;
   }
 
   .container {

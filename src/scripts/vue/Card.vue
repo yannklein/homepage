@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="'card-'+type+' card-frame'">
+  <div v-bind:class="'card-'+type+' card-frame visible'">
     <a v-bind:href="url" target="_blank">
       <div class="header">
         <div class="title">
