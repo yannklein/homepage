@@ -1,5 +1,15 @@
 [
   {
+    "type": "help",
+    "url": "https://the-angels-share.web.app/",
+    "img": "angels-share_mxb3p1",
+    "title": "The Angel's Share",
+    "description": "A no-commitment, easy way to help others.",
+    "lang1": "firebase",
+    "lang2": "svelte",
+    "gif": "false"
+  },
+  {
     "type": "code",
     "url": "https://yannklein.github.io/japan-pictograms/",
     "img": "jp-picto_horpv9",

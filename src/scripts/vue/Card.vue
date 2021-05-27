@@ -41,12 +41,14 @@
   };
 
   const langIcons = {
-    rails: 'devicon-rails-plain-wordmark',
+    rails: 'devicon-rails-plain',
     python: 'devicon-python-plain',
     javascript: 'devicon-javascript-plain',
     react: 'devicon-react-original',
     ruby: 'devicon-ruby-plain',
-    vue: 'devicon-vuejs-plain'
+    vue: 'vuejs-icon',
+    firebase: 'devicon-firebase-plain',
+    svelte: 'svelte-icon'
   };
 
   module.exports = {
@@ -69,6 +71,30 @@
 </script>
 
 <style scoped>
+  .svelte-icon {
+    width: 1em;
+    height: 1em;
+    filter: grayscale(1);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg');
+  }
+  .svelte-icon:before {
+    content: "　";
+  }
+
+  .vuejs-icon {
+    width: 1em;
+    height: 1em;
+    filter: grayscale(1);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1920px-Vue.js_Logo_2.svg.png');
+  }
+  .vuejs-icon:before {
+    content: "　";
+  }
+
   .card-frame {
     background-color: rgba(240,240,240,0.2);
     backdrop-filter: blur(4px);
