@@ -79,6 +79,7 @@
     background-repeat: no-repeat;
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg');
   }
+  
   .svelte-icon:before {
     content: "　";
   }
