@@ -50,11 +50,12 @@
   },
   {
     "type": "code",
-    "url": "https://yannklein.github.io/yann-uikit/",
+    "url": "https://yannklein.github.io/yann-uikit-svelte/",
     "img": "yannui_lhxacd",
     "title": "My personal UI kit",
     "description": "A small repository of CSS (as Vanilla as possible) practices and UI components for my projects and the one of my students.",
     "lang1": "javascript",
+    "lang2": "svelte",
     "gif": "false"
   },
   {
