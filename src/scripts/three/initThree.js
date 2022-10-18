@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import fetchGithubActivity from '../github_activity';
-import { fetchTokyoEvents } from '../tokyo-events';
+import fetchTokyoEvents from '../tokyo-events';
 import outroLoading from '../loading';
 
 import porcelainImg from '../../assets/matcap-porcelain-white.jpg';
@@ -102,9 +102,13 @@ const initThree = (name, htmlElement) => {
           // console.log(intersect.object.eventDetails);
           const event = intersect.object.eventDetails;
           eventCubeLegend.href = event.url;
-          eventCubeLegend.querySelector('.date').innerHTML = `<i class="fas fa-clock"></i> ${event.date} ${event.name.substring(1,6)}`;
-          eventCubeLegend.querySelector('.title').innerHTML = `<i class="fas fa-calendar-day"></i> ${event.name.substring(9)} by ${event.group}`;
-          eventCubeLegend.querySelector('.place').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${event.venue}`;
+          const date = `<i class="fas fa-clock"></i> ${event.date} ${event.name.substring(1, 6)}`;
+          const title = `<i class="fas fa-calendar-day"></i>
+            ${event.name.substring(9)} by ${event.group}`;
+          const place = `<i class="fas fa-map-marker-alt"></i> ${event.venue}`;
+          eventCubeLegend.querySelector('.date').innerHTML = date;
+          eventCubeLegend.querySelector('.title').innerHTML = title;
+          eventCubeLegend.querySelector('.place').innerHTML = place;
           eventCubeLegend.classList.add('event-cube-legend-show');
         });
       }
@@ -170,8 +174,8 @@ const addBackground = (htmlElement, world) => {
     fetchTokyoEvents(bindedCreateEventCubes);
 
     fetchGithubActivity(username, new Date(), activity => {
-      if (activity < 3) activity = 3;
-      const geometry = new THREE.TorusBufferGeometry(0.3, 0.04, 16, activity);
+      const edges = activity < 3 ? 3 : activity;
+      const geometry = new THREE.TorusBufferGeometry(0.3, 0.04, 16, edges);
       const mesh = new THREE.Mesh(geometry, material);
       bgMeshes.add(mesh);
       mesh.rotation.x = -Math.PI / 4;

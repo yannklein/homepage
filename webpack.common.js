@@ -9,7 +9,6 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-  mode: 'production',
   entry: {
     main: './src/index.js'
   },
@@ -86,6 +85,7 @@ module.exports = {
     }),
     new PreloadWebpackPlugin({
       rel: 'preload',
+      // eslint-disable-next-line consistent-return
       as(entry) {
         if (/\.(woff|woff2|ttf|otf)$/.test(entry)) return 'font';
       },
