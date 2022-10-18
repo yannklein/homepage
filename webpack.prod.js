@@ -121,5 +121,10 @@ module.exports = merge(common, {
   output: {
     filename: '[name].[contentHash].js',
     path: path.resolve(__dirname, 'dist')
+  },
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.min.js'
+    }
   }
 });
