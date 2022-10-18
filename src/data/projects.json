@@ -78,7 +78,7 @@
   },
   {
     "type": "code",
-    "url": "https://sushi-ai-container-qbiqt2iskq-ew.a.run.app/",
+    "url": "https://github.com/yannklein/sushi-ai",
     "img": "sushiai_epx84g",
     "title": "Sushi AI 🍣",
     "description": "An homemade AI web and mobile App that recognizes sushis. Built with FastAI deep learning library.",
