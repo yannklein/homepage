@@ -88,7 +88,7 @@
   },
   {
     "type": "vr",
-    "url": "https://www.holobooth.dev/",
+    "url": "https://holo-booth.herokuapp.com/",
     "img": "w_640,h_640,c_fill,so_0/wqz0lgbspas5no6eiwtq",
     "title": "Holobooth 👓",
     "description": "Create your own AR hologram from any video with ThreeJS and shaders.",
