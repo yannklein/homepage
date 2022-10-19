@@ -68,7 +68,7 @@ module.exports = {
     new CopyPlugin([
       {
         from: path.resolve(__dirname, 'src', 'robots.txt'),
-        to: path.resolve(__dirname, 'docs', 'robots.txt')
+        to: path.resolve(__dirname, 'dist', 'robots.txt')
       }
     ]),
     new HtmlWebpackPlugin({
