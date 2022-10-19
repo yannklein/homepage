@@ -8,6 +8,7 @@ import './scripts/vue/index';
 
 import { initThree, addBackground, addIntroPopup } from './scripts/three/initThree';
 import initSideBarFilter from './scripts/sidebar';
+import talkToDevs from './scripts/devTalk';
 
 OfflinePluginRuntime.install();
 
@@ -33,3 +34,6 @@ const sidebarLeft = document.querySelector('.sidebar-left');
 if (sidebarLeft) {
   initSideBarFilter(sidebarLeft);
 }
+
+// Talk to the dev
+talkToDevs();
