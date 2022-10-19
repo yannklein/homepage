@@ -7,7 +7,7 @@ const formatEventArray = data => {
 };
 
 const fetchTokyoEvents = callback => {
-  const url = 'https://tokyo-events.fly.dev/api';
+  const url = 'https://tokyo-events.onrender.com/api';
   fetch(url)
     .then(response => response.json())
     .then(data => {
