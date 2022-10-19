@@ -5,7 +5,7 @@
     "img": "selfie_lkcpmg",
     "title": "Coding Tutorial",
     "description": "How to build a selfie feature on your Rails app with Cloudinary",
-    "lang1": "ruby",
+    "lang1": "rails",
     "lang2": "javascript",
     "gif": "false"
   },
@@ -35,7 +35,7 @@
     "img": "kanban_ksnipo",
     "title": "Coding Tutorial",
     "description": "Build a drag-n-drop kanban board on Rails with SortableJS",
-    "lang1": "ruby",
+    "lang1": "rails",
     "lang2": "javascript",
     "gif": "false"
   },
@@ -74,7 +74,7 @@
     "img": "video-recording_kjsjtw",
     "title": "Coding Tutorial",
     "description": "How to build a video record feature on your Rails app with Cloudinary",
-    "lang1": "ruby",
+    "lang1": "rails",
     "lang2": "javascript",
     "gif": "false"
   },
@@ -213,14 +213,6 @@
     "title": "My golden rule for books",
     "description": "3 rules that opened my mind and made me read fabulous books.",
     "img": "books_ygqdgi",
-    "gif": "false"
-  },
-  {
-    "type": "maker",
-    "url": "https://medium.com/@yann.and.the.machines/the-day-trusting-people-brought-me-to-space-6fd7e99c9642",
-    "title": "The space balloon",
-    "description": "The story of my endeavor to record a video of a solar eclipse from near-space.",
-    "img": "balloon_ayv2p5",
     "gif": "false"
   },
   {
