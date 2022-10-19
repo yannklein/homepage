@@ -2,6 +2,7 @@
   <div class="main-content main-content-visible">
     <SideBar></SideBar>
     <div class="container">
+      <Intro></Intro>
       <div class="portfolio">
         <Card v-for="project in projects"
           :key="project.url"
@@ -22,12 +23,14 @@
 <script>
 import Card from './Card.vue'
 import SideBar from './SideBar.vue'
+import Intro from './Intro.vue'
 
 export default {
   props: ['projects'],
   components: {
     Card,
-    SideBar
+    SideBar,
+    Intro
   }
 }
 </script>
