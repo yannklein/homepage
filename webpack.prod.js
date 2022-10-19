@@ -70,9 +70,9 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    new CnameWebpackPlugin({
-      domain: 'www.yannklein.me'
-    }),
+    // new CnameWebpackPlugin({
+    //   domain: 'www.yannklein.me'
+    // }),
     new MiniCssExtractPlugin({
       filename: 'style.[contentHash].css',
       chunkFilename: '[id].css'
