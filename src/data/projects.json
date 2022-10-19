@@ -1,5 +1,15 @@
 [
   {
+    "type": "code",
+    "url": "https://medium.com/@yann.and.the.machines/tutorial-how-to-build-a-selfie-feature-on-your-rails-app-with-cloudinary-97407b72a203",
+    "img": "selfie_lkcpmg",
+    "title": "Coding Tutorial",
+    "description": "How to build a selfie feature on your Rails app with Cloudinary",
+    "lang1": "ruby",
+    "lang2": "javascript",
+    "gif": "false"
+  },
+  {
     "type": "help",
     "url": "https://the-angels-share.web.app/",
     "img": "angels-share_mxb3p1",
@@ -15,6 +25,16 @@
     "img": "jp-picto_horpv9",
     "title": "Japan pictograms icon font",
     "description": "An icon font providing the pictograms of Experience Japan Pictograms, for your website.",
+    "lang1": "ruby",
+    "lang2": "javascript",
+    "gif": "false"
+  },
+  {
+    "type": "code",
+    "url": " https://medium.com/le-wagon-tokyo/tutorial-build-a-drag-n-drop-kanban-board-on-rails-with-sortablejs-c6affa5642cf",
+    "img": "kanban_ksnipo",
+    "title": "Coding Tutorial",
+    "description": "Build a drag-n-drop kanban board on Rails with SortableJS",
     "lang1": "ruby",
     "lang2": "javascript",
     "gif": "false"
@@ -46,6 +66,16 @@
     "title": "Satsuki's eyelash art portfolio",
     "description": "A simple portfolio app connected to Instagram.",
     "lang1": "javascript",
+    "gif": "false"
+  },
+  {
+    "type": "code",
+    "url": "https://medium.com/le-wagon-tokyo/how-to-build-a-video-record-feature-on-your-rails-app-with-cloudinary-b31e592a8e76",
+    "img": "video-recording_kjsjtw",
+    "title": "Coding Tutorial",
+    "description": "How to build a video record feature on your Rails app with Cloudinary",
+    "lang1": "ruby",
+    "lang2": "javascript",
     "gif": "false"
   },
   {
@@ -183,6 +213,14 @@
     "title": "My golden rule for books",
     "description": "3 rules that opened my mind and made me read fabulous books.",
     "img": "books_ygqdgi",
+    "gif": "false"
+  },
+  {
+    "type": "maker",
+    "url": "https://medium.com/@yann.and.the.machines/the-day-trusting-people-brought-me-to-space-6fd7e99c9642",
+    "title": "The space balloon",
+    "description": "The story of my endeavor to record a video of a solar eclipse from near-space.",
+    "img": "balloon_ayv2p5",
     "gif": "false"
   },
   {
