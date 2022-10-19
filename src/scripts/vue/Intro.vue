@@ -45,10 +45,11 @@
 
 <style lang="scss" scoped>
   .intro-card {
-    padding: 80px 15%;
+    padding: 80px 16%;
     background-color: rgba(240, 240, 240, 0.3);
     backdrop-filter: blur(8px);
     line-height: 1.5em;
+    text-align: justify;
   }
   .intro-card-frame {
     padding-top: 24px;
