@@ -49,6 +49,7 @@
     backdrop-filter: blur(8px);
     line-height: 1.5em;
     text-align: justify;
+    position: relative;
   }
   .intro-card-frame {
     padding-top: 24px;
