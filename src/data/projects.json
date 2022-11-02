@@ -10,23 +10,23 @@
     "gif": "false"
   },
   {
-    "type": "help",
-    "url": "https://the-angels-share.web.app/",
-    "img": "angels-share_mxb3p1",
-    "title": "The Angel's Share",
-    "description": "A no-commitment, easy way to help others.",
-    "lang1": "firebase",
-    "lang2": "svelte",
+    "type": "vr",
+    "url": "https://github.com/yannklein/arjs-webpack-boilerplate",
+    "img": "arjs_z5lbxs",
+    "title": "AR.js Webpack 5 boilerplate",
+    "description": "A boilerplate combining ThreeJS, ARjs and Webpack5 to build Web AR apps.",
+    "lang1": "javascript",
+    "lang2": "",
     "gif": "false"
   },
   {
     "type": "code",
-    "url": "https://yannklein.github.io/japan-pictograms/",
-    "img": "jp-picto_horpv9",
-    "title": "Japan pictograms icon font",
-    "description": "An icon font providing the pictograms of Experience Japan Pictograms, for your website.",
-    "lang1": "ruby",
-    "lang2": "javascript",
+    "url": "https://marketplace.visualstudio.com/items?itemName=yannklein.stimulusjs-snippets",
+    "img": "stimulus_tuto8i",
+    "title": "StimulusJS Snippets",
+    "description": "VS code extension providing a set of code snippets for StimulusJS.",
+    "lang1": "javascript",
+    "lang2": "rails",
     "gif": "false"
   },
   {
@@ -40,13 +40,13 @@
     "gif": "false"
   },
   {
-    "type": "vr",
-    "url": "https://github.com/yannklein/arjs-webpack-boilerplate",
-    "img": "arjs_z5lbxs",
-    "title": "AR.js Webpack 5 boilerplate",
-    "description": "A boilerplate combining ThreeJS, ARjs and Webpack5 to build Web AR apps.",
-    "lang1": "javascript",
-    "lang2": "",
+    "type": "help",
+    "url": "https://the-angels-share.web.app/",
+    "img": "angels-share_mxb3p1",
+    "title": "The Angel's Share",
+    "description": "A no-commitment, easy way to help others.",
+    "lang1": "firebase",
+    "lang2": "svelte",
     "gif": "false"
   },
   {
