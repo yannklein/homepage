@@ -31,6 +31,16 @@
   },
   {
     "type": "code",
+    "url": "https://yannklein.github.io/japan-pictograms/",
+    "img": "jp-picto_horpv9",
+    "title": "Japan pictograms icon font",
+    "description": "An icon font providing the pictograms of Experience Japan Pictograms, for your website.",
+    "lang1": "ruby",
+    "lang2": "javascript",
+    "gif": "false"
+  },
+  {
+    "type": "code",
     "url": " https://medium.com/le-wagon-tokyo/tutorial-build-a-drag-n-drop-kanban-board-on-rails-with-sortablejs-c6affa5642cf",
     "img": "kanban_ksnipo",
     "title": "Coding Tutorial",
