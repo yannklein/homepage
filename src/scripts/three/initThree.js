@@ -6,10 +6,11 @@ import outroLoading from '../loading';
 
 import porcelainImg from '../../assets/matcap-porcelain-white.jpg';
 
-import { createSpaceShip } from './spaceship';
-import { createTimeSpheres } from './time-spheres';
-import { createEventCubes } from './event-cubes';
-import { createIsocahedron } from './isocahedron';
+import createSpaceShip from './spaceship';
+import createTimeSpheres from './time-spheres';
+import createEventCubes from './event-cubes';
+import createIsocahedron from './isocahedron';
+import createTorus from './torus';
 
 // GH username
 const username = 'yannklein';
@@ -175,18 +176,7 @@ const addBackground = (htmlElement, world) => {
 
     fetchGithubActivity(username, new Date(), activity => {
       const edges = activity < 3 ? 3 : activity;
-      const geometry = new THREE.TorusBufferGeometry(0.3, 0.04, 16, edges);
-      const mesh = new THREE.Mesh(geometry, material);
-      bgMeshes.add(mesh);
-      mesh.rotation.x = -Math.PI / 4;
-      mesh.rotation.y = -Math.PI / 4;
-
-      const animation = () => {
-        // ship.rotation .x = -0.2 * Math.cos(position * Math.PI - Math.PI / 2);
-        mesh.rotation.z += 0.001;
-      };
-      const bindedAnimation = animation.bind(null, mesh);
-      world.animationQueue.push(bindedAnimation);
+      createTorus(edges, material, bgMeshes, world);
     });
 
     world.scene.add(bgMeshes);

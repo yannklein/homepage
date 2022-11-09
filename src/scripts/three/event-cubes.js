@@ -12,7 +12,7 @@ const formatEvents = eventObject => {
   });
 };
 
-const createEventCubes = (eventObject, material, world, bgMeshes) => {
+export default (eventObject, material, world, bgMeshes) => {
   const spheresConfig = formatEvents(eventObject);
   const group = new THREE.Group();
   group.name = 'eventCubesGroup';
@@ -44,5 +44,3 @@ const createEventCubes = (eventObject, material, world, bgMeshes) => {
   });
   bgMeshes.add(group);
 };
-
-export { createEventCubes };

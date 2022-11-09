@@ -3,11 +3,11 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 import starship from '../../assets/starship/scene.gltf';
 // starshipBin needed for webpack to take the bin into account
-import starshipBin from '../../assets/starship/scene.bin';
+// import starshipBin from '../../assets/starship/scene.bin';
 
-import { getCountry, getUTCOffset } from '../locationInfo';
+import { getCountry } from '../locationInfo';
 
-const createSpaceShip = (username, textureLoader, porcelainMat, bgMeshes, world) => {
+export default (username, textureLoader, porcelainMat, bgMeshes, world) => {
   // Load 3D object
   const ship = new THREE.Group();
   const loader = new GLTFLoader();
@@ -16,6 +16,7 @@ const createSpaceShip = (username, textureLoader, porcelainMat, bgMeshes, world)
     gltf => {
       gltf.scene.traverse(o => {
         if (o.isMesh) {
+          // eslint-disable-next-line no-param-reassign
           o.material = porcelainMat;
         }
       });
@@ -65,7 +66,7 @@ const createSpaceShip = (username, textureLoader, porcelainMat, bgMeshes, world)
       ship.rotation.y = -position * Math.PI - Math.PI / 2;
       ship.position.x = Math.cos(position * Math.PI) * distCenter;
       ship.position.z = Math.sin(position * Math.PI) * distCenter;
-      ship.name = "starship";
+      ship.name = 'starship';
       bgMeshes.add(ship);
 
       const animation = () => {
@@ -82,9 +83,7 @@ const createSpaceShip = (username, textureLoader, porcelainMat, bgMeshes, world)
     },
     undefined,
     e => {
-      console.error(e);
+      throw e;
     }
   );
 };
-
-export { createSpaceShip };

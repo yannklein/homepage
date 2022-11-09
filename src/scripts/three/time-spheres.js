@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 // Create the time spheres on the ThreeJS bg
-const createTimeSpheres = (type, material, world, offset) => {
+export default (type, material, world, offset) => {
   const times = {
     hour: {
       now: date => date.getUTCHours() + offset + date.getUTCMinutes() / 60,
@@ -43,5 +43,3 @@ const createTimeSpheres = (type, material, world, offset) => {
 
   return mesh;
 };
-
-export { createTimeSpheres };

@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import porcelainImg from '../../assets/matcap-porcelain-white.jpg';
 
-const createIsocahedron = (world, htmlElement, manager, mainContent) => {
+export default (world, htmlElement, manager, mainContent) => {
   const isocahedron = new THREE.Group();
   isocahedron.name = 'isocahedronGroup';
   // Create the isocahedron
@@ -94,5 +94,3 @@ const createIsocahedron = (world, htmlElement, manager, mainContent) => {
 
   htmlElement.addEventListener('click', closeIntro);
 };
-
-export { createIsocahedron };
