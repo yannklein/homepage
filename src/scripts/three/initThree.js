@@ -10,7 +10,7 @@ import createSpaceShip from './spaceship';
 import createTimeSpheres from './time-spheres';
 import createEventCubes from './event-cubes';
 import createIsocahedron from './isocahedron';
-import createTorus from './torus';
+import { createTorus, disposeTorus } from './torus';
 
 // GH username
 const username = 'yannklein';
@@ -176,9 +176,7 @@ const addBackground = (htmlElement, world) => {
 
     const initialTorus = createTorus(3, material, bgMeshes, world);
     fetchGithubActivity(username, new Date(), activity => {
-      initialTorus.geometry.dispose();
-      initialTorus.material.dispose();
-      bgMeshes.remove(initialTorus);
+      disposeTorus(initialTorus, bgMeshes);
       const edges = activity < 3 ? 3 : activity;
       createTorus(edges, material, bgMeshes, world);
     });

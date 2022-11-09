@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export default (edges, material, bgMeshes, world) => {
+const createTorus = (edges, material, bgMeshes, world) => {
   const geometry = new THREE.TorusBufferGeometry(0.3, 0.04, 16, edges);
   const mesh = new THREE.Mesh(geometry, material);
   bgMeshes.add(mesh);
@@ -15,3 +15,11 @@ export default (edges, material, bgMeshes, world) => {
   world.animationQueue.push(bindedAnimation);
   return mesh;
 };
+
+const disposeTorus = (torus, bgMeshes) => {
+  torus.geometry.dispose();
+  torus.material.dispose();
+  bgMeshes.remove(torus);
+};
+
+export { createTorus, disposeTorus };
