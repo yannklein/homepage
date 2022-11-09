@@ -174,7 +174,11 @@ const addBackground = (htmlElement, world) => {
     };
     fetchTokyoEvents(bindedCreateEventCubes);
 
+    const initialTorus = createTorus(3, material, bgMeshes, world);
     fetchGithubActivity(username, new Date(), activity => {
+      initialTorus.geometry.dispose();
+      initialTorus.material.dispose();
+      bgMeshes.remove(initialTorus);
       const edges = activity < 3 ? 3 : activity;
       createTorus(edges, material, bgMeshes, world);
     });
