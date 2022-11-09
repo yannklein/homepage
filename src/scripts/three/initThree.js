@@ -174,10 +174,15 @@ const addBackground = (htmlElement, world) => {
     };
     fetchTokyoEvents(bindedCreateEventCubes);
 
+    // create initial 3 edges torus
     const initialTorus = createTorus(3, material, bgMeshes, world);
+    // fetch GH commits
     fetchGithubActivity(username, new Date(), activity => {
+      // when received, remove initial torus
       disposeTorus(initialTorus, bgMeshes);
+      // calculate edges
       const edges = activity < 3 ? 3 : activity;
+      // create new torus with right edge num
       createTorus(edges, material, bgMeshes, world);
     });
 
