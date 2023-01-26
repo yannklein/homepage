@@ -3,7 +3,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 import starship from '../../assets/starship/scene.gltf';
 // starshipBin needed for webpack to take the bin into account
-// import starshipBin from '../../assets/starship/scene.bin';
+// eslint-disable-next-line no-unused-vars
+import starshipBin from '../../assets/starship/scene.bin';
 
 import { getCountry } from '../locationInfo';
 
