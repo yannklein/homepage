@@ -21,7 +21,7 @@ const talkToDevs = () => {
 
   Object.defineProperty(window, 'inspiration', {
     get() {
-      fetch('https://raw.githubusercontent.com/yannklein/prog-quotes/main/quotes.json')
+      fetch('https://api.goprogram.ai/inspiration')
         .then(r => r.json())
         .then(data => console.log(`%c${data.quote}\n${data.author}`, answerStyle));
       return 'Here you go:';
@@ -29,11 +29,11 @@ const talkToDevs = () => {
   });
   Object.defineProperty(window, 'geekies', {
     get() {
-      fetch('https://programming-quotes-api.herokuapp.com/quotes/random')
+      fetch('https://raw.githubusercontent.com/yannklein/prog-quotes/main/quotes.json')
         .then(r => r.json())
         .then(data => {
           const quote = data[Math.floor(Math.random() * data.length)];
-          console.log(`%c${quote.en}\n${quote.author}`, answerStyle)
+          console.log(`%c${quote.en}\n${quote.author}`, answerStyle);
         });
       return 'Here you go:';
     }
