@@ -39,7 +39,7 @@ export default (username, textureLoader, porcelainMat, bgMeshes, world) => {
       // Update country according to GH location
       getCountry(username, fetchedCountry => {
         textureLoader.load(
-          `https://cdn.staticaly.com/gh/hjnilsson/country-flags/master/svg/${fetchedCountry}.svg`,
+          `https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/${fetchedCountry}.svg`,
           texFlag => {
             const matFlag = new THREE.MeshMatcapMaterial({
               side: THREE.DoubleSide,
