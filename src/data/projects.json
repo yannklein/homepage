@@ -5,9 +5,7 @@
     "img": "arte-jr-suber",
     "title": "Video stream AI subber",
     "description": "A Chrome extension that gets a website video stream and subtitles it in any language.",
-    "lang1": "python",
-    "lang2": "flask",
-    "lang3": "gcloud",
+    "langs": ["python", "flask", "openai"],
     "gif": "false"
   },
   {
@@ -16,9 +14,7 @@
     "img": "one_db_to_rule_them_all",
     "title": "Coding Tutorial",
     "description": "How to use only one Heroku Postgres Mini plan for all your Rails apps",
-    "lang1": "rails",
-    "lang2": "heroku",
-    "lang3": "postgres",
+    "langs": ["rails", "heroku", "postgres"],
     "gif": "false"
   },
   {
@@ -27,8 +23,7 @@
     "img": "selfie_lkcpmg",
     "title": "Coding Tutorial",
     "description": "How to build a selfie feature on your Rails app with Cloudinary",
-    "lang1": "rails",
-    "lang2": "javascript",
+    "langs": ["rails", "javascript"],
     "gif": "false"
   },
   {
@@ -37,8 +32,7 @@
     "img": "arjs_z5lbxs",
     "title": "AR.js Webpack 5 boilerplate",
     "description": "A boilerplate combining ThreeJS, ARjs and Webpack5 to build Web AR apps.",
-    "lang1": "javascript",
-    "lang2": "three",
+    "langs": ["javascript", "three"],
     "gif": "false"
   },
   {
@@ -47,8 +41,7 @@
     "img": "stimulus_tuto8i",
     "title": "StimulusJS Snippets",
     "description": "VS code extension providing a set of code snippets for StimulusJS.",
-    "lang1": "javascript",
-    "lang2": "rails",
+    "langs": ["javascript", "rails"],
     "gif": "false"
   },
   {
@@ -57,8 +50,7 @@
     "img": "jp-picto_horpv9",
     "title": "Japan pictograms icon font",
     "description": "An icon font providing the pictograms of Experience Japan Pictograms, for your website.",
-    "lang1": "ruby",
-    "lang2": "javascript",
+    "langs": ["ruby", "javascript"],
     "gif": "false"
   },
   {
@@ -67,8 +59,7 @@
     "img": "kanban_ksnipo",
     "title": "Coding Tutorial",
     "description": "Build a drag-n-drop kanban board on Rails with SortableJS",
-    "lang1": "rails",
-    "lang2": "javascript",
+    "langs": ["rails", "javascript"],
     "gif": "false"
   },
   {
@@ -77,8 +68,7 @@
     "img": "angels-share_mxb3p1",
     "title": "The Angel's Share",
     "description": "A no-commitment, easy way to help others.",
-    "lang1": "firebase",
-    "lang2": "svelte",
+    "langs": ["firebase", "svelte"],
     "gif": "false"
   },
   {
@@ -87,9 +77,7 @@
     "img": "career-journey_c1xrfe",
     "title": "Le Wagon Tokyo Career Journey",
     "description": "An app to boost our LW student's post-bootcamp career. (Rails/GraphQL/Vue)",
-    "lang1": "rails",
-    "lang2": "vue",
-    "lang3": "graphql",
+    "langs": ["rails", "vue", "graphql"],
     "gif": "false"
   },
   {
@@ -98,7 +86,7 @@
     "img": "satsuki-style_ikethr",
     "title": "Satsuki's eyelash art portfolio",
     "description": "A simple portfolio app connected to Instagram.",
-    "lang1": "javascript",
+    "langs": ["javascript", "flask"],
     "gif": "false"
   },
   {
@@ -107,8 +95,7 @@
     "img": "video-recording_kjsjtw",
     "title": "Coding Tutorial",
     "description": "How to build a video record feature on your Rails app with Cloudinary",
-    "lang1": "rails",
-    "lang2": "javascript",
+    "langs": ["rails", "javascript"],
     "gif": "false"
   },
   {
@@ -117,8 +104,7 @@
     "img": "yannui_lhxacd",
     "title": "My personal UI kit",
     "description": "A small repository of CSS (as Vanilla as possible) practices and UI components for my projects and the one of my students.",
-    "lang1": "javascript",
-    "lang2": "svelte",
+    "langs": ["javascript", "svelte"],
     "gif": "false"
   },
   {
@@ -127,7 +113,7 @@
     "img": "meet_yann_s05acz",
     "title": "Teaching at Le Wagon Tokyo",
     "description": "A great article about what I do in our coding bootcamp. Proud to change the life of our students every day. 🚀",
-    "lang1": "",
+    "langs": [],
     "gif": "false"
   },
   {
@@ -136,7 +122,7 @@
     "img": "lewagon-glasses_kvq0eg",
     "title": "Le Wagon AR glasses",
     "description": "A WebAR experience that put Le Wagon Bootcamp logo's glasses on your nose! built with ThreeJS and JeelizAR.",
-    "lang1": "javascript",
+    "langs": ["javascript"],
     "gif": "false"
   },
   {
@@ -145,8 +131,7 @@
     "img": "sushiai_epx84g",
     "title": "Sushi AI 🍣",
     "description": "An homemade AI web and mobile App that recognizes sushis. Built with FastAI deep learning library.",
-    "lang1": "python",
-    "lang2": "react",
+    "langs": ["python", "react"],
     "gif": "false"
   },
   {
@@ -155,17 +140,14 @@
     "img": "w_640,h_640,c_fill,so_0/wqz0lgbspas5no6eiwtq",
     "title": "Holobooth 👓",
     "description": "Create your own AR hologram from any video with ThreeJS and shaders.",
-    "lang1": "javascript",
-    "lang2": "rails",
-    "lang3": "three",
+    "langs": ["javascript", "rails", "three"],
     "gif": "true"
   },
   {
     "type": "vr",
     "url": "https://github.com/yannklein/hole-in-the-wall-v1",
     "title": "Hole in the wall",
-    "lang1": "javascript",
-    "lang2": "three",
+    "langs": ["javascript", "three"],
     "description": "A WebAR experience that let you peep through an AR hole in the wall.",
     "img": "w_640,h_640,c_fill,so_10/e0nb0lqhs68pgpypgku4",
     "gif": "true"
@@ -174,8 +156,7 @@
     "type": "vr",
     "url": "https://github.com/yannklein/iamyann",
     "title": "AR business card",
-    "lang1": "javascript",
-    "lang2": "three",
+    "langs": ["javascript", "three"],
     "description": "An simple experiment to improve a piece of paper people sometimes exchange during mondane delicacies.",
     "img": "w_640,h_640,c_fill,so_0,h_540,w_540,x_275/agddb5q60vd3nvlnyljr",
     "gif": "true"
@@ -184,9 +165,7 @@
     "type": "vr",
     "url": "https://augmented-graffiti.herokuapp.com/",
     "title": "AR graffiti",
-    "lang1": "javascript",
-    "lang2": "rails",
-    "lang3": "three",
+    "langs": ["javascript", "rails", "three"],
     "description": "An experiment that transforms a wall into a creative space to draw graffitis with WebSocket.",
     "img": "c_fill,so_43,h_540,w_540,x_275/zlrhhcevw2kdjsn8moap",
     "gif": "true"
@@ -195,7 +174,7 @@
     "type": "code",
     "url": "https://recettes-de-moselle.herokuapp.com",
     "title": "Recipes from East-Mosel",
-    "lang1": "rails",
+    "langs": ["rails"],
     "description": "An initiative to keep and share the cooking recipes of East Mosel.",
     "img": "recette-moselle_qtwvyz",
     "gif": "false"
@@ -204,7 +183,7 @@
     "type": "code",
     "url": "https://github.com/yannklein/working-in-japan-oecd-data",
     "title": "Working in Japan",
-    "lang1": "python",
+    "langs": ["python"],
     "description": "What we can learn from OECD datasets about work in Japan with a Jupyter notebook.",
     "img": "oecd_xutscx",
     "gif": "false"
@@ -213,7 +192,7 @@
     "type": "code",
     "url": "https://tech2try.herokuapp.com/",
     "title": "Tech2try",
-    "lang1": "rails",
+    "langs": ["rails"],
     "description": "Tech2try is a space to meet tech's & makers and try cool devices around you.",
     "img": "tech2try_woz3mz",
     "gif": "false"
@@ -222,7 +201,7 @@
     "type": "code",
     "url": "https://github.com/yannklein/bob-the-bot",
     "title": "Line chat bot",
-    "lang1": "ruby",
+    "langs": ["ruby"],
     "description": "A Line chatbot with visual recognition (IBM Watson API)for Le Wagon Tokyo workshop.",
     "img": "bot_uguc61",
     "gif": "false"
@@ -231,7 +210,7 @@
     "type": "code",
     "url": "https://github.com/yannklein/q-learning-simple-game",
     "title": "Q-learning AI game",
-    "lang1": "ruby",
+    "langs": ["ruby"],
     "description": "“Get the cheese and avoid the holes” game against a Q-learning ruby AI.",
     "img": "q-learning_xztwug",
     "gif": "false"

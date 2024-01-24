@@ -51,6 +51,7 @@
     "three": ">=0.125.0",
     "vue": "^2.6.11",
     "vue-loader": "^15.9.3",
+    "vue-simple-icons": "^7.5.0",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
     "webpack-merge": "^4.2.2",

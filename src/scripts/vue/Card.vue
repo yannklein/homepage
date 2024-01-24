@@ -6,11 +6,9 @@
           <h2>{{title}}</h2>
           <div class="icon">
             <div class="lang">
-              <i v-bind:class="langIcons[lang1]"></i>
-              <i v-if="lang2" v-bind:class="langIcons[lang2]"></i>
-              <i v-if="lang3" v-bind:class="langIcons[lang3]"></i>
+              <component v-for="lang in langs" :is="displayLangIcon(lang)" :key="lang" size="1.2x"></component>
             </div>
-            <i v-bind:class="'icon-'+type+' '+icons[type]" class="fas"></i>
+            <i v-bind:class="displayIcon"></i>
           </div>
         </div>
         <p>{{description}}</p>
@@ -29,40 +27,17 @@
 </template>
 
 <script>
+  import { RubyIcon, RubyOnRailsIcon, PythonIcon, JavaScriptIcon, ReactIcon, VueJsIcon, FirebaseIcon, SvelteIcon, GraphQlIcon, HerokuIcon, PostgreSqlIcon, ThreeJsIcon, FlaskIcon, GoogleCloudIcon, OpenAiIcon} from 'vue-simple-icons';
 
   require.context('../../assets', false, /\.(jpe?g|png|gif)$/);
 
-  const icons = {
-    vr: 'fa-vr-cardboard',
-    code: 'fa-laptop-code',
-    help: 'fa-hands-helping',
-    maker: 'fa-tools',
-    love: 'fa-heart'
-  };
-
-  const langIcons = {
-    rails: 'devicon-rails-plain',
-    python: 'devicon-python-plain',
-    javascript: 'devicon-javascript-plain',
-    react: 'devicon-react-original',
-    ruby: 'devicon-ruby-plain',
-    vue: 'vuejs-icon',
-    firebase: 'devicon-firebase-plain',
-    svelte: 'svelte-icon',
-    graphql: 'devicon-graphql-plain',
-    heroku: 'devicon-heroku-plain',
-    postgres: 'devicon-postgresql-plain',
-    three: 'devicon-threejs-original',
-    flask: 'devicon-flask-original',
-    gcloud: 'devicon-googlecloud-plain'
-  };
-
-  module.exports = {
-    props: ['type', 'url', 'img', 'title', 'description', 'lang1', 'lang2', 'lang3', 'gif'],
+  export default {
+    components: {
+      RubyIcon, FlaskIcon, RubyOnRailsIcon, PythonIcon, JavaScriptIcon, ReactIcon, VueJsIcon, FirebaseIcon, SvelteIcon, GraphQlIcon, HerokuIcon, PostgreSqlIcon, ThreeJsIcon, FlaskIcon, GoogleCloudIcon, OpenAiIcon
+    },
+    props: ['type', 'url', 'img', 'title', 'description', 'langs', 'gif'],
     data: () => {
       return {
-        icons: icons,
-        langIcons: langIcons
       }
     },
     methods: {
@@ -71,6 +46,38 @@
       },
       clBackgroundImage(type) {
         return `background-image: url(https://res.cloudinary.com/yanninthesky/${type}/${this.img}${this.isPad() ? '.png' : '.webp'})`
+      },
+      displayLangIcon(lang) {
+      const icons = {
+        ruby: RubyIcon,
+        flask: FlaskIcon,
+        rails: RubyOnRailsIcon,
+        python: PythonIcon,
+        javascript: JavaScriptIcon,
+        react: ReactIcon,
+        vue: VueJsIcon,
+        firebase: FirebaseIcon,
+        svelte: SvelteIcon,
+        graphql: GraphQlIcon,
+        heroku: HerokuIcon,
+        postgres: PostgreSqlIcon,
+        three: ThreeJsIcon,
+        gcloud: GoogleCloudIcon,
+        openai: OpenAiIcon
+      }
+        return icons[lang]
+      }
+    },
+    computed: {
+      displayIcon() {
+        const icons = {
+          vr: 'fa-vr-cardboard',
+          code: 'fa-laptop-code',
+          help: 'fa-hands-helping',
+          maker: 'fa-tools',
+          love: 'fa-heart'
+        };
+        return `fas icon-${this.type} ${icons[this.type]}`
       }
     }
   }
@@ -148,6 +155,7 @@
     font-size: 20px;
     letter-spacing: 4px;
     display: flex;
+    gap: 4px;
     align-items: center;
     margin-right: 16px;
   }
