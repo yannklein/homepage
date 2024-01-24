@@ -48,7 +48,13 @@
     ruby: 'devicon-ruby-plain',
     vue: 'vuejs-icon',
     firebase: 'devicon-firebase-plain',
-    svelte: 'svelte-icon'
+    svelte: 'svelte-icon',
+    graphql: 'devicon-graphql-plain',
+    heroku: 'devicon-heroku-plain',
+    postgres: 'devicon-postgresql-plain',
+    three: 'devicon-threejs-original',
+    flask: 'devicon-flask-original',
+    gcloud: 'devicon-googlecloud-plain'
   };
 
   module.exports = {

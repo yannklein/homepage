@@ -1,6 +1,28 @@
 [
   {
     "type": "code",
+    "url": "https://github.com/yannklein/arte-jr-suber",
+    "img": "arte-jr-suber",
+    "title": "Video stream AI subber",
+    "description": "A Chrome extension that gets a website video stream and subtitles it in any language.",
+    "lang1": "python",
+    "lang2": "flask",
+    "lang3": "gcloud",
+    "gif": "false"
+  },
+  {
+    "type": "help",
+    "url": "https://medium.com/@yann.and.the.machines/how-to-use-only-one-heroku-postgres-mini-plan-for-all-your-rails-apps-f3fdfb458fc5",
+    "img": "one_db_to_rule_them_all",
+    "title": "Coding Tutorial",
+    "description": "How to use only one Heroku Postgres Mini plan for all your Rails apps",
+    "lang1": "rails",
+    "lang2": "heroku",
+    "lang3": "postgres",
+    "gif": "false"
+  },
+  {
+    "type": "help",
     "url": "https://medium.com/@yann.and.the.machines/tutorial-how-to-build-a-selfie-feature-on-your-rails-app-with-cloudinary-97407b72a203",
     "img": "selfie_lkcpmg",
     "title": "Coding Tutorial",
@@ -16,7 +38,7 @@
     "title": "AR.js Webpack 5 boilerplate",
     "description": "A boilerplate combining ThreeJS, ARjs and Webpack5 to build Web AR apps.",
     "lang1": "javascript",
-    "lang2": "",
+    "lang2": "three",
     "gif": "false"
   },
   {
@@ -40,7 +62,7 @@
     "gif": "false"
   },
   {
-    "type": "code",
+    "type": "help",
     "url": " https://medium.com/le-wagon-tokyo/tutorial-build-a-drag-n-drop-kanban-board-on-rails-with-sortablejs-c6affa5642cf",
     "img": "kanban_ksnipo",
     "title": "Coding Tutorial",
@@ -61,17 +83,18 @@
   },
   {
     "type": "code",
-    "url": "https://career-journey.onrender.com/",
+    "url": "https://github.com/yannklein/career-journey",
     "img": "career-journey_c1xrfe",
     "title": "Le Wagon Tokyo Career Journey",
     "description": "An app to boost our LW student's post-bootcamp career. (Rails/GraphQL/Vue)",
     "lang1": "rails",
     "lang2": "vue",
+    "lang3": "graphql",
     "gif": "false"
   },
   {
     "type": "code",
-    "url": "https://www.satsuki.style/",
+    "url": "https://yannklein.github.io/satsuki-style/",
     "img": "satsuki-style_ikethr",
     "title": "Satsuki's eyelash art portfolio",
     "description": "A simple portfolio app connected to Instagram.",
@@ -134,6 +157,7 @@
     "description": "Create your own AR hologram from any video with ThreeJS and shaders.",
     "lang1": "javascript",
     "lang2": "rails",
+    "lang3": "three",
     "gif": "true"
   },
   {
@@ -141,6 +165,7 @@
     "url": "https://github.com/yannklein/hole-in-the-wall-v1",
     "title": "Hole in the wall",
     "lang1": "javascript",
+    "lang2": "three",
     "description": "A WebAR experience that let you peep through an AR hole in the wall.",
     "img": "w_640,h_640,c_fill,so_10/e0nb0lqhs68pgpypgku4",
     "gif": "true"
@@ -150,6 +175,7 @@
     "url": "https://github.com/yannklein/iamyann",
     "title": "AR business card",
     "lang1": "javascript",
+    "lang2": "three",
     "description": "An simple experiment to improve a piece of paper people sometimes exchange during mondane delicacies.",
     "img": "w_640,h_640,c_fill,so_0,h_540,w_540,x_275/agddb5q60vd3nvlnyljr",
     "gif": "true"
@@ -160,6 +186,7 @@
     "title": "AR graffiti",
     "lang1": "javascript",
     "lang2": "rails",
+    "lang3": "three",
     "description": "An experiment that transforms a wall into a creative space to draw graffitis with WebSocket.",
     "img": "c_fill,so_43,h_540,w_540,x_275/zlrhhcevw2kdjsn8moap",
     "gif": "true"

@@ -4,17 +4,7 @@
     <div class="container">
       <Intro></Intro>
       <div class="portfolio">
-        <Card v-for="project in projects"
-          :key="project.url"
-          :type="project.type"
-          :url="project.url"
-          :img="project.img"
-          :title="project.title"
-          :description="project.description"
-          :lang1="project.lang1"
-          :lang2="project.lang2"
-          :gif="project.gif"
-        ></Card>
+        <Card v-for="project in projects" :key="project.url" v-bind="project"></Card>
       </div>
     </div>
   </div>
