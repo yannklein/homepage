@@ -18,6 +18,15 @@
     "gif": "false"
   },
   {
+    "type": "code",
+    "url": "https://github.com/yannklein/nanikiro",
+    "img": "nanikiro_logo",
+    "title": "Nanikiro",
+    "description": "A one-stop to keep track and manage your closet",
+    "langs": ["rails", "javascript"],
+    "gif": "false"
+  },
+  {
     "type": "help",
     "url": "https://medium.com/@yann.and.the.machines/tutorial-how-to-build-a-selfie-feature-on-your-rails-app-with-cloudinary-97407b72a203",
     "img": "selfie_lkcpmg",
