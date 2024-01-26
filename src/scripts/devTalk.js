@@ -21,9 +21,9 @@ const talkToDevs = () => {
 
   Object.defineProperty(window, 'inspiration', {
     get() {
-      fetch('https://api.goprogram.ai/inspiration')
+      fetch('https://api.quotable.io/quotes/random')
         .then(r => r.json())
-        .then(data => console.log(`%c${data.quote}\n${data.author}`, answerStyle));
+        .then(data => console.log(`%c${data.content}\n${data.author}`, answerStyle));
       return 'Here you go:';
     }
   });
