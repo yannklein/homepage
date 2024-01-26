@@ -1,6 +1,15 @@
 [
   {
     "type": "code",
+    "url": "https://lewagon-cinema.herokuapp.com/",
+    "img": "lewagon-cinema",
+    "title": "Le Wagon Cinema",
+    "description": "Highlights of the 150+ web projects I have been tutoring at Le Wagon",
+    "langs": ["rails"],
+    "gif": "false"
+  },
+  {
+    "type": "code",
     "url": "https://github.com/yannklein/arte-jr-suber",
     "img": "arte-jr-suber",
     "title": "Video stream AI subber",
@@ -22,7 +31,7 @@
     "url": "https://github.com/yannklein/nanikiro",
     "img": "nanikiro_logo",
     "title": "Nanikiro",
-    "description": "A one-stop to keep track and manage your closet",
+    "description": "A one-stop app to keep track and manage your closet",
     "langs": ["rails", "javascript"],
     "gif": "false"
   },
