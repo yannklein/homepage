@@ -28,6 +28,15 @@
   },
   {
     "type": "code",
+    "url": "https://github.com/yannklein/rewrite-js",
+    "img": "rewrite-js",
+    "title": "Rewite Javascript",
+    "description": "An adventure to re-write every JS built-in method and get some knowledge out of it",
+    "langs": ["javascript"],
+    "gif": "false"
+  },
+  {
+    "type": "code",
     "url": "https://github.com/yannklein/nanikiro",
     "img": "nanikiro_logo",
     "title": "Nanikiro",
