@@ -1,5 +1,4 @@
 ***REMOVED***
-// https://www.amdoren.com/api/timezone.php?api_key=IBZzdLmM2yCYaXjgTZ6x&loc=New+York
 
 const getLocation = (username, callback) => {
   fetch(`https://api.github.com/users/${username}`)
