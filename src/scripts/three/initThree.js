@@ -158,7 +158,6 @@ const addBackground = (htmlElement, world) => {
     }
 
     // Create an orbiting clock
-    // getUTCOffset(username, localOffset => {
     const localOffset = 9;
     bgMeshes.add(createTimeSpheres('hour', material, world, localOffset));
     bgMeshes.add(createTimeSpheres('minute', material, world, localOffset));
