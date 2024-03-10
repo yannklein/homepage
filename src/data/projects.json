@@ -1,5 +1,14 @@
 [
   {
+    "type": "help",
+    "url": "https://github.com/yannklein/react-workshop",
+    "img": "react-workshop",
+    "title": "Coding tutorial",
+    "description": "How to build a simple CRUD app with React and Rails",
+    "langs": ["react", "vite", "rails"],
+    "gif": "false"
+  },
+  {
     "type": "code",
     "url": "https://lewagon-cinema.herokuapp.com/",
     "img": "lewagon-cinema",
@@ -190,7 +199,7 @@
   },
   {
     "type": "vr",
-    "url": "https://augmented-graffiti.herokuapp.com/",
+    "url": "https://github.com/yannklein/ar_graffiti_rails",
     "title": "AR graffiti",
     "langs": ["javascript", "rails", "three"],
     "description": "An experiment that transforms a wall into a creative space to draw graffitis with WebSocket.",
