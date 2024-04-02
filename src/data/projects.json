@@ -1,5 +1,14 @@
 [
   {
+    "type": "code",
+    "url": "https://github.com/yannklein/prompt-stack-v1",
+    "img": "prompt-stack",
+    "title": "Prompt Stack v1",
+    "description": "A website built with no HTML, CSS or JS, only a call to OpenAI",
+    "langs": ["openai", "ruby"],
+    "gif": "false"
+  },
+  {
     "type": "help",
     "url": "https://github.com/yannklein/react-workshop",
     "img": "react-workshop",
