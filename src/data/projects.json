@@ -1,5 +1,13 @@
 [
   {
+    "type": "help",
+    "url": "https://team-planet.com/",
+    "title": "Team for the Planet",
+    "description": "I am a shareholder of Team for the Planet, a NPO dedicated to tackle the most urgent challenge for humanity: climate change.",
+    "img": "teamplanet",
+    "gif": "false"
+  },
+  {
     "type": "code",
     "url": "https://github.com/yannklein/prompt-stack-v1",
     "img": "prompt-stack",
@@ -286,10 +294,10 @@
   },
   {
     "type": "help",
-    "url": "https://www.babyloan.org/en/prrng___390c253dca6f222f9718c2e05d18dc8d/direct_link___57715",
-    "title": "Babyloan micro-credit",
+    "url": "https://www.lendahand.com/",
+    "title": "Lendahand micro-credit",
     "description": "I am helping small businesses around the world, 40 funded so far and counting!",
-    "img": "babyloan_kcpoyd",
+    "img": "lendahand",
     "gif": "false"
   }
 ]
