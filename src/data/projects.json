@@ -1,5 +1,14 @@
 [
   {
+    "type": "code",
+    "url": "https://github.com/yannklein/hero-waste",
+    "img": "hero-waste",
+    "title": "Hero Waste",
+    "description": "A web game to reduce LW Tokyo bootcamp waste",
+    "langs": ["nextjs", "vercel", "openai", "prisma", "line"],
+    "gif": "false"
+  },
+  {
     "type": "help",
     "url": "https://team-planet.com/",
     "title": "Team for the Planet",
