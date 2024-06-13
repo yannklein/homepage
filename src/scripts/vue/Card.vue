@@ -27,13 +27,13 @@
 </template>
 
 <script>
-  import { RubyIcon, RubyOnRailsIcon, PythonIcon, JavaScriptIcon, ReactIcon, VueJsIcon, FirebaseIcon, SvelteIcon, GraphQlIcon, HerokuIcon, PostgreSqlIcon, ThreeJsIcon, FlaskIcon, GoogleCloudIcon, OpenAiIcon, ViteIcon } from 'vue-simple-icons';
+  import { RubyIcon, RubyOnRailsIcon, PythonIcon, JavaScriptIcon, ReactIcon, VueJsIcon, FirebaseIcon, SvelteIcon, GraphQlIcon, HerokuIcon, PostgreSqlIcon, ThreeJsIcon, FlaskIcon, GoogleCloudIcon, OpenAiIcon, ViteIcon, NextJsIcon, PrismaIcon, LineIcon, VercelIcon } from 'vue-simple-icons';
 
   require.context('../../assets', false, /\.(jpe?g|png|gif)$/);
 
   export default {
     components: {
-      RubyIcon, FlaskIcon, RubyOnRailsIcon, PythonIcon, JavaScriptIcon, ReactIcon, VueJsIcon, FirebaseIcon, SvelteIcon, GraphQlIcon, HerokuIcon, PostgreSqlIcon, ThreeJsIcon, FlaskIcon, GoogleCloudIcon, OpenAiIcon, ViteIcon
+      RubyIcon, FlaskIcon, RubyOnRailsIcon, PythonIcon, JavaScriptIcon, ReactIcon, VueJsIcon, FirebaseIcon, SvelteIcon, GraphQlIcon, HerokuIcon, PostgreSqlIcon, ThreeJsIcon, FlaskIcon, GoogleCloudIcon, OpenAiIcon, ViteIcon, NextJsIcon, PrismaIcon, LineIcon, VercelIcon
     },
     props: ['type', 'url', 'img', 'title', 'description', 'langs', 'gif'],
     data: () => {
@@ -65,6 +65,10 @@
         gcloud: GoogleCloudIcon,
         openai: OpenAiIcon,
         vite: ViteIcon,
+        nextjs: NextJsIcon,
+        prisma: PrismaIcon,
+        line: LineIcon,
+        vercel: VercelIcon
       }
         return icons[lang]
       }

@@ -5,7 +5,7 @@
     "img": "hero-waste",
     "title": "Hero Waste",
     "description": "A web game to reduce LW Tokyo bootcamp waste",
-    "langs": ["nextjs", "vercel", "openai", "prisma", "line"],
+    "langs": ["nextjs", "vercel", "prisma", "openai",  "line"],
     "gif": "false"
   },
   {
@@ -263,7 +263,7 @@
     "type": "code",
     "url": "https://github.com/yannklein/bob-the-bot",
     "title": "Line chat bot",
-    "langs": ["ruby"],
+    "langs": ["ruby", "line"],
     "description": "A Line chatbot with visual recognition (IBM Watson API)for Le Wagon Tokyo workshop.",
     "img": "bot_uguc61",
     "gif": "false"
