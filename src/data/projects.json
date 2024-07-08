@@ -1,5 +1,14 @@
 [
   {
+    "type": "love",
+    "url": "https://yannklein.github.io/bicycle-map/",
+    "img": "bicycle-trips",
+    "title": "Around Japan on two wheels",
+    "description": "Cycling is the best way to discover Japan. This map logs all my travels in the past years. Contact me for 🇯🇵 cycling tips, I have many!",
+    "langs": [],
+    "gif": "false"
+  },
+  {
     "type": "code",
     "url": "https://github.com/yannklein/hero-waste",
     "img": "hero-waste",
