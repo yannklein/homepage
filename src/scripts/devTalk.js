@@ -21,7 +21,7 @@ const talkToDevs = () => {
 
   Object.defineProperty(window, 'inspiration', {
     get() {
-      fetch('https://api.quotable.io/quotes/random')
+      fetch('http://api.quotable.io/quotes/random')
         .then(r => r.json())
         .then(data => console.log(`%c${data[0].content}\n${data[0].author}`, answerStyle));
       return 'Here you go:';
