@@ -8,6 +8,9 @@
     "type": "git",
     "url": "https://www.yannklein.me"
   },
+  "engines": {
+    "node": "14"
+  },
   "license": "ISC",
   "author": "Yann Klein",
   "scripts": {
