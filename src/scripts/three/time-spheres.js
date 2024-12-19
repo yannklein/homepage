@@ -22,7 +22,9 @@ export default (type, material, world, offset) => {
       sphereSize: 0.03
     }
   };
-  const geometry = new THREE.SphereBufferGeometry(times[type].sphereSize, 32, 32);
+  let radius = times[type]?.sphereSize;
+  if (!radius) radius = 1;
+  const geometry = new THREE.SphereBufferGeometry(radius, 32, 32);
   const mesh = new THREE.Mesh(geometry, material);
   mesh.position.x =
     Math.cos(Math.PI / 2 - (12 * 2 * Math.PI) / times[type].division) * times[type].distCenter;

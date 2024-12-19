@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const talkToDevs = () => {
   const answerStyle = `
     background: rgba(9,9,121,0.6);
@@ -21,9 +22,15 @@ const talkToDevs = () => {
 
   Object.defineProperty(window, 'inspiration', {
     get() {
-      fetch('http://api.quotable.io/quotes/random')
+      fetch(
+        'https://gist.githubusercontent.com/yannklein/a5d5847c513389812b41c3fe7dad789d/raw/53d3bdf60960faba66ee7503a0c205b2cb18ea6e/inspiration-quotes.json'
+      )
         .then(r => r.json())
-        .then(data => console.log(`%c${data[0].content}\n${data[0].author}`, answerStyle));
+        .then(data => {
+          const quotes = data.results;
+          const randomQuote = quotes[Math.floor(Math.random(quotes.length))]
+          console.log(`%c${randomQuote.content}\n${randomQuote.author}`, answerStyle);
+        });
       return 'Here you go:';
     }
   });

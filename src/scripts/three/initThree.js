@@ -103,7 +103,10 @@ const initThree = (name, htmlElement) => {
           // console.log(intersect.object.eventDetails);
           const event = intersect.object.eventDetails;
           eventCubeLegend.href = event.url;
-          const date = `<i class="fas fa-clock"></i> ${event.date} ${event.name.substring(1, 6)}`;
+          const date = `<i class="fas fa-clock"></i> ${event.event_date} ${event.name.substring(
+            1,
+            6
+          )}`;
           const title = `<i class="fas fa-calendar-day"></i>
             ${event.name.substring(9)} by ${event.group}`;
           const place = `<i class="fas fa-map-marker-alt"></i> ${event.venue}`;

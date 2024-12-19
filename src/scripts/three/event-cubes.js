@@ -5,7 +5,7 @@ const formatEvents = eventObject => {
   return eventObject.map(event => {
     return {
       distCenter: 0.55 - Math.random() / 5,
-      sphereSize: 0.04 / (event.remainingDays + 1),
+      sphereSize: 0.04 / ((event.remainingDays * 0.1) + 1),
       initOffset: Math.random() * 10,
       eventDetails: event.eventDetails
     };
@@ -18,9 +18,9 @@ export default (eventObject, material, world, bgMeshes) => {
   group.name = 'eventCubesGroup';
   spheresConfig.forEach(config => {
     const geometry = new THREE.BoxBufferGeometry(
-      config.sphereSize,
-      config.sphereSize,
-      config.sphereSize
+      config.sphereSize || 0.03,
+      config.sphereSize || 0.03,
+      config.sphereSize || 0.03
     );
     const mesh = new THREE.Mesh(geometry, material);
     let cycle = 0;
