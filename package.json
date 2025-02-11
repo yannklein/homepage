@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.3",
-    "@vue/component-compiler-utils": "^3.4.0",
+    "@vue/component-compiler-utils": "3.2.2",
     "autoprefixer": "^10.4.14",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^9.1.2",
