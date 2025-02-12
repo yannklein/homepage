@@ -136,7 +136,6 @@ const addBackground = (
     porcelainImg,
     (porcelain) => {
       porcelain.colorSpace = THREE.SRGBColorSpace;
-      // porcelain.encoding = THREE.sRGBEncoding;
       porcelain.minFilter = THREE.LinearMipMapLinearFilter;
       porcelain.magFilter = THREE.LinearFilter;
       const material = new THREE.MeshMatcapMaterial({

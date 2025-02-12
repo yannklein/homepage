@@ -11,6 +11,9 @@ export const createIsocahedron = (world: ThreeJSContext, htmlElement: HTMLElemen
   {
     const textureLoader = new THREE.TextureLoader(manager);    
     textureLoader.load(porcelainImg, porcelain => {
+      porcelain.colorSpace = THREE.SRGBColorSpace;
+      porcelain.minFilter = THREE.LinearMipMapLinearFilter;
+      porcelain.magFilter = THREE.LinearFilter;
       const geometry = new THREE.IcosahedronGeometry(0.4, 0);
       const material = new THREE.MeshMatcapMaterial({ matcap: porcelain });
       const mesh = new THREE.Mesh(geometry, material);
@@ -40,7 +43,7 @@ export const createIsocahedron = (world: ThreeJSContext, htmlElement: HTMLElemen
         geometry = new TextGeometry(text, {
           font,
           size,
-          // height: -0.08 * size,
+          depth: -0.08 * size,
           curveSegments: 6
         });
         const materials = [

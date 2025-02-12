@@ -1,3 +1,4 @@
+import "./IntroPopup.css";
 import React, { useEffect, useRef } from 'react';
 import { addIntroPopup, initThree } from './scripts/three/initThree';
 
