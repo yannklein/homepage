@@ -49,27 +49,27 @@ const initThree = (name: string, htmlElement: HTMLElement): ThreeJSContext => {
 
   const animationQueue: (() => void)[] = [];
 
+  // Listen to mouse move for Raycasting
+  const mouse = new THREE.Vector2();
+  const onMouseMove = (event: MouseEvent) => {
+    // calculate mouse position in normalized device coordinates
+    // (-1 to +1) for both components
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  };
+  window.addEventListener('mousemove', onMouseMove, false);
+
   const animate = () => {
     requestAnimationFrame(animate);
     animationQueue.forEach((animation) => {
       animation();
     });
 
-    // Listen to mouse move for Raycasting
-    const mouse = new THREE.Vector2();
-    const onMouseMove = (event: MouseEvent) => {
-      // calculate mouse position in normalized device coordinates
-      // (-1 to +1) for both components
-      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    };
-    window.addEventListener('mousemove', onMouseMove, false);
-
-    // Raycast code
-    const introPopupEl = document.querySelector('.intro-popup-hidden') as HTMLElement;
-    const portfolioEl = document.querySelector('.main-content-visible') as HTMLElement;
-    
+    const introPopupEl = document.querySelector('.intro-popup-hidden');
+    const portfolioEl = document.querySelector('.main-content-visible');
     if (introPopupEl && !portfolioEl) {
+    
+    // Raycast code    
       const raycaster = new THREE.Raycaster();
       // update the picking ray with the camera and mouse position
       raycaster.setFromCamera(mouse, camera);
