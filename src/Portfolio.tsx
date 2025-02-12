@@ -5,11 +5,11 @@ import Card from './Card';
 import projects from './data/projects.json';
 import { useState } from 'react';
 
-const Portfolio = () => {
+const Portfolio = ({portFolioVisible}: {portFolioVisible: boolean}) => {
   const [selected, setSelected] = useState('all');
 
   return (
-    <div className="main-content">
+    <div className={`main-content ${portFolioVisible ? 'main-content-visible' : ''}`}>
       <SideBar setSelected={setSelected}></SideBar>
       <div className="container">
         <SelfIntroBanner></SelfIntroBanner>

@@ -7,7 +7,7 @@ import {
 } from './scripts/three/initThree';
 import IntroPopup from './IntroPopup';
 
-const Background = () => {
+const Background = ({setPortFolioVisible, portFolioVisible}: {setPortFolioVisible: React.Dispatch<React.SetStateAction<boolean>>, portFolioVisible: boolean}) => {
   const bgElement = useRef(null);
   const [loaded, setLoaded] = useState(false);
   const [introPopupLoaded, setIntroPopupLoaded] = useState(false);
@@ -17,7 +17,7 @@ const Background = () => {
     if (!bgElement.current) return;
     const bgWorld = initThree('backgroundWorld', bgElement.current);
     addBackground(bgElement.current, bgWorld, setBackgroundLoaded);
-  }, [bgElement]);
+  }, [bgElement, setPortFolioVisible]);
   
   useEffect(() => {
     // Get rid of loading after 5sec even if loading not finished
@@ -40,7 +40,7 @@ const Background = () => {
   return (
     <>
       { !loaded && <Loading />}
-      <div className="background" ref={bgElement}></div>
+      <div className="background" ref={bgElement} onClick={ () => setPortFolioVisible((state: boolean) => !state )}></div>
       <a
         href="#"
         target="_blank"
@@ -69,7 +69,7 @@ const Background = () => {
         show the on-going event in Tokyo tech, hover over it
       </div>
       {window.innerWidth >= 1100 ? (
-        <IntroPopup setIntroPopupLoaded={setIntroPopupLoaded} />
+        <IntroPopup setIntroPopupLoaded={setIntroPopupLoaded} setPortFolioVisible={setPortFolioVisible} portFolioVisible={portFolioVisible} />
       ) : null}
     </>
   );

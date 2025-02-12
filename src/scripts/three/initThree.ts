@@ -199,12 +199,16 @@ const addBackground = (
           '.background-legend',
         ) as HTMLElement;
         // Show hide background
+        console.log(mainContent, bgLegend);
+        
         mainContent.classList.toggle('main-content-visible');
         bgLegend.classList.toggle('background-legend-show');
+        console.log(mainContent, bgLegend);
+
         raycasterOn = !raycasterOn;
       };
 
-      htmlElement.addEventListener('click', showHideBackground);
+      // htmlElement.addEventListener('click', showHideBackground);
     },
     undefined,
     (error) => {
@@ -217,6 +221,8 @@ const addIntroPopup = (
   htmlElement: HTMLElement,
   world: ThreeJSContext,
   setIntroPopupLoaded: (arg0: boolean) => void,
+  setPortFolioVisible: (arg0: boolean) => void,
+  portFolioVisible: boolean
 ) => {
   // Intro loading manager
   const manager = new THREE.LoadingManager();
@@ -237,7 +243,7 @@ const addIntroPopup = (
   
   console.log("Intro popup loaded");
   const mainContent = document.querySelector('.main-content') as HTMLElement;
-  createIsocahedron(world, htmlElement, manager, mainContent);
+  createIsocahedron(world, htmlElement, manager, mainContent, setPortFolioVisible, portFolioVisible);
 };
 
 export { initThree, addBackground, addIntroPopup };

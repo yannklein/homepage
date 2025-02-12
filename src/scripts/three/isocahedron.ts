@@ -4,7 +4,7 @@ import { FontLoader } from 'three/addons/loaders/FontLoader.js';
 import porcelainImg from '../../assets/matcap-porcelain-white.jpg';
 import { ThreeJSContext } from './initThree';
 
-export const createIsocahedron = (world: ThreeJSContext, htmlElement: HTMLElement, manager: any, mainContent: HTMLElement) => {
+export const createIsocahedron = (world: ThreeJSContext, htmlElement: HTMLElement, manager: any, mainContent: HTMLElement, setPortFolioVisible: (arg0: boolean) => void, portFolioVisible: boolean) => {
   const isocahedron = new THREE.Group();
   isocahedron.name = 'isocahedronGroup';
   // Create the isocahedron
@@ -93,8 +93,8 @@ export const createIsocahedron = (world: ThreeJSContext, htmlElement: HTMLElemen
       // When the isocahedron totally disappear beneath the invisible wall
       // make it vanish
       if (isocahedron.position.z <= -0.6) {
-        // Make the homepage cards visible
-        mainContent.classList.add('main-content-visible');
+        // Make the homepage cards visible        
+        if (!portFolioVisible) setPortFolioVisible(true);
       }
       if (isocahedron.position.z <= -1) {
         introPopup.style.display = 'none';
