@@ -3,10 +3,14 @@ import { IconType } from 'react-icons';
 
 const SideBarItem = ({ Icon, type, text, setSelected }: {Icon: IconType, type: string, text: string, setSelected: React.Dispatch<React.SetStateAction<string>>}) => {
   const [hovered, setHovered] = useState(false);
+
+  const handleClick = () => {
+    setSelected(currentType => (currentType === type ? 'all' : type));
+  }
   return (
     <a
       className={`icon icon-${type}`}
-      onClick={() => setSelected(type)}
+      onClick={handleClick}
       onMouseOver={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

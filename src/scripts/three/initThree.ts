@@ -92,7 +92,7 @@ const initThree = (name: string, htmlElement: HTMLElement): ThreeJSContext => {
           const date = `<i class="fas fa-clock"></i> ${
             event.event_date
           } ${event.name.substring(1, 6)}`;
-          const title = `<i class="fas fa-calendar-day"></i>`;
+          const title = `<i class="fas fa-calendar-day"></i> ${event.name}`;
           const place = `<i class="fas fa-map-marker-alt"></i> ${event.venue}`;
           if (!eventCubeLegend) return;
           (eventCubeLegend.querySelector('.date') as HTMLElement).innerHTML =

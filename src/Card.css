@@ -38,34 +38,34 @@
   height: 100%;
 }
 
-.header {
+.card-frame .header {
   height: 104px;
   margin-bottom: 24px;
 }
 
-.title {
+.card-frame .title {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.title h2 {
+.card-frame .title h2 {
   width: 90%;
   font-size: 20px;
   margin-bottom: 24px;
 }
 
-.title p {
+.card-frame .title p {
   margin-bottom: 24px;
 }
 
-.icon {
+.card-frame .icon {
   color: gray;
   font-size: 24px;
   display: flex;
 }
 
-.lang {
+.card-frame .lang {
   font-size: 20px;
   letter-spacing: 4px;
   display: flex;
@@ -74,14 +74,14 @@
   margin-right: 16px;
 }
 
-.media {
+.card-frame .media {
   position: relative;
   height: 320px;
   background-size: cover;
   background-position: 50% 50%;
 }
 
-video {
+.card-frame video {
   position: absolute;
   z-index: 2;
   display: none;
@@ -90,7 +90,7 @@ video {
   object-fit: cover;
 }
 
-a:hover video {
+.card-frame a:hover video {
   display: block;
 }
 
@@ -99,15 +99,15 @@ a:hover video {
     padding: 16px;
   }
 
-  .header {
+  .card-frame .header {
     height: 102px;
   }
 
-  .header  h2 {
+  .card-frame .header  h2 {
     font-size: 20px;
   }
 
-  .icon {
+  .card-frame .icon {
     top: 16px;
     right: 16px;
   }
@@ -118,25 +118,25 @@ a:hover video {
     padding: 8px;
   }
 
-  .header {
+  .card-frame .header {
     height: 96px;
   }
 
-  .header h2 {
+  .card-frame .header h2 {
     font-size: 20px;
   }
 
-  .header p {
+  .card-frame .header p {
     font-size: 16px;
   }
 
-  .icon {
+  .card-frame .icon {
     top: 8px;
     right: 8px;
     font-size: 16px;
   }
 
-  .lang {
+  .card-frame .lang {
     font-size: 14px;
     margin-right: 8px;
   }
