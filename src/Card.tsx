@@ -72,7 +72,7 @@ const Card = ({ type, url, img, title, description, langs, gif }: CardData) => {
               <div className="lang">
                 {langs.map((lang) => {
                   const LangIcon = displayLangIcon(lang);
-                  return LangIcon ? <LangIcon key={lang} width="24px" height="24px" /> : null;
+                  return LangIcon ? <LangIcon key={lang} width="40px" height="40px" /> : null;
                 })}
               </div>
               <i className={displayIcon}></i>
