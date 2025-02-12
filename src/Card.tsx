@@ -1,8 +1,8 @@
 import "./Card.css";
 import { useMemo } from 'react';
 import { FaReact, FaPython, FaVuejs, FaLine } from 'react-icons/fa';
-import { DiRuby, DiJavascript, DiHeroku, DiPostgresql } from 'react-icons/di';
-import { SiThreedotjs, SiPrisma, SiGooglecloud, SiNextdotjs, SiOpenai, SiVite, SiGraphql, SiSvelte, SiVercel, SiFirebase, SiFlask, SiRubyonrails } from 'react-icons/si';
+import { DiRuby, DiHeroku, DiPostgresql } from 'react-icons/di';
+import { SiThreedotjs, SiPrisma, SiGooglecloud, SiNextdotjs, SiOpenai, SiVite, SiGraphql, SiSvelte, SiVercel, SiFirebase, SiFlask, SiRubyonrails, SiJavascript } from 'react-icons/si';
 
 type CardData = {
   type: string;
@@ -30,7 +30,7 @@ const Card = ({ type, url, img, title, description, langs, gif }: CardData) => {
       flask: SiFlask,
       rails: SiRubyonrails,
       python: FaPython,
-      javascript: DiJavascript,
+      javascript: SiJavascript,
       react: FaReact,
       vue: FaVuejs,
       firebase: SiFirebase,
