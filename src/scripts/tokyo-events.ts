@@ -18,7 +18,14 @@ export type EventObject = {
 };
 
 const formatEventArray = (data: Event[]) => {  
-  return data.map(event => {
+  // Get today's date
+  const today = new Date();
+  // Calculate the date 14 days from now
+  const next14Days = new Date();
+  next14Days.setDate(today.getDate() + 14);
+  return data
+    .filter(event => new Date(event.event_date) > today && new Date(event.event_date) < next14Days)
+    .map(event => {
     const diff: number = (new Date(event.event_date).getTime() - new Date().getTime()) / 10;
     const remainingDays = Math.round(
       diff / (1000 * 60 * 60 * 24)
