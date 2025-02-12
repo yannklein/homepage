@@ -1,9 +1,10 @@
+import "./Background.css";
+import Loading from "./Loading";
+
 const Background = () => {
   return (
     <>
-      <div className="loading-mask">
-        <img src="./assets/loading.svg" alt="loading" />
-      </div>
+      <Loading />
       <div className="background"></div>
       <a href="#" target="_blank" className="event-cube-legend event-cube-legend-show">
         <p className="title"><i className="fas fa-calendar-day"></i></p>
