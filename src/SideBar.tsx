@@ -7,31 +7,17 @@ import {
   FaHandsHelping,
   FaHeart,
 } from 'react-icons/fa';
+import SideBarItem from './SideBarItem';
 
 const Sidebar = ({setSelected}: {setSelected: React.Dispatch<React.SetStateAction<string>>}) => {
   return (
     <div>
       <div className="sidebar sidebar-left">
-        <a className="icon icon-vr" onClick={() => setSelected("vr")}>
-          <FaVrCardboard fontSize={48} />
-          <p className="icon-text">VR/AR</p>
-        </a>
-        <a className="icon icon-code" onClick={() => setSelected("code")}>
-          <FaLaptopCode fontSize={48} />
-          <p className="icon-text">I code</p>
-        </a>
-        <a className="icon icon-maker" onClick={() => setSelected("maker")}>
-          <FaTools fontSize={48} />
-          <p className="icon-text">I make</p>
-        </a>
-        <a className="icon icon-help" onClick={() => setSelected("help")}>
-          <FaHandsHelping fontSize={48} />
-          <p className="icon-text">I care</p>
-        </a>
-        <a className="icon icon-love" onClick={() => setSelected("love")}>
-          <FaHeart fontSize={48} />
-          <p className="icon-text">I love</p>
-        </a>
+        <SideBarItem Icon={FaVrCardboard} type="vr" text="VR/AR" setSelected={setSelected} />
+        <SideBarItem Icon={FaLaptopCode} type="code" text="I code" setSelected={setSelected} />
+        <SideBarItem Icon={FaTools} type="maker" text="I make" setSelected={setSelected} />
+        <SideBarItem Icon={FaHandsHelping} type="help" text="I care" setSelected={setSelected} />
+        <SideBarItem Icon={FaHeart} type="love" text="I love" setSelected={setSelected} />
       </div>
       <div className="sidebar sidebar-right">
         <a href="https://github.com/yannklein">

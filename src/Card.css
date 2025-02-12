@@ -31,7 +31,7 @@
   padding: 24px;
 }
 
-a {
+.card-frame a {
   display: flex;
   flex-direction: column;
   color: rgb(40,40,40);

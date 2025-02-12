@@ -11,6 +11,15 @@
   padding-top: 24px;
 }
 
+.intro-card h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.intro-card p {
+  font-size: 16px;
+}
+
 @media (max-width: 600px) {
   .intro-card {
     padding: 80px 16px;

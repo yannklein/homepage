@@ -1,4 +1,4 @@
-type Event = {
+export type Event = {
   id: number;
   tky_even_meetup_id: number;
   meetup_event_id: string;

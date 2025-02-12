@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { EventObject } from '../tokyo-events';
+import { EventObject, Event } from '../tokyo-events';
 import { ThreeJSContext } from './initThree';
 
 const formatEvents = (eventObject: EventObject[]) => {
@@ -39,7 +39,7 @@ export default (eventObject: EventObject[], material: THREE.Material, world: Thr
       mesh.rotation.y += rotSpeedZ / 100;
     };
     mesh.name = 'eventCubes';
-    (mesh as any).eventDetails = config.eventDetails;
+    (mesh as unknown as THREE.Mesh & { eventDetails: Event }).eventDetails = config.eventDetails;
     const bindedAnimation = animation.bind(null, mesh);
     world.animationQueue.push(bindedAnimation);
     group.add(mesh);

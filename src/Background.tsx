@@ -4,21 +4,33 @@ import Loading from './Loading';
 import {
   initThree,
   addBackground,
+  ThreeJSContext,
 } from './scripts/three/initThree';
 import IntroPopup from './IntroPopup';
+import BackgroundLegend from './BackgroundLegend';
 
-const Background = ({setPortFolioVisible, portFolioVisible}: {setPortFolioVisible: React.Dispatch<React.SetStateAction<boolean>>, portFolioVisible: boolean}) => {
+const Background = ({
+  setPortFolioVisible,
+  portFolioVisible,
+}: {
+  setPortFolioVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  portFolioVisible: boolean;
+}) => {
   const bgElement = useRef(null);
+  const bgWorld = useRef<ThreeJSContext>(null);
   const [loaded, setLoaded] = useState(false);
+  const [isIntro, setIsIntro] = useState(true);
   const [introPopupLoaded, setIntroPopupLoaded] = useState(false);
   const [backgroundLoaded, setBackgroundLoaded] = useState(false);
-  
+    
   useEffect(() => {
     if (!bgElement.current) return;
-    const bgWorld = initThree('backgroundWorld', bgElement.current);
-    addBackground(bgElement.current, bgWorld, setBackgroundLoaded);
-  }, [bgElement, setPortFolioVisible]);
-  
+    if (!bgWorld.current) {
+      bgWorld.current = initThree('bgWorld', bgElement.current);
+    }
+    addBackground(bgWorld.current, setBackgroundLoaded);
+  }, [bgElement, isIntro]);
+
   useEffect(() => {
     // Get rid of loading after 5sec even if loading not finished
     const timeout = setTimeout(() => {
@@ -39,13 +51,13 @@ const Background = ({setPortFolioVisible, portFolioVisible}: {setPortFolioVisibl
 
   return (
     <>
-      { !loaded && <Loading />}
-      <div className="background" ref={bgElement} onClick={ () => setPortFolioVisible((state: boolean) => !state )}></div>
-      <a
-        href="#"
-        target="_blank"
-        className="event-cube-legend"
-      >
+      {!loaded && <Loading />}
+      <div
+        className="background"
+        ref={bgElement}
+        onClick={() => setPortFolioVisible((state: boolean) => !state)}
+      ></div>
+      <a href="#" target="_blank" className="event-cube-legend">
         <p className="title">
           <i className="fas fa-calendar-day"></i>
         </p>
@@ -56,20 +68,14 @@ const Background = ({setPortFolioVisible, portFolioVisible}: {setPortFolioVisibl
           <i className="fas fa-map-marker-alt"></i>
         </p>
       </a>
-      <div className="background-legend">
-        <i className="fas fa-circle-notch"></i> each torus edge is one Github
-        commit I did today |<i className="fas fa-space-shuttle"></i> shows my
-        resident country |<i className="fas fa-circle"></i>
-        <i className="fas fa-circle" style={{ fontSize: '10px' }}></i>
-        <i className="fas fa-circle" style={{ fontSize: '8px' }}></i>
-        shows the time in my current location |
-        <i className="fas fa-square-full" style={{ fontSize: '6px' }}></i>
-        <i className="fas fa-square-full"></i>
-        <i className="fas fa-square-full" style={{ fontSize: '10px' }}></i>
-        show the on-going event in Tokyo tech, hover over it
-      </div>
+      { !isIntro && !portFolioVisible && <BackgroundLegend /> }
       {window.innerWidth >= 1100 ? (
-        <IntroPopup setIntroPopupLoaded={setIntroPopupLoaded} setPortFolioVisible={setPortFolioVisible} portFolioVisible={portFolioVisible} />
+        <IntroPopup
+          setIntroPopupLoaded={setIntroPopupLoaded}
+          setPortFolioVisible={setPortFolioVisible}
+          portFolioVisible={portFolioVisible}
+          setIsIntro={setIsIntro}
+        />
       ) : null}
     </>
   );
