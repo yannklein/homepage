@@ -7,6 +7,7 @@ import { Font, FontLoader } from 'three/addons/loaders/FontLoader.js';
 import porcelainImg from './assets/matcap-porcelain-white.jpg';
 
 let textureLoaded = false;
+let fontLoaded = false;
 
 const IntroPopup = ({
   setIntroPopupLoaded,
@@ -93,6 +94,11 @@ const IntroPopup = ({
       loader.load(
         'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/fonts/optimer_regular.typeface.json',
         (font: Font) => {
+          if (fontLoaded) {
+            return;
+          } else {
+            fontLoaded = true;
+          }
           geometry = new TextGeometry(text, {
             font,
             size,
