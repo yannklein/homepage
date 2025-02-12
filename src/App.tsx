@@ -3,6 +3,8 @@ import './App.css'
 import Background from './Background';
 import { talkToDevs } from './utils/talkToDevs';
 
+
+
 function App() {
 
   useEffect(() => {
@@ -11,7 +13,7 @@ function App() {
 
   return (
     <>
-      <Background />
+      <Background/>
     </>
   )
 }
