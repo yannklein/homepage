@@ -17,6 +17,9 @@
     "three": "^0.173.0",
     "vue-simple-icons": "^7.5.0"
   },
+  "overrides": {
+    "ajv": "^8.17.1"
+  },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
     "@types/markdown-it": "^14.1.2",
