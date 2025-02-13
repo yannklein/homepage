@@ -13,10 +13,14 @@ function App() {
     talkToDevs();
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = !portFolioVisible ? "hidden" : "auto";
+  }, [portFolioVisible]);
+
   return (
     <>
       <Background setPortFolioVisible={setPortFolioVisible} portFolioVisible={portFolioVisible}/>
-       <Portfolio portFolioVisible={portFolioVisible}/>
+      <Portfolio portFolioVisible={portFolioVisible}/>
     </>
   )
 }

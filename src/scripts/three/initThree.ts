@@ -80,11 +80,9 @@ const initThree = (name: string, htmlElement: HTMLElement): ThreeJSContext => {
       ) as HTMLAnchorElement;
       if (!eventCubeLegend) return;
       if (eventCubes) {
-        // console.log(eventCubes.children);
         eventCubeLegend.classList.remove('event-cube-legend-show');
         const intersects = raycaster.intersectObjects(eventCubes.children);
         intersects.forEach((intersect) => {
-          // console.log(intersect.object.eventDetails);
           const event = (
             intersect.object as THREE.Mesh & { eventDetails: Event }
           ).eventDetails;
@@ -129,10 +127,8 @@ const addBackground = (
   const manager = new THREE.LoadingManager();
   const textureLoader = new THREE.TextureLoader(manager);
   manager.onLoad = () => {
-    console.log('Background Loading complete! ');
     setBackgroundLoaded(true);
   };
-  console.log('add backfgroundf');
 
   // Load the porcelain texture
   textureLoader.load(
@@ -143,7 +139,6 @@ const addBackground = (
       } else {
         textureLoaded = true;
       }
-      console.log('tessssst', world);
 
       porcelain.colorSpace = THREE.SRGBColorSpace;
       porcelain.minFilter = THREE.LinearMipMapLinearFilter;
@@ -183,7 +178,6 @@ const addBackground = (
       const bindedCreateEventCubes = (eventObject: EventObject[]) => {
         createEventCubes(eventObject, material, world, bgMeshes);
       };
-      console.log('fetch evebts');
 
       fetchTokyoEvents(bindedCreateEventCubes);
 

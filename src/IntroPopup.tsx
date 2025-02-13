@@ -47,9 +47,6 @@ const IntroPopup = ({
     wall.name = 'invisibleWall';
     if (!popupScene.current) return;
     popupScene.current.scene.add(wall);
-
-    console.log('Intro popup loaded');
-
     createIsocahedron(manager);
   };
 
@@ -73,8 +70,6 @@ const IntroPopup = ({
         const mesh = new THREE.Mesh(geometry, material);
         mesh.rotation.x += (Math.PI * 3) / 5;
         mesh.name = 'isocahedron';
-        console.log(isocahedron);
-
         isocahedron.add(mesh);
       });
     }
@@ -130,7 +125,6 @@ const IntroPopup = ({
     }
     isocahedron.renderOrder = 2;
     isocahedron.position.z = 0;
-    console.log('added to scene');
     if (!popupScene.current) return;
     popupScene.current.scene.add(isocahedron);
 
@@ -141,8 +135,6 @@ const IntroPopup = ({
 
     // "Intro closing" event trigger when click the intro isocahedron
     const closeIntro = (event: MouseEvent) => {
-      console.log('closing the intro');
-
       // Make the isocahedron rotate
       const introPopup = event.currentTarget as HTMLElement;
       if (!introPopup) return;

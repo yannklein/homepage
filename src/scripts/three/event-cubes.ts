@@ -3,7 +3,6 @@ import { EventObject, Event } from '../tokyo-events';
 import { ThreeJSContext } from './initThree';
 
 const formatEvents = (eventObject: EventObject[]) => {
-  // console.log(eventObject);
   return eventObject.map(event => {
     return {
       distCenter: 0.55 - Math.random() / 5,

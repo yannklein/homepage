@@ -22,6 +22,12 @@ const Background = ({
   const [isIntro, setIsIntro] = useState(true);
   const [introPopupLoaded, setIntroPopupLoaded] = useState(false);
   const [backgroundLoaded, setBackgroundLoaded] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 1100) {      
+      setPortFolioVisible(true)
+    }
+  }, [setPortFolioVisible]);
     
   useEffect(() => {
     if (!bgElement.current) return;
@@ -43,7 +49,6 @@ const Background = ({
 
   useEffect(() => {
     if (loaded) return;
-    console.log({ introPopupLoaded, backgroundLoaded });
     if (introPopupLoaded && backgroundLoaded) {
       setLoaded(true);
     }
@@ -69,7 +74,7 @@ const Background = ({
         </p>
       </a>
       { !isIntro && !portFolioVisible && <BackgroundLegend /> }
-      {window.innerWidth >= 1100 ? (
+      {!portFolioVisible ? (
         <IntroPopup
           setIntroPopupLoaded={setIntroPopupLoaded}
           setPortFolioVisible={setPortFolioVisible}

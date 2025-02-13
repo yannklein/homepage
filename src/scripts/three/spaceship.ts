@@ -12,7 +12,6 @@ export default (username: string, textureLoader: THREE.TextureLoader, porcelainM
   loader.load(
     '/spaceship/scene.gltf',
     gltf => {
-      console.log(gltf);
       
       gltf.scene.traverse(o => {
         if ((o as THREE.Mesh).isMesh) {
