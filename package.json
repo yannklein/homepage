@@ -19,7 +19,7 @@
     "vue-simple-icons": "^7.5.0"
   },
   "overrides": {
-    "rollup": "^2.79.2",
+    "rollup": "^4.34.6",
     "ajv": "^8.17.1",
     "picomatch": "^4.0.2"
   },
