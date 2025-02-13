@@ -25,8 +25,6 @@ const Background = ({
 
   useEffect(() => {
     if (window.innerWidth < 1100) {      
-      console.log("mobile screen");
-      
       setPortFolioVisible(true)
       setIsIntro(false)
     }

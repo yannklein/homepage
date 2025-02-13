@@ -5,14 +5,20 @@ import { ThreeJSContext } from './initThree';
 
 import { getCountry } from '../locationInfo';
 
-export default (username: string, textureLoader: THREE.TextureLoader, porcelainMat: THREE.Material, bgMeshes: THREE.Group, world: ThreeJSContext) => {
+let gltfLoaded = false;
+
+export const createSpaceShip =  (username: string, textureLoader: THREE.TextureLoader, porcelainMat: THREE.Material, bgMeshes: THREE.Group, world: ThreeJSContext) => {
   // Load 3D object
   const ship = new THREE.Group();
   const loader = new GLTFLoader();
   loader.load(
     '/spaceship/scene.gltf',
     gltf => {
-      
+      if (gltfLoaded) {
+        return;
+      } else {
+        gltfLoaded = true;
+      }
       gltf.scene.traverse(o => {
         if ((o as THREE.Mesh).isMesh) {
           (o as THREE.Mesh).material = porcelainMat;

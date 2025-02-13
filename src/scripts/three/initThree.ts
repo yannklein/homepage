@@ -5,7 +5,7 @@ import { EventObject, fetchTokyoEvents, Event } from '../tokyo-events';
 
 import porcelainImg from '../../assets/matcap-porcelain-white.jpg';
 
-// import createSpaceShip from './spaceship';
+import { createSpaceShip } from './spaceship';
 import createTimeSpheres from './time-spheres';
 import createEventCubes from './event-cubes';
 import { createTorus, disposeTorus } from './torus';
@@ -172,7 +172,7 @@ const addBackground = (
       bgMeshes.add(createTimeSpheres('second', material, world, localOffset));
 
       // Create a spaceship
-      // createSpaceShip(username, textureLoader, material, bgMeshes, world);
+      createSpaceShip(username, textureLoader, material, bgMeshes, world);
 
       // Create event spheres
       const bindedCreateEventCubes = (eventObject: EventObject[]) => {
