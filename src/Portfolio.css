@@ -40,13 +40,6 @@
     visibility: visible;
   }
 
-
-/* @include respond-to('mobile') {
-  .container {
-    width: 90%;
-  }
-} */
-
 @media (max-width: 1100px) {
   .portfolio {
     grid-template-columns: 1fr 1fr;
@@ -57,5 +50,8 @@
 @media (max-width: 600px){
   .portfolio {
     grid-template-columns: 1fr;
+  }
+  .container {
+    width: 90%;
   }
 }
