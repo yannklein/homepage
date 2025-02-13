@@ -65,9 +65,10 @@ const initThree = (name: string, htmlElement: HTMLElement): ThreeJSContext => {
       animation();
     });
 
-    const introPopupEl = document.querySelector('.intro-popup-hidden');
+    const introPopupEl = document.querySelector('.intro-popup');
     const portfolioEl = document.querySelector('.main-content-visible');
-    if (introPopupEl && !portfolioEl) {
+    
+    if (!introPopupEl && !portfolioEl) {
     
     // Raycast code    
       const raycaster = new THREE.Raycaster();
