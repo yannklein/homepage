@@ -148,12 +148,12 @@ const IntroPopup = ({
         if (isocahedron.position.z <= -0.6) {
           // Make the homepage cards visible
           if (!portFolioVisible) setPortFolioVisible(true);
+          setIsIntro(false);
         }
         if (isocahedron.position.z <= -1) {
           introPopup.classList.add('intro-popup-hidden');
           popupScene.current?.scene.remove(isocahedron);
           clearInterval(intervId);
-          setIsIntro(false);
         }
       }, 30);
     };

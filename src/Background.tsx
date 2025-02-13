@@ -25,7 +25,10 @@ const Background = ({
 
   useEffect(() => {
     if (window.innerWidth < 1100) {      
+      console.log("mobile screen");
+      
       setPortFolioVisible(true)
+      setIsIntro(false)
     }
   }, [setPortFolioVisible]);
     
@@ -74,14 +77,14 @@ const Background = ({
         </p>
       </a>
       { !isIntro && !portFolioVisible && <BackgroundLegend /> }
-      {!portFolioVisible ? (
+      {isIntro && !portFolioVisible && (
         <IntroPopup
           setIntroPopupLoaded={setIntroPopupLoaded}
           setPortFolioVisible={setPortFolioVisible}
           portFolioVisible={portFolioVisible}
           setIsIntro={setIsIntro}
         />
-      ) : null}
+      )}
     </>
   );
 };
