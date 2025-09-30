@@ -13,7 +13,13 @@
 
 .intro-card h1 {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 16px;
+}
+
+.intro-card strong {
+  text-align: center;
+  display: block;
+  margin-bottom: 32px;
 }
 
 .intro-card p {
