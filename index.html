@@ -43,6 +43,17 @@
       gtag('event', 'page_view', {
         user_agent: navigator.userAgent,
       });
+
+      const ua = navigator.userAgent || '';
+      const botRe = /(gpt[\s-]*bot|perplexity[\s-]*bot|claude[\s-]*bot|google[\s-]*extended|bing[\s-]*bot)/i;
+
+      if (botRe.test(ua)) {
+        gtag('event', 'chatbot_activity', {
+          user_agent: ua,
+          page_location: location.href,
+          page_title: document.title
+        });
+      }
     </script>
     <!-- Hotjar Tracking Code for Site 5169726 (name missing) -->
     <script>
