@@ -9,17 +9,17 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="hero-section">
+    <section id="home" className="hero-section" itemScope itemType="https://schema.org/Person">
       <div className="hero-content">
         <div className="hero-text">
           <h1 className="hero-title">
-            Hi, I'm <span className="highlight">Yann Klein</span>
+            Hi, I'm <span className="highlight" itemProp="name">Yann Klein</span>
           </h1>
-          <p className="hero-subtitle">
-            Software Developer & Bootcamp Manager at Le Wagon Tokyo
+          <p className="hero-subtitle" itemProp="jobTitle">
+            Software Developer & Bootcamp Manager at <span itemProp="worksFor" itemScope itemType="https://schema.org/Organization"><span itemProp="name">Le Wagon Tokyo</span></span>
           </p>
-          <p className="hero-description">
-            I build modern web applications and empower aspiring developers to transform their careers through code.
+          <p className="hero-description" itemProp="description">
+            I build modern, scalable web applications and empower aspiring developers to transform their careers through intensive coding education. Specializing in React, TypeScript, Ruby on Rails, and full-stack development.
           </p>
           <div className="hero-actions">
             <button

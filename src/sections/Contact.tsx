@@ -42,14 +42,15 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section contact-section">
+    <section id="contact" className="section contact-section" itemScope itemType="https://schema.org/ContactPage">
       <div className="section-container">
         <h2 className="section-title">Get In Touch</h2>
         <div className="contact-content">
-          <div className="contact-info">
+          <div className="contact-info" itemScope itemType="https://schema.org/Person">
+            <meta itemProp="name" content="Yann Klein" />
             <h3>Let's Connect</h3>
             <p>
-              I'm always interested in hearing about new projects, opportunities, or just having a chat about technology and education.
+              I'm always interested in hearing about new projects, collaboration opportunities, or just having a chat about technology and education. Feel free to reach out through any of these channels.
             </p>
             <div className="social-links">
               {socialLinks.map((link) => {
@@ -69,13 +70,13 @@ const Contact = () => {
               })}
             </div>
             <div className="contact-details">
-              <div className="detail-item">
-                <i className="fas fa-map-marker-alt"></i>
-                <span>Tokyo, Japan</span>
+              <div className="detail-item" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
+                <span itemProp="addressLocality">Tokyo</span>, <span itemProp="addressCountry">Japan</span>
               </div>
               <div className="detail-item">
-                <i className="fas fa-envelope"></i>
-                <span>yann@lewagon.com</span>
+                <i className="fas fa-envelope" aria-hidden="true"></i>
+                <a href="mailto:yann@lewagon.com" itemProp="email">yann@lewagon.com</a>
               </div>
             </div>
           </div>
