@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Navigation.css';
+import LogoIcosahedron from './LogoIcosahedron';
 
 interface NavigationProps {
   activeSection: string;
@@ -36,7 +37,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
     <nav className={`navigation ${isScrolled ? 'navigation-scrolled' : ''}`}>
       <div className="nav-container">
         <div className="nav-logo" onClick={() => scrollToSection('home')}>
-          <img src="/logo.png" alt="Logo" />
+          <LogoIcosahedron />
         </div>
         <ul className="nav-menu">
           {navItems.map((item) => (
