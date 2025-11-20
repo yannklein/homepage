@@ -8,14 +8,33 @@ const Projects = () => {
 
   const filterOptions = [
     { value: 'all', label: 'All' },
+    { value: 'pro', label: 'Professional' },
     { value: 'code', label: 'Personal' },
-    { value: 'help', label: 'Teaching & Care' },
+    { value: 'teaching', label: 'Teaching' },
+    { value: 'care', label: 'Care' },
   ];
 
   const getFilteredProjects = () => {
     if (selected === 'all') return projects;
     if (selected === 'code') {
       return projects.filter(p => ['code', 'vr', 'maker', 'love'].includes(p.type));
+    }
+    if (selected === 'teaching') {
+      return projects.filter(p =>
+        p.type === 'help' &&
+        (p.title.includes('Coding Tutorial') ||
+         p.title.includes('Le Wagon'))
+      );
+    }
+    if (selected === 'care') {
+      return projects.filter(p =>
+        p.type === 'help' &&
+        !p.title.includes('Coding Tutorial') &&
+        !p.title.includes('Le Wagon')
+      );
+    }
+    if (selected === 'pro') {
+      return projects.filter(p => p.type === 'pro');
     }
     return projects.filter(p => p.type === selected);
   };
