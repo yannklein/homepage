@@ -18,7 +18,7 @@ const LogoIcosahedron = () => {
     sceneRef.current = scene;
 
     const camera = new THREE.PerspectiveCamera(50, 1, 0.01, 10);
-    camera.position.z = 0.20;
+    camera.position.z = 0.25;
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
