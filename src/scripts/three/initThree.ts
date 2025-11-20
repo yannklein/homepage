@@ -168,7 +168,7 @@ const addBackground = (
       }
 
       // Create an orbiting clock
-      const localOffset = 9;
+      const localOffset = 1;
       bgMeshes.add(createTimeSpheres('hour', material, world, localOffset));
       bgMeshes.add(createTimeSpheres('minute', material, world, localOffset));
       bgMeshes.add(createTimeSpheres('second', material, world, localOffset));
