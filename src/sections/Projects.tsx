@@ -7,11 +7,18 @@ const Projects = () => {
   const [selected, setSelected] = useState('all');
 
   const filterOptions = [
-    { value: 'all', label: 'All Projects' },
-    { value: 'pro', label: 'Professional' },
-    { value: 'perso', label: 'Personal' },
-    { value: 'teaching', label: 'Teaching' },
+    { value: 'all', label: 'All' },
+    { value: 'code', label: 'Personal' },
+    { value: 'help', label: 'Teaching & Care' },
   ];
+
+  const getFilteredProjects = () => {
+    if (selected === 'all') return projects;
+    if (selected === 'code') {
+      return projects.filter(p => ['code', 'vr', 'maker', 'love'].includes(p.type));
+    }
+    return projects.filter(p => p.type === selected);
+  };
 
   return (
     <section id="projects" className="section projects-section">
@@ -29,13 +36,9 @@ const Projects = () => {
           ))}
         </div>
         <div className="projects-grid">
-          {projects
-            .filter(
-              (project) => selected === 'all' || selected === project.type,
-            )
-            .map((project) => (
-              <Card key={project.url} {...project}></Card>
-            ))}
+          {getFilteredProjects().map((project) => (
+            <Card key={project.url} {...project}></Card>
+          ))}
         </div>
       </div>
     </section>

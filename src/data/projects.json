@@ -39,13 +39,13 @@
     "type": "help",
     "url": "https://github.com/yannklein/react-workshop",
     "img": "react-workshop",
-    "title": "Coding tutorial",
+    "title": "Coding Tutorial",
     "description": "How to build a simple CRUD app with React and Rails",
     "langs": ["react", "vite", "rails"],
     "gif": false
   },
   {
-    "type": "code",
+    "type": "help",
     "url": "https://lewagon-cinema.herokuapp.com/",
     "img": "lewagon-cinema",
     "title": "Le Wagon Cinema",
@@ -144,7 +144,7 @@
     "gif": false
   },
   {
-    "type": "code",
+    "type": "help",
     "url": "https://github.com/yannklein/career-journey",
     "img": "career-journey_c1xrfe",
     "title": "Le Wagon Tokyo Career Journey",
@@ -297,7 +297,7 @@
     "gif": false
   },
   {
-    "type": "love",
+    "type": "help",
     "url": "https://medium.com/@yann.and.the.machines/3-unusual-rules-that-broadened-my-reading-horizons-c5ddbbaf998d",
     "title": "My golden rule for books",
     "description": "3 rules that opened my mind and made me read fabulous books.",
