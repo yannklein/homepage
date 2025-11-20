@@ -45,6 +45,13 @@
   margin-right: auto;
 }
 
+.hero-description .highlight {
+  background: linear-gradient(135deg, var(--color-celadon-green), var(--color-ming));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .hero-actions {
   display: flex;
   gap: var(--spacing-3);
