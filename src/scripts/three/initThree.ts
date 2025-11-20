@@ -147,6 +147,7 @@ const addBackground = (
       const material = new THREE.MeshMatcapMaterial({
         side: THREE.DoubleSide,
         matcap: porcelain,
+        color: 0x666666,
       });
       const bgMeshes = new THREE.Group();
       bgMeshes.name = 'bgMesh';
