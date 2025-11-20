@@ -373,7 +373,7 @@ Outside work you're described as a VR/AR enthusiast who also loves cycling aroun
     author: 'Le Wagon Tokyo',
     published_date: '2025-01-26',
     tags: ['Profile', 'Le Wagon', 'Management', 'Tokyo'],
-    image_url: 'https://media.licdn.com/dms/image/v2/D5605AQGX25IJ92toCw/feedshare-thumbnail_720_1280/B56ZSlRTC4GsA8-/0/1737939568532?e=1764277200&v=beta&t=dpXtAm0zXyFbc7EPeUVF9BEk2Ph_CwCkC4ib7A3fnzU',
+    image_url: '/src/assets/image.png',
     external_url: 'https://www.linkedin.com/posts/le-wagon-tokyo_meet-yann-le-wagon-tokyos-program-manager-activity-7289446976490811392-EV6t',
     read_time: 3
   },
