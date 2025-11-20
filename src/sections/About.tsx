@@ -17,7 +17,7 @@ const About = () => {
               When I’m not teaching or coding, you’ll find me crafting leather goods, exploring new tech, or riding around discovering new places on wheels.
             </p>
             <p itemProp="knowsAbout">
-              Curious? Let’s grab a coffee—or jump on Zoom.
+              Curious? Let’s grab a coffee, or jump on Zoom.
             </p>
           </article>
         </div>
