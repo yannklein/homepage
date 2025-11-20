@@ -46,7 +46,7 @@
 }
 
 .hero-description .highlight {
-  background: linear-gradient(135deg, var(--color-purple-navy), var(--color-ming));
+  background: linear-gradient(135deg, var(--color-purple-navy-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
