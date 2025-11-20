@@ -22,21 +22,21 @@ const Background = ({
   const [isIntro, setIsIntro] = useState(true);
   const [introPopupLoaded, setIntroPopupLoaded] = useState(false);
   const [backgroundLoaded, setBackgroundLoaded] = useState(false);
+  const bgInitialized = useRef(false);
 
   useEffect(() => {
-    if (window.innerWidth < 1100) {      
+    if (window.innerWidth < 1100) {
       setPortFolioVisible(true)
       setIsIntro(false)
     }
   }, [setPortFolioVisible]);
-    
+
   useEffect(() => {
-    if (!bgElement.current) return;
-    if (!bgWorld.current) {
-      bgWorld.current = initThree('bgWorld', bgElement.current);
-    }
+    if (!bgElement.current || bgInitialized.current) return;
+    bgInitialized.current = true;
+    bgWorld.current = initThree('bgWorld', bgElement.current);
     addBackground(bgWorld.current, setBackgroundLoaded);
-  }, [bgElement, isIntro]);
+  }, []);
 
   useEffect(() => {
     // Get rid of loading after 5sec even if loading not finished
