@@ -14,11 +14,38 @@ type Times = {
   second: TimeUnit;
 };
 
+// Helper function to calculate CET/CEST offset (handles daylight saving time)
+const getCETOffset = (date: Date): number => {
+  // CET uses Europe/Paris timezone rules
+  const cetFormatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Europe/Paris',
+    hour: 'numeric',
+    hour12: false
+  });
+  const utcFormatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'UTC',
+    hour: 'numeric',
+    hour12: false
+  });
+
+  const cetHour = parseInt(cetFormatter.format(date));
+  const utcHour = parseInt(utcFormatter.format(date));
+
+  let offset = cetHour - utcHour;
+  if (offset < -12) offset += 24;
+  if (offset > 12) offset -= 24;
+
+  return offset;
+};
+
 // Create the time spheres on the ThreeJS bg
 export default (type: string, material: THREE.Material, world: ThreeJSContext, offset: number) => {
   const times: Times = {
     hour: {
-      now: (date: Date) => date.getUTCHours() + offset + date.getUTCMinutes() / 60,
+      now: (date: Date) => {
+        const cetOffset = getCETOffset(date);
+        return date.getUTCHours() + cetOffset + date.getUTCMinutes() / 60;
+      },
       division: 12,
       distCenter: 0.5,
       sphereSize: 0.1

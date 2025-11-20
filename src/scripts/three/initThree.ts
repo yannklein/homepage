@@ -168,10 +168,9 @@ const addBackground = (
       }
 
       // Create an orbiting clock
-      const localOffset = 1;
-      bgMeshes.add(createTimeSpheres('hour', material, world, localOffset));
-      bgMeshes.add(createTimeSpheres('minute', material, world, localOffset));
-      bgMeshes.add(createTimeSpheres('second', material, world, localOffset));
+      bgMeshes.add(createTimeSpheres('hour', material, world, 0));
+      bgMeshes.add(createTimeSpheres('minute', material, world, 0));
+      bgMeshes.add(createTimeSpheres('second', material, world, 0));
 
       // Create a spaceship
       createSpaceShip(username, textureLoader, material, bgMeshes, world);
