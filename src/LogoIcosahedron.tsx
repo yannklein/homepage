@@ -12,7 +12,7 @@ const LogoIcosahedron = () => {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const size = 42;
+    const size = 40;
 
     const scene = new THREE.Scene();
     sceneRef.current = scene;
