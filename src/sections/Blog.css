@@ -16,12 +16,15 @@
 }
 
 .blog-card {
+  display: block;
   background-color: rgba(20, 20, 35, 0.7);
   border-radius: 8px;
   border: 1px solid rgba(47, 132, 124, 0.15);
   overflow: hidden;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .blog-card:hover {
@@ -60,9 +63,16 @@
 }
 
 .blog-date,
-.blog-author {
+.blog-author,
+.blog-read-time {
   display: flex;
   align-items: center;
+}
+
+.blog-date::after {
+  content: '•';
+  margin-left: var(--spacing-2);
+  color: var(--color-neutral-500);
 }
 
 .blog-title {
