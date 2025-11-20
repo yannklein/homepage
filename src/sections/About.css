@@ -1,0 +1,133 @@
+.section {
+  min-height: 100vh;
+  padding: 120px 0 var(--spacing-10);
+  position: relative;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+}
+
+.section-title {
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: var(--spacing-8);
+  color: var(--color-neutral-50);
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-celadon-green), var(--color-ming));
+  border-radius: 2px;
+}
+
+.about-section {
+  background-color: rgba(20, 20, 35, 0.3);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-6);
+  align-items: start;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.about-intro {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-neutral-100);
+  line-height: 1.6;
+}
+
+.about-text p {
+  font-size: 16px;
+  color: var(--color-neutral-200);
+  line-height: 1.6;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.highlight-card {
+  background-color: rgba(20, 20, 35, 0.8);
+  padding: var(--spacing-3);
+  border-radius: 8px;
+  border: 1px solid rgba(47, 132, 124, 0.15);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(47, 132, 124, 0.4);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.highlight-icon {
+  font-size: 32px;
+  color: var(--color-celadon-green);
+  margin-bottom: var(--spacing-2);
+}
+
+.highlight-card h3 {
+  font-size: 20px;
+  color: var(--color-neutral-50);
+  margin-bottom: var(--spacing-1);
+}
+
+.highlight-card p {
+  font-size: 14px;
+  color: var(--color-neutral-300);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 100px 0 var(--spacing-6);
+  }
+
+  .section-title {
+    font-size: 36px;
+    margin-bottom: var(--spacing-6);
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+
+  .about-intro {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-container {
+    padding: 0 var(--spacing-2);
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .about-intro {
+    font-size: 16px;
+  }
+}
