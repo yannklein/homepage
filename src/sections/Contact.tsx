@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
 import './Contact.css';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -53,8 +53,6 @@ const Contact = () => {
   const socialLinks = [
     { icon: FaGithub, url: 'https://github.com/yannklein', label: 'GitHub' },
     { icon: FaLinkedin, url: 'https://linkedin.com/in/yannklein', label: 'LinkedIn' },
-    { icon: FaTwitter, url: 'https://twitter.com/yannlucklein', label: 'Twitter' },
-    { icon: FaEnvelope, url: 'mailto:yann@lewagon.com', label: 'Email' },
   ];
 
   return (
@@ -88,11 +86,7 @@ const Contact = () => {
             <div className="contact-details">
               <div className="detail-item" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                 <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
-                <span itemProp="addressLocality">Tokyo</span>, <span itemProp="addressCountry">Japan</span>
-              </div>
-              <div className="detail-item">
-                <i className="fas fa-envelope" aria-hidden="true"></i>
-                <a href="mailto:yann@lewagon.com" itemProp="email">yann@lewagon.com</a>
+                <span itemProp="addressLocality">Europe</span>
               </div>
             </div>
           </div>
