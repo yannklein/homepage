@@ -23,9 +23,6 @@ const Sidebar = ({setSelected}: {setSelected: React.Dispatch<React.SetStateActio
         <a href="https://github.com/yannklein">
           <FaGithub fontSize={48} />
         </a>
-        <a href="https://twitter.com/yannlucklein">
-          <FaTwitter fontSize={48} />
-        </a>
         <a href="https://www.linkedin.com/in/yann-klein/">
           <FaLinkedinIn fontSize={48} />
         </a>
