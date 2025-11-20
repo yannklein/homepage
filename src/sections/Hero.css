@@ -47,6 +47,7 @@
 
 .hero-description .highlight {
   background: linear-gradient(135deg, var(--color-celadon-green), var(--color-ming));
+  font-weight: 900;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
