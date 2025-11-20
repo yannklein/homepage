@@ -26,6 +26,8 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-stroke: 2px white;
+  text-stroke: 2px white;
 }
 
 .hero-subtitle {
