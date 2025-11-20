@@ -20,29 +20,6 @@ const About = () => {
               Curious? Intrigued? Mildly concerned? Perfect. Let’s grab a coffee—or if you’re feeling camera-ready, jump on a Zoom call 🎥.
             </p>
           </article>
-          <div className="about-highlights">
-            <div className="highlight-card">
-              <div className="highlight-icon">
-                <i className="fas fa-code"></i>
-              </div>
-              <h3>Full-Stack Development</h3>
-              <p>Building scalable web applications from concept to deployment</p>
-            </div>
-            <div className="highlight-card">
-              <div className="highlight-icon">
-                <i className="fas fa-chalkboard-teacher"></i>
-              </div>
-              <h3>Technical Education</h3>
-              <p>Empowering the next generation of developers through mentorship</p>
-            </div>
-            <div className="highlight-card">
-              <div className="highlight-icon">
-                <i className="fas fa-rocket"></i>
-              </div>
-              <h3>Innovation</h3>
-              <p>Constantly exploring emerging technologies and best practices</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
