@@ -21,7 +21,7 @@
   line-height: 1.1;
 }
 
-.hero-title .highlight {
+.highlight {
   background: linear-gradient(135deg, var(--color-celadon-green), var(--color-ming), var(--color-purple-navy));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
