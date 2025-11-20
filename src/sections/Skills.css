@@ -2,6 +2,56 @@
   background-color: rgba(30, 30, 45, 0.3);
 }
 
+.leadership-section {
+  background: linear-gradient(135deg, rgba(47, 132, 124, 0.15), rgba(47, 132, 124, 0.05));
+  padding: var(--spacing-5);
+  border-radius: 12px;
+  border: 2px solid rgba(47, 132, 124, 0.3);
+  margin-bottom: var(--spacing-5);
+  text-align: center;
+}
+
+.leadership-title {
+  font-size: 28px;
+  color: var(--color-celadon-green);
+  margin-bottom: var(--spacing-3);
+  font-weight: 600;
+}
+
+.leadership-description {
+  font-size: 18px;
+  color: var(--color-neutral-200);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-4);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.leadership-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  justify-content: center;
+}
+
+.leadership-skill {
+  background-color: rgba(47, 132, 124, 0.2);
+  color: var(--color-neutral-100);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid rgba(47, 132, 124, 0.3);
+  transition: all 0.2s ease;
+}
+
+.leadership-skill:hover {
+  background-color: rgba(47, 132, 124, 0.3);
+  border-color: rgba(47, 132, 124, 0.5);
+  transform: translateY(-2px);
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -16,10 +66,21 @@
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.skill-category.highlight {
+  border: 2px solid rgba(47, 132, 124, 0.4);
+  background-color: rgba(20, 20, 35, 0.85);
+  box-shadow: 0 4px 12px rgba(47, 132, 124, 0.1);
+}
+
 .skill-category:hover {
   transform: translateY(-4px);
   border-color: rgba(47, 132, 124, 0.3);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.skill-category.highlight:hover {
+  border-color: rgba(47, 132, 124, 0.6);
+  box-shadow: 0 8px 16px rgba(47, 132, 124, 0.2);
 }
 
 .category-title {
@@ -70,6 +131,23 @@
 }
 
 @media (max-width: 768px) {
+  .leadership-section {
+    padding: var(--spacing-4);
+  }
+
+  .leadership-title {
+    font-size: 24px;
+  }
+
+  .leadership-description {
+    font-size: 16px;
+  }
+
+  .leadership-skill {
+    font-size: 13px;
+    padding: var(--spacing-1) var(--spacing-2);
+  }
+
   .skills-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-3);
