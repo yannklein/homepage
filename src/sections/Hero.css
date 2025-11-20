@@ -21,7 +21,7 @@
   line-height: 1.1;
 }
 
-.highlight {
+.hero-title .highlight {
   background: linear-gradient(135deg, var(--color-celadon-green), var(--color-ming), var(--color-purple-navy));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -45,12 +45,12 @@
   margin-right: auto;
 }
 
-.hero-description .highlight {
+/* .hero-description .highlight {
   background: linear-gradient(135deg, var(--color-purple-navy-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+} */
 
 .hero-actions {
   display: flex;
