@@ -1,84 +1,43 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabaseClient';
+import { blogPosts, type BlogPost } from '../data/blogPosts';
 import Navigation from '../Navigation';
 import './BlogPostPage.css';
 import MarkdownIt from 'markdown-it';
 
 const md = new MarkdownIt();
 
-interface BlogPost {
-  id: string;
-  title: string;
-  slug: string;
-  excerpt: string;
-  content: string;
-  published_date: string;
-  image_url: string | null;
-  external_url: string | null;
-  author: string;
-  tags: string[];
-  read_time: number;
-}
-
 function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const [post, setPost] = useState<BlogPost | null>(null);
-  const [loading, setLoading] = useState(true);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchPost();
-  }, [slug]);
+
+    const foundPost = blogPosts.find(p => p.slug === slug);
+
+    if (!foundPost) {
+      navigate('/');
+      return;
+    }
+
+    setPost(foundPost);
+
+    const related = blogPosts
+      .filter(p => p.slug !== slug)
+      .sort((a, b) => new Date(b.published_date).getTime() - new Date(a.published_date).getTime())
+      .slice(0, 3);
+
+    setRelatedPosts(related);
+  }, [slug, navigate]);
 
   useEffect(() => {
     if (post) {
       updateMetaTags();
     }
   }, [post]);
-
-  const fetchPost = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .eq('slug', slug)
-        .maybeSingle();
-
-      if (error) throw error;
-
-      if (!data) {
-        navigate('/');
-        return;
-      }
-
-      setPost(data);
-      fetchRelatedPosts(data.tags);
-    } catch (error) {
-      console.error('Error fetching post:', error);
-      navigate('/');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const fetchRelatedPosts = async (tags: string[]) => {
-    try {
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .neq('slug', slug)
-        .order('published_date', { ascending: false })
-        .limit(3);
-
-      if (error) throw error;
-      if (data) setRelatedPosts(data);
-    } catch (error) {
-      console.error('Error fetching related posts:', error);
-    }
-  };
 
   const updateMetaTags = () => {
     if (!post) return;
@@ -107,17 +66,6 @@ function BlogPostPage() {
       }
     }
   };
-
-  if (loading) {
-    return (
-      <div className="blog-post-page">
-        <Navigation activeSection="blog" />
-        <div className="blog-post-loading">
-          <div className="loading-spinner"></div>
-        </div>
-      </div>
-    );
-  }
 
   if (!post) {
     return null;
