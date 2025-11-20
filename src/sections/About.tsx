@@ -11,13 +11,13 @@ const About = () => {
             <meta itemProp="jobTitle" content="Software Developer & Bootcamp Manager" />
             <meta itemProp="worksFor" content="Le Wagon Tokyo" />
             <p className="about-intro" itemProp="description">
-              I’m a maker at heart, the kind of person who gets equally excited about building full-stack applications, tinkering with VR/AR prototypes, and figuring out why my AI models occasionally behave like chaotic toddlers. When I’m not busy exploring the edges of tech, you’ll probably find me obsessing over leathercraft—yes, it’s a real addiction, and no, I’m not seeking help.
+              I’m a maker who loves building things—web apps, VR/AR experiments, or AI models that sometimes behave like enthusiastic toddlers. With 15+ years in software engineering, cloud, and machine learning, I’ve led Le Wagon Tokyo’s bootcamps and helped hundreds of students launch tech careers.
             </p>
             <p itemProp="knowsAbout">
-              I’m also a big believer in humans: helping coding bootcamp students transform their lives is what gets me out of bed every morning (well… that and coffee ☕). I volunteer at Migracode to teach programming for free, and I’ve worked with sustainability-driven startups because I want my projects to make the planet slightly better, not worse.
+              When I’m not teaching or coding, you’ll find me crafting leather goods, exploring new tech, or riding around discovering new places on wheels.
             </p>
             <p itemProp="knowsAbout">
-              Curious? Intrigued? Mildly concerned? Perfect. Let’s grab a coffee—or if you’re feeling camera-ready, jump on a Zoom call 🎥.
+              Curious? Let’s grab a coffee—or jump on Zoom.
             </p>
           </article>
         </div>
