@@ -19,7 +19,7 @@ const Hero = () => {
             Software Developer & Bootcamp Manager at <span itemProp="worksFor" itemScope itemType="https://schema.org/Organization"><span itemProp="name">Le Wagon Tokyo</span></span>
           </p>
           <p className="hero-description" itemProp="description">
-            I build modern, scalable web applications and empower aspiring developers to transform their careers through intensive coding education. Specializing in React, TypeScript, Ruby on Rails, and full-stack development.
+            I build products, explore emerging tech (AI, VR, AR), and help people through coding. I’m a maker at heart, mildly obsessed with leathercraft, and I love long-distance bicycle adventures across countries.
           </p>
           <div className="hero-actions">
             <button
