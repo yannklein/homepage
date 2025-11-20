@@ -40,7 +40,7 @@ const LogoIcosahedron = () => {
         const material = new THREE.MeshMatcapMaterial({
           side: THREE.DoubleSide,
           matcap: porcelain,
-          color: 0x666666,
+          color: 0x888888,
         });
 
         const geometry = new THREE.IcosahedronGeometry(0.1, 0);
