@@ -19,7 +19,7 @@ const Hero = () => {
             Software Developer & Bootcamp Manager
           </p>
           <p className="hero-description" itemProp="description">
-            I build products, explore <span className="highlight">emerging tech</span> (AI, VR, AR), and <span className="highlight">help people</span> through coding. I’m a <span className="highlight">maker</span> at heart, mildly obsessed with leathercraft, and I love long-distance bicycle adventures across countries.
+            I build products, explore <span className="highlight">emerging tech</span>, AI, VR, AR, and <span className="highlight">help people</span> through coding. I’m a <span className="highlight">maker</span> at heart, mildly obsessed with leathercraft, and I love long-distance bicycle adventures across countries.
           </p>
           <div className="hero-actions">
             <button
