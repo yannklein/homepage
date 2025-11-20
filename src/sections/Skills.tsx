@@ -63,12 +63,12 @@ const Skills = () => {
   ];
 
   const leadershipSkills = [
-    'Program & Project Management',
-    'Team Leadership & Mentoring',
+    'Program Management',
+    'Team Leadership',
     'Agile Methodologies',
-    'Technical Training & Education',
-    'Cross-cultural Communication',
-    'Business System Strategy',
+    'Technical Training',
+    'Cross-cultural',
+    'System Strategy',
   ];
 
   return (
@@ -77,14 +77,15 @@ const Skills = () => {
         <h2 className="section-title" itemProp="name">Skills & Technologies</h2>
         <meta itemProp="description" content="Technical skills and technologies that Yann Klein specializes in, including frontend, backend, database, and DevOps tools" />
 
-        <div className="leadership-section">
-          <h3 className="leadership-title">Leadership & Management</h3>
-          <p className="leadership-description">
-            With 15+ years leading technical teams and programs, I've managed bootcamps with 150+ projects, coached teams across Japan and Korea, and driven award-winning innovation initiatives at enterprise scale.
-          </p>
-          <div className="leadership-skills">
+        <div className="skills-intro">
+          <p>15+ years building web applications, machine learning models, and leading technical programs. Expertise spans full-stack development, data science, cloud infrastructure, and team management.</p>
+        </div>
+
+        <div className="leadership-compact">
+          <h3>Leadership</h3>
+          <div className="leadership-tags">
             {leadershipSkills.map((skill) => (
-              <span key={skill} className="leadership-skill">{skill}</span>
+              <span key={skill}>{skill}</span>
             ))}
           </div>
         </div>
