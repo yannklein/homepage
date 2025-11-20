@@ -6,9 +6,9 @@
   justify-content: center;
   align-items: center;
   z-index: 50;
-  background: #2F847C;
-  background: -webkit-linear-gradient(135deg, #2F847C 0%, #386D7F 25%, #405682 50%, #493F85 75%, #512888 100%);
-  background: linear-gradient(135deg, #2F847C 0%, #386D7F 25%, #405682 50%, #493F85 75%, #512888 100%);
+  background: #1a1625;
+  background: -webkit-linear-gradient(135deg, #1a2e2b 0%, #1e2d35 25%, #1f2438 50%, #201f39 75%, #21143a 100%);
+  background: linear-gradient(135deg, #1a2e2b 0%, #1e2d35 25%, #1f2438 50%, #201f39 75%, #21143a 100%);
   transition: opacity 0.5s ease;
 }
 

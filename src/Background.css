@@ -2,9 +2,9 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background: #2F847C;
-  background: -webkit-linear-gradient(135deg, #2F847C 0%, #386D7F 25%, #405682 50%, #493F85 75%, #512888 100%);
-  background: linear-gradient(135deg, #2F847C 0%, #386D7F 25%, #405682 50%, #493F85 75%, #512888 100%);
+  background: #1a1625;
+  background: -webkit-linear-gradient(135deg, #1a2e2b 0%, #1e2d35 25%, #1f2438 50%, #201f39 75%, #21143a 100%);
+  background: linear-gradient(135deg, #1a2e2b 0%, #1e2d35 25%, #1f2438 50%, #201f39 75%, #21143a 100%);
 }
 
 .background-legend {
@@ -15,7 +15,7 @@
   bottom: 0px;
   font-size: 14px;
   color: #e2e8f0;
-  background-color: rgba(81, 40, 136, 0.85);
+  background-color: rgba(33, 20, 58, 0.95);
   backdrop-filter: blur(8px);
   text-align: center;
   padding: 8px;
@@ -39,12 +39,12 @@
   top: 64px;
   font-size: 16px;
   color: #f1f5f9;
-  background-color: rgba(81, 40, 136, 0.95);
+  background-color: rgba(33, 20, 58, 0.95);
   backdrop-filter: blur(8px);
   padding: 16px;
   border-radius: 8px;
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .event-cube-legend .title {
