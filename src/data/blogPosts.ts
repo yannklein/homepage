@@ -178,7 +178,7 @@ The article notes your humour and community-driven approach—you make classes f
     author: 'Le Wagon',
     published_date: '2020-08-11',
     tags: ['Profile', 'Le Wagon', 'Teaching', 'Education'],
-    image_url: null,
+    image_url: 'https://i0.wp.com/blog.lewagon.com/wp-content/uploads/2023/04/8ykftbeojsyaemunvzxihp3t0op3-3.jpeg?w=500&ssl=1',
     external_url: 'https://blog.lewagon.com/news/meet-our-team-yann/',
     read_time: 5
   },
@@ -207,7 +207,7 @@ Active encouragement to seek feedback early and often.`,
     author: 'Yann Klein',
     published_date: '2018-11-20',
     tags: ['Product Management', 'Feedback', 'Startup'],
-    image_url: null,
+    image_url: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/0*n2sR_gJal-8Ri4RZ',
     external_url: 'https://medium.com/@yann.and.the.machines/getting-feedback-what-it-changed-for-my-product-adventure-9908d52a331c',
     read_time: 6
   },
@@ -261,7 +261,7 @@ No clear winner. Open question: which path aligns with values, impact, and produ
     author: 'Yann Klein',
     published_date: '2018-11-13',
     tags: ['Product Management', 'B2B', 'B2C', 'Strategy'],
-    image_url: null,
+    image_url: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/0*3aaDHb9LrQpW88-A',
     external_url: 'https://medium.com/@yann.and.the.machines/magic-stickr-customers-b2b-vs-b2c-85907b20f737',
     read_time: 8
   },
@@ -294,36 +294,9 @@ Trusting strangers leads to extraordinary experiences.`,
     author: 'Yann Klein',
     published_date: '2018-05-26',
     tags: ['Personal', 'Space', 'Adventure', 'Collaboration'],
-    image_url: null,
+    image_url: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/0*6EHljRHaNkQ8mlTm.',
     external_url: 'https://medium.com/@yann.and.the.machines/the-day-trusting-people-brought-me-to-space-6fd7e99c9642',
     read_time: 6
-  },
-  {
-    id: '9',
-    title: '3 unusual rules that broadened my reading horizons',
-    slug: 'three-unusual-reading-rules',
-    excerpt: 'Three simple but powerful rules that dramatically increased reading volume and created a virtuous cycle of continuous learning.',
-    content: `Three rules that dramatically expanded your reading volume:
-
-## 1. Unlimited Book Budget
-
-Remove financial friction from reading by allowing yourself to buy any book without guilt.
-
-## 2. Immediate Purchase of Any Recommendation
-
-Act immediately on book recommendations to capitalize on peak interest.
-
-## 3. Share Your Rules and Books to Create a Feedback Loop
-
-Create accountability and discover new books by sharing your reading journey.
-
-These habits remove friction and create a reading "virtuous cycle."`,
-    author: 'Yann Klein',
-    published_date: '2018-05-20',
-    tags: ['Personal Development', 'Reading', 'Habits'],
-    image_url: null,
-    external_url: 'https://medium.com/@yann.and.the.machines/3-unusual-rules-that-broadened-my-reading-horizons-c5ddbbaf998d',
-    read_time: 5
   },
   {
     id: '10',
@@ -346,7 +319,7 @@ Learning about making handmade objects worthy of daily use.`,
     author: 'Yann Klein',
     published_date: '2015-10-21',
     tags: ['Craftsmanship', 'Personal', 'Tokyo', 'DIY'],
-    image_url: null,
+    image_url: 'https://miro.medium.com/v2/resize:fit:4288/format:webp/1*rHN1fX7Uq8oO7OWH2nSO1g.png',
     external_url: 'https://medium.com/@yann.and.the.machines/yann-and-the-machines-50540e9ec088',
     read_time: 4
   },
@@ -375,7 +348,7 @@ Discovering the future of human-computer interaction.`,
     author: 'Yann Klein',
     published_date: '2015-10-18',
     tags: ['Technology', 'Robotics', 'Tokyo', 'HCI'],
-    image_url: null,
+    image_url: 'https://miro.medium.com/v2/resize:fit:4800/format:webp/1*QXGmYYoSEDTTynRZYJsatg.jpeg',
     external_url: 'https://medium.com/@yann.and.the.machines/it-begins-at-the-ceatec-ceatec%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B-279edff0206e',
     read_time: 7
   },
@@ -400,7 +373,7 @@ Outside work you're described as a VR/AR enthusiast who also loves cycling aroun
     author: 'Le Wagon Tokyo',
     published_date: '2025-01-26',
     tags: ['Profile', 'Le Wagon', 'Management', 'Tokyo'],
-    image_url: null,
+    image_url: 'https://media.licdn.com/dms/image/v2/D5605AQGX25IJ92toCw/feedshare-thumbnail_720_1280/B56ZSlRTC4GsA8-/0/1737939568532?e=1764277200&v=beta&t=dpXtAm0zXyFbc7EPeUVF9BEk2Ph_CwCkC4ib7A3fnzU',
     external_url: 'https://www.linkedin.com/posts/le-wagon-tokyo_meet-yann-le-wagon-tokyos-program-manager-activity-7289446976490811392-EV6t',
     read_time: 3
   },
@@ -429,7 +402,7 @@ The event description highlights your background as a software engineer and boot
     author: 'Barcelona Expat Life',
     published_date: '2025-10-01',
     tags: ['Workshop', 'AI', 'Chatbot', 'Education', 'Barcelona'],
-    image_url: null,
+    image_url: 'https://media.licdn.com/dms/image/v2/D4E22AQG4RWGMTFVVQw/feedshare-shrink_800/B4EZmZ1BCWHcAk-/0/1759222440903?e=1765411200&v=beta&t=tjDVJBTLc8djEDWNGBlrfX4X1eVI51E8wizKrKXfv7c',
     external_url: 'https://barcelonaexpatlife.com/calendar/build-your-own-chatbot-with-ai/',
     read_time: 2
   },
