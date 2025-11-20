@@ -17,15 +17,14 @@ const About = () => {
               When I'm not teaching or coding, you'll find me <a href="https://medium.com/@yann.and.the.machines/yann-and-the-machines-50540e9ec088" target="_blank" rel="noopener noreferrer">crafting leather goods</a>, exploring new tech, or riding around discovering new places on wheels.
             </p>
             <p itemProp="knowsAbout">
+              These days I split my coding between <a href="https://github.com/yannklein" target="_blank" rel="noopener noreferrer">GitHub</a> and <a href="https://gitlab.com/yannklein" target="_blank" rel="noopener noreferrer">GitLab</a>, keeping both platforms equally green with contributions.
+            </p>
+            <p style={{ textAlign: 'center', margin: '2rem 0' }}>
+              <img src="https://raw.githubusercontent.com/yannklein/multi-platform-contrib-counter/refs/heads/main/public/contrib.svg" alt="Contribution graph" style={{ width: '100%', maxWidth: '800px' }} />
+            </p>
+            <p itemProp="knowsAbout">
               Curious? Let's grab a coffee, or <a href="https://cal.com/yannklein/30min?user=yannklein" target="_blank" rel="noopener noreferrer">jump on Zoom</a>.
             </p>
-            <div className="contributions">
-              <h4>Contributions across platforms</h4>
-              <p>These days I share my commits between <a href="https://github.com/yannklein" target="_blank" rel="noopener noreferrer">GitHub</a> and <a href="https://gitlab.com/yannklein" target="_blank" rel="noopener noreferrer">GitLab</a>:</p>
-              <p style={{ textAlign: 'center' }}>
-                <img src="https://raw.githubusercontent.com/yannklein/multi-platform-contrib-counter/refs/heads/main/public/contrib.svg" alt="Contribution graph across GitHub and GitLab" style={{ width: '100%' }} />
-              </p>
-            </div>
           </article>
         </div>
       </div>
