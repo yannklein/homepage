@@ -402,7 +402,7 @@ The event description highlights your background as a software engineer and boot
     author: 'Barcelona Expat Life',
     published_date: '2025-10-01',
     tags: ['Workshop', 'AI', 'Chatbot', 'Education', 'Barcelona'],
-    image_url: 'https://media.licdn.com/dms/image/v2/D4E22AQG4RWGMTFVVQw/feedshare-shrink_800/B4EZmZ1BCWHcAk-/0/1759222440903?e=1765411200&v=beta&t=tjDVJBTLc8djEDWNGBlrfX4X1eVI51E8wizKrKXfv7c',
+    image_url: '/src/assets/image copy.png',
     external_url: 'https://barcelonaexpatlife.com/calendar/build-your-own-chatbot-with-ai/',
     read_time: 2
   },
