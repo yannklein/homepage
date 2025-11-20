@@ -16,11 +16,27 @@ const Contact = () => {
     setStatus('sending');
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log('Form submitted:', formData);
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 3000);
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'c4db6142-821e-40bb-8ec5-6cf9493d6f64',
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setStatus('idle'), 3000);
+      } else {
+        setStatus('error');
+      }
     } catch (error) {
       console.error('Error sending message:', error);
       setStatus('error');
