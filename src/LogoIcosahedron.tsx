@@ -12,7 +12,7 @@ const LogoIcosahedron = () => {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const size = 40;
+    const size = 50;
 
     const scene = new THREE.Scene();
     sceneRef.current = scene;
@@ -77,7 +77,7 @@ const LogoIcosahedron = () => {
     };
   }, []);
 
-  return <div ref={containerRef} style={{ width: '40px', height: '40px' }} />;
+  return <div ref={containerRef} style={{ width: '50px', height: '50px' }} />;
 };
 
 export default LogoIcosahedron;
