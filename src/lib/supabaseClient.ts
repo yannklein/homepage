@@ -17,7 +17,10 @@ export interface BlogPost {
   published_date: string;
   tags: string[];
   featured_image?: string;
-  is_published: boolean;
+  image_url?: string | null;
+  external_url?: string | null;
+  read_time?: number;
+  is_published?: boolean;
   created_at: string;
   updated_at: string;
 }
