@@ -12,13 +12,13 @@ const LogoIcosahedron = () => {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const size = 50;
+    const size = 40;
 
     const scene = new THREE.Scene();
     sceneRef.current = scene;
 
     const camera = new THREE.PerspectiveCamera(50, 1, 0.01, 10);
-    camera.position.z = 0.22;
+    camera.position.z = 0.25;
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -77,7 +77,7 @@ const LogoIcosahedron = () => {
     };
   }, []);
 
-  return <div ref={containerRef} style={{ width: '50px', height: '50px' }} />;
+  return <div ref={containerRef} style={{ width: '40px', height: '40px' }} />;
 };
 
 export default LogoIcosahedron;
