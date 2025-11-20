@@ -22,12 +22,15 @@ const IntroPopup = ({
 }) => {
   const ipElement = useRef<HTMLDivElement>(null);
   const popupScene = useRef<ThreeJSContext>(null);
+  const isInitialized = useRef(false);
+
   useEffect(() => {
-    if (!ipElement.current) return;
-    if (!popupScene.current)
-      popupScene.current = initThree('introWorld', ipElement.current);
+    if (!ipElement.current || isInitialized.current) return;
+
+    isInitialized.current = true;
+    popupScene.current = initThree('introWorld', ipElement.current);
     addIntroPopup();
-  });
+  }, []);
 
   const addIntroPopup = () => {
     // Intro loading manager
@@ -138,6 +141,10 @@ const IntroPopup = ({
       // Make the isocahedron rotate
       const introPopup = event.currentTarget as HTMLElement;
       if (!introPopup) return;
+
+      // Remove the event listener immediately to prevent multiple triggers
+      ipElement.current?.removeEventListener('click', closeIntro);
+
       const bindedAnimation = animation.bind(null, isocahedron);
       popupScene.current?.animationQueue.push(bindedAnimation);
       // Make the isocahedron progressively move backward
@@ -158,7 +165,7 @@ const IntroPopup = ({
       }, 30);
     };
 
-    ipElement.current?.addEventListener('click', closeIntro);
+    ipElement.current?.addEventListener('click', closeIntro, { once: true });
   };
 
   return <div className="intro-popup" ref={ipElement}></div>;
