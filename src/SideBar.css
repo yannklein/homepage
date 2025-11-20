@@ -12,12 +12,17 @@
 
 .sidebar a {
   display: inline-block;
-  margin: 16px 0;
+  margin: var(--spacing-2) 0;
   text-decoration: none;
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.sidebar a:hover {
+  transform: scale(1.1);
 }
 
 .sidebar-right {
@@ -25,7 +30,11 @@
 }
 
 .sidebar-right a{
-  color: rgba(140, 140, 140, 0.4);
+  color: rgba(203, 213, 225, 0.5);
+}
+
+.sidebar-right a:hover {
+  color: var(--color-primary-400);
 }
 
 .sidebar-left {
@@ -33,8 +42,13 @@
 }
 
 .sidebar-left .icon {
-  color: rgba(80, 80, 80, 0.4);
+  color: rgba(203, 213, 225, 0.5);
   cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sidebar-left .icon:hover {
+  color: var(--color-primary-400);
 }
 
 .sidebar-left .icon-text {
@@ -59,7 +73,11 @@
   }
 
   .sidebar-right a {
-    color: #282828;
+    color: var(--color-neutral-200);
+  }
+
+  .sidebar-right a:hover {
+    color: var(--color-primary-400);
   }
 
   .sidebar-left {

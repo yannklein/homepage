@@ -6,13 +6,30 @@
   justify-content: center;
   align-items: center;
   z-index: 50;
-  background: #1D2B64;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #F8CDDA, #1D2B64);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #F8CDDA, #1D2B64); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #0f172a;
+  background: -webkit-linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+  transition: opacity 0.5s ease;
 }
 
 .loading-mask img {
   width: 40%;
+  animation: pulse 2s ease-in-out infinite;
 }
 
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 600px) {
+  .loading-mask img {
+    width: 60%;
+  }
+}
