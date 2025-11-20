@@ -16,7 +16,7 @@ const Hero = () => {
             Hi, I'm <span className="highlight" itemProp="name">Yann Klein</span>
           </h1>
           <p className="hero-subtitle" itemProp="jobTitle">
-            Software Developer & Bootcamp Manager at <span itemProp="worksFor" itemScope itemType="https://schema.org/Organization"><span itemProp="name">Le Wagon Tokyo</span></span>
+            Software Developer & Bootcamp Manager
           </p>
           <p className="hero-description" itemProp="description">
             I build products, explore emerging tech (AI, VR, AR), and help people through coding. I’m a maker at heart, mildly obsessed with leathercraft, and I love long-distance bicycle adventures across countries.
