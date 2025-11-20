@@ -11,16 +11,13 @@ const About = () => {
             <meta itemProp="jobTitle" content="Software Developer & Bootcamp Manager" />
             <meta itemProp="worksFor" content="Le Wagon Tokyo" />
             <p className="about-intro" itemProp="description">
-              I'm a software developer and bootcamp manager at Le Wagon Tokyo, where I help aspiring developers transform their careers through intensive coding education. I combine technical expertise with educational leadership to create impactful learning experiences.
+              I’m a maker at heart, the kind of person who gets equally excited about building full-stack applications, tinkering with VR/AR prototypes, and figuring out why my AI models occasionally behave like chaotic toddlers. When I’m not busy exploring the edges of tech, you’ll probably find me obsessing over leathercraft—yes, it’s a real addiction, and no, I’m not seeking help.
             </p>
             <p itemProp="knowsAbout">
-              With a background in engineering and a passion for teaching, I've successfully guided hundreds of students through their coding journey. My approach combines technical expertise with practical, real-world applications, focusing on modern web development practices that prepare students for professional software development careers.
+              I’m also a big believer in humans: helping coding bootcamp students transform their lives is what gets me out of bed every morning (well… that and coffee ☕). I volunteer at Migracode to teach programming for free, and I’ve worked with sustainability-driven startups because I want my projects to make the planet slightly better, not worse.
             </p>
             <p itemProp="knowsAbout">
-              I specialize in full-stack web development, with expertise in modern JavaScript frameworks like React and TypeScript, Ruby on Rails for backend development, and cloud technologies including Docker and modern deployment platforms. I'm constantly exploring new technologies and methodologies to stay at the forefront of the industry and bring the latest best practices to my students.
-            </p>
-            <p>
-              When I'm not coding or teaching, I enjoy contributing to open-source projects, speaking at tech meetups in Tokyo, and exploring Tokyo's vibrant tech scene. I believe in continuous learning and sharing knowledge with the developer community.
+              Curious? Intrigued? Mildly concerned? Perfect. Let’s grab a coffee—or if you’re feeling camera-ready, jump on a Zoom call 🎥.
             </p>
           </article>
           <div className="about-highlights">
