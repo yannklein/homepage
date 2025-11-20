@@ -34,7 +34,7 @@
 }
 
 .sidebar-right a:hover {
-  color: var(--color-primary-400);
+  color: var(--color-celadon-green);
 }
 
 .sidebar-left {
@@ -48,7 +48,7 @@
 }
 
 .sidebar-left .icon:hover {
-  color: var(--color-primary-400);
+  color: var(--color-celadon-green);
 }
 
 .sidebar-left .icon-text {
@@ -77,7 +77,7 @@
   }
 
   .sidebar-right a:hover {
-    color: var(--color-primary-400);
+    color: var(--color-celadon-green);
   }
 
   .sidebar-left {

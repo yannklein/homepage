@@ -1,12 +1,12 @@
 .intro-card {
   padding: var(--spacing-10) 16%;
-  background-color: rgba(30, 41, 59, 0.7);
+  background-color: rgba(64, 86, 130, 0.4);
   backdrop-filter: blur(12px);
   line-height: 1.5;
   text-align: justify;
   position: relative;
   border-radius: 8px;
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  border: 1px solid rgba(47, 132, 124, 0.3);
 }
 
 .intro-card-frame {
@@ -24,7 +24,7 @@
   text-align: center;
   display: block;
   margin-bottom: var(--spacing-4);
-  color: var(--color-primary-400);
+  color: var(--color-celadon-green);
   font-size: 18px;
 }
 

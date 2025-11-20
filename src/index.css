@@ -2,16 +2,22 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: #0f172a;
 
-  --color-primary-50: #f0f9ff;
-  --color-primary-100: #e0f2fe;
-  --color-primary-200: #bae6fd;
-  --color-primary-300: #7dd3fc;
-  --color-primary-400: #38bdf8;
-  --color-primary-500: #0ea5e9;
-  --color-primary-600: #0284c7;
-  --color-primary-700: #0369a1;
-  --color-primary-800: #075985;
-  --color-primary-900: #0c4a6e;
+  --color-celadon-green: #2F847C;
+  --color-ming: #386D7F;
+  --color-purple-navy: #405682;
+  --color-dark-slate-blue: #493F85;
+  --color-ksu-purple: #512888;
+
+  --color-primary-50: #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #2F847C;
+  --color-primary-500: #386D7F;
+  --color-primary-600: #405682;
+  --color-primary-700: #493F85;
+  --color-primary-800: #512888;
+  --color-primary-900: #3b1f5c;
 
   --color-neutral-50: #f8fafc;
   --color-neutral-100: #f1f5f9;
@@ -57,11 +63,11 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
-  color: var(--color-primary-400);
+  color: var(--color-celadon-green);
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--color-primary-300);
+  color: var(--color-ming);
   text-decoration: none;
 }
