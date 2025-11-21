@@ -36,7 +36,7 @@ const formatEventArray = (data: Event[]) => {
 };
 
 export const fetchTokyoEvents = (callback: (arg0: EventObject[]) => void) => {
-  const url = 'https://tokyo-events.herokuapp.com/api/events?city=tokyo';
+  const url = 'https://tokyo-events.herokuapp.com/api/events?city=barcelona';
   fetch(url)
     .then(response => response.json())
     .then(data => {
