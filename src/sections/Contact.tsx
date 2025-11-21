@@ -99,7 +99,7 @@ const Contact = () => {
                 </div>
                 <div className="zoom-call-content">
                   <span className="zoom-call-title">Schedule a Call</span>
-                  <span className="zoom-call-subtitle">Let's chat about your project</span>
+                  <span className="zoom-call-subtitle">Let's chat</span>
                 </div>
                 <FaCalendarAlt className="zoom-call-arrow" />
               </a>
