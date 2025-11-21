@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react';
 import './Contact.css';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiZoom } from 'react-icons/si';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -87,6 +88,12 @@ const Contact = () => {
               <div className="detail-item" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                 <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
                 <span itemProp="addressLocality">Europe</span>
+              </div>
+              <div className="detail-item">
+                <SiZoom aria-hidden="true" />
+                <a href="https://cal.com/yannklein/30min?user=yannklein" target="_blank" rel="noopener noreferrer">
+                  Have a Zoom call
+                </a>
               </div>
             </div>
           </div>
