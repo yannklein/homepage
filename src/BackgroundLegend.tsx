@@ -10,7 +10,7 @@ const BackgroundLegend = () => {
     <i className="fas fa-square-full" style={{ fontSize: '6px' }}></i>
     <i className="fas fa-square-full"></i>
     <i className="fas fa-square-full" style={{ fontSize: '10px' }}></i>
-    show the on-going event in Tokyo tech, hover over it
+    show the on-going tech event in my city, hover over it
   </div>
   );
 };
