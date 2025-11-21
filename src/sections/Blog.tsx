@@ -26,9 +26,9 @@ const Blog: React.FC<BlogProps> = ({ togglePortFolioVisibility }) => {
         <div className="blog-grid">
           {posts.map((post) => (
               <Link key={post.id} to={`/blog/${post.slug}`} className="blog-card">
-                {(post.image_url || post.featured_image) && (
+                {(post.image_url) && (
                   <div className="blog-image">
-                    <img src={post.image_url || post.featured_image} alt={post.title} loading="lazy" />
+                    <img src={post.image_url} alt={post.title} loading="lazy" />
                   </div>
                 )}
                 <div className="blog-content">

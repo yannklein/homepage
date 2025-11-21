@@ -28,7 +28,7 @@ The secret lies in database schema separation. Instead of paying for a separate 
     author: 'Yann Klein',
     published_date: '2023-02-15',
     tags: ['Rails', 'Heroku', 'PostgreSQL', 'Tutorial', 'DevOps'],
-    image_url: 'https://miro.medium.com/v2/resize:fit:1200/0*MMQpRd0-c7rs8fJG',
+    image_url: 'https://miro.medium.com/v2/resize:fit:600/0*MMQpRd0-c7rs8fJG',
     external_url: 'https://medium.com/@yann.and.the.machines/how-to-use-only-one-heroku-postgres-mini-plan-for-all-your-rails-apps-f3fdfb458fc5',
     read_time: 7
   },
@@ -47,7 +47,7 @@ This tutorial walks you through the entire process, from accessing the user's we
     author: 'Yann Klein',
     published_date: '2021-08-11',
     tags: ['Rails', 'Cloudinary', 'WebRTC', 'Tutorial', 'JavaScript'],
-    image_url: 'https://miro.medium.com/v2/resize:fit:1200/0*f92uFtZXtzoxipgZ',
+    image_url: 'https://miro.medium.com/v2/resize:fit:600/0*f92uFtZXtzoxipgZ',
     external_url: 'https://medium.com/@yann.and.the.machines/tutorial-how-to-build-a-selfie-feature-on-your-rails-app-with-cloudinary-97407b72a203',
     read_time: 8
   },
@@ -68,7 +68,7 @@ Perfect for building project dashboards, workflow managers, or any app where org
     author: 'Yann Klein',
     published_date: '2020-09-10',
     tags: ['Rails', 'JavaScript', 'SortableJS', 'Tutorial', 'UI/UX'],
-    image_url: 'https://miro.medium.com/v2/resize:fit:1200/0*3QIzIBf2mRbA3Jdo',
+    image_url: 'https://miro.medium.com/v2/resize:fit:600/0*3QIzIBf2mRbA3Jdo',
     external_url: 'https://medium.com/le-wagon-tokyo/tutorial-build-a-drag-n-drop-kanban-board-on-rails-with-sortablejs-c6affa5642cf',
     read_time: 10
   },
@@ -89,7 +89,7 @@ Great for building video review platforms, educational tools, or adding a person
     author: 'Yann Klein',
     published_date: '2020-08-27',
     tags: ['Rails', 'Cloudinary', 'Video', 'Tutorial', 'MediaRecorder'],
-    image_url: 'https://miro.medium.com/v2/resize:fit:1200/0*IzAw9g6SgMMx2zCu',
+    image_url: 'https://miro.medium.com/v2/resize:fit:600/0*IzAw9g6SgMMx2zCu',
     external_url: 'https://medium.com/le-wagon-tokyo/how-to-build-a-video-record-feature-on-your-rails-app-with-cloudinary-b31e592a8e76',
     read_time: 9
   },
@@ -108,7 +108,7 @@ Great for building video review platforms, educational tools, or adding a person
     author: 'Le Wagon',
     published_date: '2020-08-11',
     tags: ['Profile', 'Le Wagon', 'Teaching', 'Education'],
-    image_url: 'https://i0.wp.com/blog.lewagon.com/wp-content/uploads/2023/04/8ykftbeojsyaemunvzxihp3t0op3-3.jpeg?w=500&ssl=1',
+    image_url: 'https://i0.wp.com/blog.lewagon.com/wp-content/uploads/2023/04/8ykftbeojsyaemunvzxihp3t0op3-3.jpeg?w=250&ssl=1',
     external_url: 'https://blog.lewagon.com/news/meet-our-team-yann/',
     read_time: 5
   },
@@ -129,7 +129,7 @@ Great for building video review platforms, educational tools, or adding a person
     author: 'Yann Klein',
     published_date: '2018-11-20',
     tags: ['Product Management', 'Feedback', 'Startup'],
-    image_url: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/0*n2sR_gJal-8Ri4RZ',
+    image_url: 'https://miro.medium.com/v2/resize:fit:700/format:webp/0*n2sR_gJal-8Ri4RZ',
     external_url: 'https://medium.com/@yann.and.the.machines/getting-feedback-what-it-changed-for-my-product-adventure-9908d52a331c',
     read_time: 6
   },
@@ -150,7 +150,7 @@ Great for building video review platforms, educational tools, or adding a person
     author: 'Yann Klein',
     published_date: '2018-11-13',
     tags: ['Product Management', 'B2B', 'B2C', 'Strategy'],
-    image_url: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/0*3aaDHb9LrQpW88-A',
+    image_url: 'https://miro.medium.com/v2/resize:fit:700/format:webp/0*3aaDHb9LrQpW88-A',
     external_url: 'https://medium.com/@yann.and.the.machines/magic-stickr-customers-b2b-vs-b2c-85907b20f737',
     read_time: 8
   },
@@ -173,7 +173,7 @@ Sometimes the most important decision is simply to start and trust that the righ
     author: 'Yann Klein',
     published_date: '2018-05-26',
     tags: ['Personal', 'Space', 'Adventure', 'Collaboration'],
-    image_url: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/0*6EHljRHaNkQ8mlTm.',
+    image_url: 'https://miro.medium.com/v2/resize:fit:700/format:webp/0*6EHljRHaNkQ8mlTm.',
     external_url: 'https://medium.com/@yann.and.the.machines/the-day-trusting-people-brought-me-to-space-6fd7e99c9642',
     read_time: 6
   },
@@ -194,7 +194,7 @@ Sometimes the most important decision is simply to start and trust that the righ
     author: 'Yann Klein',
     published_date: '2015-10-21',
     tags: ['Craftsmanship', 'Personal', 'Tokyo', 'DIY'],
-    image_url: 'https://miro.medium.com/v2/resize:fit:4288/format:webp/1*rHN1fX7Uq8oO7OWH2nSO1g.png',
+    image_url: 'https://miro.medium.com/v2/resize:fit:600/format:webp/1*rHN1fX7Uq8oO7OWH2nSO1g.png',
     external_url: 'https://medium.com/@yann.and.the.machines/yann-and-the-machines-50540e9ec088',
     read_time: 4
   },
@@ -215,7 +215,7 @@ Sometimes the most important decision is simply to start and trust that the righ
     author: 'Yann Klein',
     published_date: '2015-10-18',
     tags: ['Technology', 'Robotics', 'Tokyo', 'HCI'],
-    image_url: 'https://miro.medium.com/v2/resize:fit:4800/format:webp/1*QXGmYYoSEDTTynRZYJsatg.jpeg',
+    image_url: 'https://miro.medium.com/v2/resize:fit:600/format:webp/1*QXGmYYoSEDTTynRZYJsatg.jpeg',
     external_url: 'https://medium.com/@yann.and.the.machines/it-begins-at-the-ceatec-ceatec%E3%81%A7%E5%A7%8B%E3%81%BE%E3%82%8B-279edff0206e',
     read_time: 7
   },

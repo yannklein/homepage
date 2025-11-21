@@ -1,5 +1,5 @@
 import './SideBar.css';
-import { FaGithub, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import {
   FaVrCardboard,
   FaLaptopCode,
