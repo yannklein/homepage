@@ -1,9 +1,13 @@
 import './About.css';
 
-const About = () => {
+interface AboutProps {
+  togglePortFolioVisibility: () => void;
+}
+
+const About: React.FC<AboutProps> = ({ togglePortFolioVisibility }) => {
   return (
-    <section id="about" className="section about-section" itemScope itemType="https://schema.org/AboutPage">
-      <div className="section-container">
+    <section id="about" className="section about-section" itemScope itemType="https://schema.org/AboutPage" onClick={togglePortFolioVisibility}>
+      <div className="section-container" onClick={event => event.stopPropagation()}>
         <h2 className="section-title">About Me</h2>
         <div className="about-content">
           <article className="about-text" itemProp="mainEntity" itemScope itemType="https://schema.org/Person">

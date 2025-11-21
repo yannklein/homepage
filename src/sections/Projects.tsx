@@ -3,7 +3,11 @@ import Card from '../Card';
 import projects from '../data/projects.json';
 import { useState } from 'react';
 
-const Projects = () => {
+interface ProjectsProps {
+  togglePortFolioVisibility: () => void;
+}
+
+const Projects: React.FC<ProjectsProps> = ({ togglePortFolioVisibility }) => {
   const [selected, setSelected] = useState('all');
 
   const filterOptions = [
@@ -20,8 +24,8 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="section projects-section">
-      <div className="section-container">
+    <section id="projects" className="section projects-section" onClick={togglePortFolioVisibility}>
+      <div className="section-container" onClick={event => event.stopPropagation()}>
         <h2 className="section-title">Projects</h2>
         <div className="filter-buttons">
           {filterOptions.map((option) => (

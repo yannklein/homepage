@@ -41,17 +41,21 @@ function HomePage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const togglePortFolioVisibility = () => {
+    setShowContent((state: boolean) => !state)
+  }
+
   return (
     <>
       <Background setPortFolioVisible={setShowContent} portFolioVisible={showContent} />
       <div className={`app-content ${showContent ? 'app-content-visible' : ''}`}>
         <Navigation activeSection={activeSection} />
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Blog />
-        <Contact />
+        <Hero togglePortFolioVisibility={togglePortFolioVisibility}/>
+        <About togglePortFolioVisibility={togglePortFolioVisibility}/>
+        <Skills togglePortFolioVisibility={togglePortFolioVisibility}/>
+        <Projects togglePortFolioVisibility={togglePortFolioVisibility}/>
+        <Blog togglePortFolioVisibility={togglePortFolioVisibility}/>
+        <Contact togglePortFolioVisibility={togglePortFolioVisibility}/>
       </div>
     </>
   );

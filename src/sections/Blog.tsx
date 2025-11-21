@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom';
 import './Blog.css';
 import { blogPosts } from '../data/blogPosts';
 
-const Blog = () => {
+interface BlogProps {
+  togglePortFolioVisibility: () => void;
+}
+
+const Blog: React.FC<BlogProps> = ({ togglePortFolioVisibility }) => {
   const posts = [...blogPosts].sort((a, b) =>
     new Date(b.published_date).getTime() - new Date(a.published_date).getTime()
   );
@@ -16,8 +20,8 @@ const Blog = () => {
   };
 
   return (
-    <section id="blog" className="section blog-section">
-      <div className="section-container">
+    <section id="blog" className="section blog-section" onClick={togglePortFolioVisibility}>
+      <div className="section-container" onClick={event => event.stopPropagation()}>
         <h2 className="section-title">Blog</h2>
         <div className="blog-grid">
           {posts.map((post) => (

@@ -1,6 +1,10 @@
 import './Hero.css';
 
-const Hero = () => {
+interface HeroProps {
+  togglePortFolioVisibility: () => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ togglePortFolioVisibility }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -9,8 +13,8 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="hero-section" itemScope itemType="https://schema.org/Person">
-      <div className="hero-content">
+    <section id="home" className="hero-section" itemScope itemType="https://schema.org/Person" onClick={togglePortFolioVisibility}>
+      <div className="hero-content" onClick={event => event.stopPropagation()}>
         <div className="hero-text">
           <h1 className="hero-title">
             Hi, I'm <span className="highlight" itemProp="name">Yann Klein</span>

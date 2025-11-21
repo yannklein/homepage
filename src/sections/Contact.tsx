@@ -2,7 +2,11 @@ import { useState, FormEvent } from 'react';
 import './Contact.css';
 import { FaGithub, FaLinkedin, FaVideo, FaCalendarAlt } from 'react-icons/fa';
 
-const Contact = () => {
+interface ContactProps {
+  togglePortFolioVisibility: () => void;
+}
+
+const Contact: React.FC<ContactProps> = ({ togglePortFolioVisibility }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -56,8 +60,8 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section contact-section" itemScope itemType="https://schema.org/ContactPage">
-      <div className="section-container">
+    <section id="contact" className="section contact-section" itemScope itemType="https://schema.org/ContactPage" onClick={togglePortFolioVisibility}>
+      <div className="section-container" onClick={event => event.stopPropagation()}>
         <h2 className="section-title">Get In Touch</h2>
         <div className="contact-content">
           <div className="contact-info" itemScope itemType="https://schema.org/Person">

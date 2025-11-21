@@ -2,7 +2,11 @@ import './Skills.css';
 import { SiReact, SiRuby, SiJavascript, SiTypescript, SiNodedotjs, SiPostgresql, SiMongodb, SiRedis, SiDocker, SiGit, SiPython, SiVuedotjs, SiSvelte, SiThreedotjs, SiAmazon, SiGooglecloud, SiTensorflow, SiScikitlearn, SiUnity, SiCplusplus, SiPhp, SiSap, SiLinux, SiNumpy, SiPandas, SiPlotly, SiKeras, SiMysql, SiHeroku } from 'react-icons/si';
 import { TbBrandCSharp } from 'react-icons/tb';
 
-const Skills = () => {
+interface SkillsProps {
+  togglePortFolioVisibility: () => void;
+}
+
+const Skills: React.FC<SkillsProps> = ({ togglePortFolioVisibility }) => {
   const skillCategories = [
     {
       title: 'Web Development',
@@ -81,8 +85,8 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="section skills-section" itemScope itemType="https://schema.org/ItemList">
-      <div className="section-container">
+    <section id="skills" className="section skills-section" itemScope itemType="https://schema.org/ItemList" onClick={togglePortFolioVisibility}>
+      <div className="section-container" onClick={event => event.stopPropagation()}>
         <h2 className="section-title" itemProp="name">Skills & Technologies</h2>
         <meta itemProp="description" content="Technical skills and technologies that Yann Klein specializes in, including frontend, backend, database, and DevOps tools" />
 
