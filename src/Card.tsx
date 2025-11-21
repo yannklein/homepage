@@ -2,7 +2,7 @@ import "./Card.css";
 import { useMemo } from 'react';
 import { FaReact, FaPython, FaVuejs, FaLine } from 'react-icons/fa';
 import { DiRuby, DiHeroku, DiPostgresql } from 'react-icons/di';
-import { SiThreedotjs, SiPrisma, SiGooglecloud, SiNextdotjs, SiOpenai, SiVite, SiGraphql, SiSvelte, SiVercel, SiFirebase, SiFlask, SiRubyonrails, SiJavascript } from 'react-icons/si';
+import { SiThreedotjs, SiPrisma, SiGooglecloud, SiNextdotjs, SiOpenai, SiVite, SiGraphql, SiSvelte, SiVercel, SiFirebase, SiFlask, SiRubyonrails, SiJavascript, SiTypescript, SiAmazonwebservices } from 'react-icons/si';
 
 type CardData = {
   type: string;
@@ -45,7 +45,9 @@ const Card = ({ type, url, img, title, description, langs, gif }: CardData) => {
       nextjs: SiNextdotjs,
       prisma: SiPrisma,
       line: FaLine,
-      vercel: SiVercel
+      vercel: SiVercel,
+      typescript: SiTypescript,
+      aws: SiAmazonwebservices
     };
     return icons[lang as keyof typeof icons] || null;
   };
