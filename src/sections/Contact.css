@@ -51,7 +51,7 @@
 .contact-details {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2);
+  gap: var(--spacing-4);
 }
 
 .detail-item {
@@ -65,6 +65,94 @@
 .detail-item i {
   color: var(--color-celadon-green);
   width: 20px;
+}
+
+.zoom-call-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3);
+  background: linear-gradient(135deg, rgba(47, 132, 124, 0.15) 0%, rgba(47, 132, 124, 0.05) 100%);
+  border: 1px solid rgba(47, 132, 124, 0.3);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.zoom-call-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(47, 132, 124, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.zoom-call-btn:hover::before {
+  left: 100%;
+}
+
+.zoom-call-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-celadon-green);
+  box-shadow: 0 8px 24px rgba(47, 132, 124, 0.25);
+}
+
+.zoom-call-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-celadon-green);
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.zoom-call-btn:hover .zoom-call-icon {
+  background-color: var(--color-ming);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.zoom-call-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.zoom-call-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-neutral-50);
+  transition: color 0.2s ease;
+}
+
+.zoom-call-btn:hover .zoom-call-title {
+  color: var(--color-celadon-green);
+}
+
+.zoom-call-subtitle {
+  font-size: 14px;
+  color: var(--color-neutral-300);
+}
+
+.zoom-call-arrow {
+  font-size: 20px;
+  color: var(--color-celadon-green);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.zoom-call-btn:hover .zoom-call-arrow {
+  transform: translateX(4px);
 }
 
 .contact-form {

@@ -1,7 +1,6 @@
 import { useState, FormEvent } from 'react';
 import './Contact.css';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { SiZoom } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaVideo, FaCalendarAlt } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -89,12 +88,21 @@ const Contact = () => {
                 <i className="fas fa-map-marker-alt" aria-hidden="true"></i>
                 <span itemProp="addressLocality">Europe</span>
               </div>
-              <div className="detail-item">
-                <SiZoom aria-hidden="true" />
-                <a href="https://cal.com/yannklein/30min?user=yannklein" target="_blank" rel="noopener noreferrer">
-                  Have a Zoom call
-                </a>
-              </div>
+              <a
+                href="https://cal.com/yannklein/30min?user=yannklein"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="zoom-call-btn"
+              >
+                <div className="zoom-call-icon">
+                  <FaVideo />
+                </div>
+                <div className="zoom-call-content">
+                  <span className="zoom-call-title">Schedule a Call</span>
+                  <span className="zoom-call-subtitle">Let's chat about your project</span>
+                </div>
+                <FaCalendarAlt className="zoom-call-arrow" />
+              </a>
             </div>
           </div>
           <form className="contact-form" onSubmit={handleSubmit}>
