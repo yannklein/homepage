@@ -47,20 +47,20 @@ const LogoIcosahedron = () => {
         const mesh = new THREE.Mesh(geometry, material);
         scene.add(mesh);
         meshRef.current = mesh;
+
+        // Start animation only after the mesh is added
+        const animate = () => {
+          if (!meshRef.current) return; // Ensure meshRef.current is set
+          requestAnimationFrame(animate);
+
+          meshRef.current.rotation.x += 0.005;
+          meshRef.current.rotation.y += 0.01;
+
+          renderer.render(scene, camera);
+        };
+        animate();
       }
     );
-
-    const animate = () => {
-      requestAnimationFrame(animate);
-
-      if (meshRef.current) {
-        meshRef.current.rotation.x += 0.005;
-        meshRef.current.rotation.y += 0.01;
-      }
-
-      renderer.render(scene, camera);
-    };
-    animate();
 
     return () => {
       if (rendererRef.current) {
