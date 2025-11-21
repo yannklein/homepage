@@ -132,8 +132,8 @@ const IntroPopup = ({
     popupScene.current.scene.add(isocahedron);
 
     const animation = (isocahedron: THREE.Group) => {
-      isocahedron.rotation.x += 0.01;
-      isocahedron.rotation.y += 0.02;
+      isocahedron.rotation.x += 0.03;
+      isocahedron.rotation.y += 0.04;
     };
 
     // "Intro closing" event trigger when click the intro isocahedron
@@ -162,7 +162,7 @@ const IntroPopup = ({
           popupScene.current?.scene.remove(isocahedron);
           clearInterval(intervId);
         }
-      }, 30);
+      }, 10);
     };
 
     ipElement.current?.addEventListener('click', closeIntro, { once: true });
