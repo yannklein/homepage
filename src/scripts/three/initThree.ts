@@ -66,7 +66,7 @@ const initThree = (name: string, htmlElement: HTMLElement): ThreeJSContext => {
     });
 
     const introPopupEl = document.querySelector('.intro-popup');
-    const portfolioEl = document.querySelector('.main-content-visible');
+    const portfolioEl = document.querySelector('.app-content-visible');
     
     if (!introPopupEl && !portfolioEl) {
     
