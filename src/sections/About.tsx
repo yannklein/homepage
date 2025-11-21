@@ -9,9 +9,9 @@ const About = () => {
           <article className="about-text" itemProp="mainEntity" itemScope itemType="https://schema.org/Person">
             <meta itemProp="name" content="Yann Klein" />
             <meta itemProp="jobTitle" content="Software Developer & Bootcamp Manager" />
-            <meta itemProp="worksFor" content="Le Wagon Tokyo" />
+            <meta itemProp="worksFor" content="Le Wagon" />
             <p className="about-intro" itemProp="description">
-              I'm a maker who loves building things, web apps, VR/AR experiments, or AI models that sometimes behave like enthusiastic toddlers. With 15+ years in software engineering, cloud, and machine learning, I've led <a href="https://www.lewagon.com/blog/meet-our-team-yann" target="_blank" rel="noopener noreferrer">Le Wagon Tokyo's bootcamps</a> and helped hundreds of students launch tech careers.
+              I'm a maker who loves building things, web apps, VR/AR experiments, or AI models that sometimes behave like enthusiastic toddlers. With 15+ years in software engineering, cloud, and machine learning, I've led <a href="https://www.lewagon.com/blog/meet-our-team-yann" target="_blank" rel="noopener noreferrer">Le Wagon bootcamps</a> and helped hundreds of students launch tech careers.
             </p>
             <p itemProp="knowsAbout">
               When I'm not teaching or coding, you'll find me <a href="https://medium.com/@yann.and.the.machines/yann-and-the-machines-50540e9ec088" target="_blank" rel="noopener noreferrer">crafting leather goods</a>, exploring new tech, or riding around discovering new places on wheels.
