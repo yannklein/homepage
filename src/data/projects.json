@@ -1,5 +1,32 @@
 [
   {
+    "type": "code",
+    "url": "https://matinno.co/",
+    "img": "matinno",
+    "title": "Matinno",
+    "description": "A platform empowering the architecture industry to make smarter material and design choices for a truly sustainable world.",
+    "langs": ["react", "typescript"],
+    "gif": false
+  },
+  {
+    "type": "code",
+    "url": "https://polandjapanfoundation.com/",
+    "img": "poland-japan",
+    "title": "Poland-Japan Foundation",
+    "description": "The only organization in Poland with permanent presence in Japan, providing comprehensive support for projects between partners from both countries.",
+    "langs": ["react", "typescript"],
+    "gif": false
+  },
+  {
+    "type": "code",
+    "url": "https://tyszkiewiczfilms.com/",
+    "img": "tyszkiewicz-films",
+    "title": "Tyszkiewicz Films",
+    "description": "Stories That Stay With You. Films That Connect Worlds.",
+    "langs": ["react", "typescript"],
+    "gif": false
+  },
+  {
     "type": "love",
     "url": "https://yannklein.github.io/bicycle-map/",
     "img": "bicycle-trips",
