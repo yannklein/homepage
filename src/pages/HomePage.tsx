@@ -15,7 +15,7 @@ function HomePage() {
 
   useEffect(() => {
     talkToDevs();
-    setTimeout(() => setShowContent(true), 1000);
+    // setTimeout(() => setShowContent(true), 1000);
   }, []);
 
   useEffect(() => {
