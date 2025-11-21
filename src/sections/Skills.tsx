@@ -1,5 +1,6 @@
 import './Skills.css';
-import { SiReact, SiRuby, SiJavascript, SiTypescript, SiNodedotjs, SiPostgresql, SiMongodb, SiRedis, SiDocker, SiGit, SiPython, SiVuedotjs, SiSvelte, SiThreedotjs, SiAmazon, SiGooglecloud, SiTensorflow, SiScikitlearn, SiUnity, SiCplusplus, SiPhp, SiSap, SiLinux } from 'react-icons/si';
+import { SiReact, SiRuby, SiJavascript, SiTypescript, SiNodedotjs, SiPostgresql, SiMongodb, SiRedis, SiDocker, SiGit, SiPython, SiVuedotjs, SiSvelte, SiThreedotjs, SiAmazon, SiGooglecloud, SiTensorflow, SiScikitlearn, SiUnity, SiCplusplus, SiPhp, SiSap, SiLinux, SiNumpy, SiPandas, SiPlotly, SiKeras, SiMysql, SiHeroku } from 'react-icons/si';
+import { TbBrandCSharp } from 'react-icons/tb';
 
 const Skills = () => {
   const skillCategories = [
@@ -23,8 +24,13 @@ const Skills = () => {
       highlight: true,
       skills: [
         { name: 'Python', icon: SiPython },
+        { name: 'NumPy', icon: SiNumpy },
+        { name: 'Pandas', icon: SiPandas },
         { name: 'Scikit-learn', icon: SiScikitlearn },
         { name: 'TensorFlow', icon: SiTensorflow },
+        { name: 'Keras', icon: SiKeras },
+        { name: 'Matplotlib', icon: SiPlotly },
+        { name: 'Plotly', icon: SiPlotly },
       ],
     },
     {
@@ -33,6 +39,7 @@ const Skills = () => {
       skills: [
         { name: 'AWS', icon: SiAmazon },
         { name: 'GCP', icon: SiGooglecloud },
+        { name: 'Heroku', icon: SiHeroku },
         { name: 'Docker', icon: SiDocker },
         { name: 'Linux', icon: SiLinux },
       ],
@@ -43,12 +50,14 @@ const Skills = () => {
         { name: 'PostgreSQL', icon: SiPostgresql },
         { name: 'MongoDB', icon: SiMongodb },
         { name: 'Redis', icon: SiRedis },
+        { name: 'SQL', icon: SiMysql },
       ],
     },
     {
       title: 'Extended Reality & 3D',
       skills: [
         { name: 'Unity', icon: SiUnity },
+        { name: 'C#', icon: TbBrandCSharp },
         { name: 'Three.js', icon: SiThreedotjs },
       ],
     },
