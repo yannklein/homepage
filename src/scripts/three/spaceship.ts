@@ -7,7 +7,7 @@ import { getCountry } from '../locationInfo';
 
 let gltfLoaded = false;
 
-export const createSpaceShip =  (username: string, textureLoader: THREE.TextureLoader, porcelainMat: THREE.Material, bgMeshes: THREE.Group, world: ThreeJSContext) => {
+export const createSpaceShip = (username: string, textureLoader: THREE.TextureLoader, porcelainMat: THREE.Material, bgMeshes: THREE.Group, world: ThreeJSContext) => {
   // Load 3D object
   const ship = new THREE.Group();
   const loader = new GLTFLoader();
