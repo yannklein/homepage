@@ -30,6 +30,16 @@
     "gif": false
   },
   {
+    "type": "code",
+    "category": "hobby",
+    "url": "https://yannklein.github.io/tech-eventboard/?city=barcelona",
+    "img": "tech-calendar",
+    "title": "AI powered Tech Event Calendar",
+    "description": "Tech event calendar using AI agents to scrape and aggregate data daily.",
+    "langs": ["react", "openai", "typescript"],
+    "gif": false
+  },
+  {
     "type": "love",
     "category": "hobby",
     "url": "https://yannklein.github.io/bicycle-map/",
