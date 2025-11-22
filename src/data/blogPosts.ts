@@ -236,7 +236,7 @@ Sometimes the most important decision is simply to start and trust that the righ
     author: 'Le Wagon Tokyo',
     published_date: '2025-01-26',
     tags: ['Profile', 'Le Wagon', 'Management', 'Tokyo'],
-    image_url: '/src/assets/image.png',
+    image_url: 'https://res.cloudinary.com/yanninthesky/image/upload/yannklein.me/program-manager.png',
     external_url: 'https://www.linkedin.com/posts/le-wagon-tokyo_meet-yann-le-wagon-tokyos-program-manager-activity-7289446976490811392-EV6t',
     read_time: 3
   },
@@ -259,7 +259,7 @@ Free workshop, multiple dates throughout October 2025. Come build something inte
     author: 'Barcelona Expat Life',
     published_date: '2025-10-01',
     tags: ['Workshop', 'AI', 'Chatbot', 'Education', 'Barcelona'],
-    image_url: '/src/assets/image copy.png',
+    image_url: 'https://res.cloudinary.com/yanninthesky/image/upload/yannklein.me/build-chatbot.png',
     external_url: 'https://barcelonaexpatlife.com/calendar/build-your-own-chatbot-with-ai/',
     read_time: 2
   },
