@@ -10,6 +10,18 @@ const About: React.FC<AboutProps> = ({ togglePortFolioVisibility }) => {
       <div className="section-container" onClick={event => event.stopPropagation()}>
         <h2 className="section-title">About Me</h2>
         <div className="about-content">
+          <a
+            href="https://www.linkedin.com/in/yann-klein/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="about-profile-link"
+          >
+            <img
+              src="/src/assets/files_614335-1763826100876-image.png"
+              alt="Yann Klein"
+              className="about-profile-image"
+            />
+          </a>
           <article className="about-text" itemProp="mainEntity" itemScope itemType="https://schema.org/Person">
             <meta itemProp="name" content="Yann Klein" />
             <meta itemProp="jobTitle" content="Software Developer & Bootcamp Manager" />

@@ -36,10 +36,35 @@
 
 .about-content {
   margin: 0 auto;
-  width: 600px;
-  grid-template-columns: 1fr;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-6);
-  align-items: start;
+  align-items: center;
+}
+
+.about-profile-link {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--color-celadon-green);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 16px rgba(47, 132, 124, 0.3);
+}
+
+.about-profile-link:hover {
+  transform: scale(1.05);
+  border-color: var(--color-ming);
+  box-shadow: 0 8px 24px rgba(47, 132, 124, 0.5);
+}
+
+.about-profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .about-text {
@@ -110,8 +135,12 @@
   }
 
   .about-content {
-    grid-template-columns: 1fr;
     gap: var(--spacing-4);
+  }
+
+  .about-profile-link {
+    width: 150px;
+    height: 150px;
   }
 
   .about-intro {
