@@ -38,7 +38,7 @@ const About: React.FC<AboutProps> = ({ togglePortFolioVisibility }) => {
               className="about-profile-link"
             >
               <img
-                src="/src/assets/files_614335-1763826100876-image.png"
+                src="/src/assets/yann.png"
                 alt="Yann Klein"
                 className="about-profile-image"
               />
