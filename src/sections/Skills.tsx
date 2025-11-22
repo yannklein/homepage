@@ -1,6 +1,6 @@
 import './Skills.css';
-import { SiReact, SiRuby, SiJavascript, SiTypescript, SiNodedotjs, SiPostgresql, SiMongodb, SiRedis, SiDocker, SiGit, SiPython, SiVuedotjs, SiSvelte, SiThreedotjs, SiAmazon, SiGooglecloud, SiTensorflow, SiScikitlearn, SiUnity, SiCplusplus, SiPhp, SiSap, SiLinux, SiNumpy, SiPandas, SiPlotly, SiKeras, SiMysql, SiHeroku } from 'react-icons/si';
-import { TbBrandCSharp } from 'react-icons/tb';
+import { SiReact, SiRuby, SiJavascript, SiTypescript, SiNodedotjs, SiPostgresql, SiMongodb, SiRedis, SiDocker, SiGit, SiPython, SiVuedotjs, SiSvelte, SiThreedotjs, SiAmazon, SiGooglecloud, SiTensorflow, SiScikitlearn, SiUnity, SiCplusplus, SiPhp, SiSap, SiLinux, SiNumpy, SiPandas, SiPlotly, SiKeras, SiMysql, SiHeroku, SiGithubcopilot, SiOpenai, SiGooglegemini } from 'react-icons/si';
+import { TbBrandCSharp, TbSparkles } from 'react-icons/tb';
 
 interface SkillsProps {
   togglePortFolioVisibility: () => void;
@@ -35,6 +35,16 @@ const Skills: React.FC<SkillsProps> = ({ togglePortFolioVisibility }) => {
         { name: 'Keras', icon: SiKeras },
         { name: 'Matplotlib', icon: SiPlotly },
         { name: 'Plotly', icon: SiPlotly },
+      ],
+    },
+    {
+      title: 'Augmented Programming',
+      highlight: true,
+      skills: [
+        { name: 'Cursor', icon: TbSparkles },
+        { name: 'GitHub Copilot', icon: SiGithubcopilot },
+        { name: 'OpenAI', icon: SiOpenai },
+        { name: 'Google AI Studio', icon: SiGooglegemini },
       ],
     },
     {
