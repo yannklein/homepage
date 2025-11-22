@@ -1,4 +1,14 @@
 [
+    {
+    "type": "code",
+    "category": "hobby",
+    "url": "https://yannklein.github.io/tech-eventboard/?city=barcelona",
+    "img": "tech-calendar",
+    "title": "AI powered Tech Event Calendar",
+    "description": "Tech event calendar using AI agents to scrape and aggregate data daily.",
+    "langs": ["react", "openai", "typescript"],
+    "gif": false
+  },
   {
     "type": "code",
     "category": "pro",
@@ -15,7 +25,7 @@
     "url": "https://polandjapanfoundation.com/",
     "img": "poland-japan",
     "title": "Poland-Japan Foundation",
-    "description": "The only organization in Poland with permanent presence in Japan, providing comprehensive support for projects between partners from both countries.",
+    "description": "Official website of the Poland-Japan foundation liking the two countries.",
     "langs": ["react", "typescript", "vite"],
     "gif": false
   },
@@ -30,22 +40,12 @@
     "gif": false
   },
   {
-    "type": "code",
-    "category": "hobby",
-    "url": "https://yannklein.github.io/tech-eventboard/?city=barcelona",
-    "img": "tech-calendar",
-    "title": "AI powered Tech Event Calendar",
-    "description": "Tech event calendar using AI agents to scrape and aggregate data daily.",
-    "langs": ["react", "openai", "typescript"],
-    "gif": false
-  },
-  {
     "type": "love",
     "category": "hobby",
     "url": "https://yannklein.github.io/bicycle-map/",
     "img": "bicycle-trips",
     "title": "Around Japan on two wheels",
-    "description": "Cycling is the best way to discover Japan. This map logs all my travels in the past years. Contact me for 🇯🇵 cycling tips, I have many!",
+    "description": "Cycling is the best way to discover Japan. This map logs all my travels in the past years.",
     "langs": [],
     "gif": false
   },
