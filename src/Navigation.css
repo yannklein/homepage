@@ -84,6 +84,10 @@
     padding: var(--spacing-1);
   }
 
+  .nav-menu li {
+    text-align: center;
+  }
+
   .nav-logo {
     width: 32px;
     height: 32px;
@@ -106,5 +110,9 @@
   .nav-menu li button {
     font-size: 12px;
     padding: 4px 8px;
+  }
+
+  .nav-logo {
+    padding: 24px;
   }
 }
