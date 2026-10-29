@@ -1,0 +1,271 @@
+openapi: 3.0.3
+info:
+  title: Say hi API
+  version: "1.0.0"
+  description: |
+    Three webhook endpoints served by the n8n workflow **Say hi** on `n8n.yannklein.dev`.
+
+    | Endpoint | What it does | Auth |
+    |---|---|---|
+    | `GET /hello` | Returns a greeting, personalised if you pass `name` | None |
+    | `GET /greetings` | Returns a Le Wagon Barcelona team member's intro | None |
+    | `POST /ask-yann` | An AI agent answers your question as Yann (max ~100 words) | `Authorization` header |
+
+    Use the **production** server for the published workflow. The **test** server only answers while
+    the workflow editor is listening ("Listen for test event" in n8n).
+  contact:
+    name: Yann Klein
+    url: https://yannklein.dev
+servers:
+  - url: https://n8n.yannklein.dev/webhook
+    description: Production
+  - url: https://n8n.yannklein.dev/webhook-test
+    description: Test (editor must be listening)
+tags:
+  - name: Greeting
+    description: Public greeting endpoints
+  - name: AI
+    description: LLM-backed endpoint (protected)
+paths:
+  /hello:
+    get:
+      tags: [Greeting]
+      operationId: sayHello
+      summary: Get a greeting
+      description: |
+        Returns a one-item JSON array containing a greeting. If `name` is passed the greeting is
+        personalised, otherwise it falls back to `Hi there!`.
+
+        The array is wrapped this way so polling tools (e.g. Zapier "New Item From API") can
+        deduplicate on `id`.
+
+        ```bash
+        curl "https://n8n.yannklein.dev/webhook/hello?name=Adriana"
+        ```
+      parameters:
+        - name: name
+          in: query
+          required: false
+          description: Name of the person to greet.
+          schema:
+            type: string
+            example: Adriana
+      responses:
+        "200":
+          description: Greeting returned
+          content:
+            application/json:
+              schema:
+                type: array
+                minItems: 1
+                maxItems: 1
+                items:
+                  $ref: "#/components/schemas/Greeting"
+              examples:
+                withName:
+                  summary: With `?name=Adriana`
+                  value:
+                    - id: "1"
+                      message: Hi Adriana!
+                withoutName:
+                  summary: Without `name`
+                  value:
+                    - id: "1"
+                      message: Hi there!
+  /greetings:
+    get:
+      tags: [Greeting]
+      operationId: getGreeting
+      summary: Get a team member's intro
+      description: |
+        Returns the self-introduction of one Le Wagon Barcelona team member.
+        The `person` value is trimmed and case-insensitive (`Yann`, `yann` and ` YANN ` all work).
+
+        Some intros (Yann's) contain Markdown links and line breaks (`\n`): render `greeting`
+        as Markdown if you display it.
+
+        ```bash
+        curl "https://n8n.yannklein.dev/webhook/greetings?person=berta"
+        ```
+      parameters:
+        - name: person
+          in: query
+          required: true
+          description: Who to fetch the intro for.
+          schema:
+            type: string
+            enum: [camila, berta, nico, alyssa, yann]
+            example: berta
+      responses:
+        "200":
+          description: Intro found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TeamGreeting"
+              examples:
+                berta:
+                  summary: "?person=berta"
+                  value:
+                    person: berta
+                    name: Berta
+                    greeting: Hi, I'm Berta! I manage our community and the operations at Le Wagon Barcelona.
+                yann:
+                  summary: "?person=yann (Markdown)"
+                  value:
+                    person: yann
+                    name: Yann
+                    greeting: "Hi, I'm Yann! I'm a [maker](https://www.yannklein.dev/) at heart, passionate about building applications and exploring the edges of technology, VR, AR, and lately AI.\n(And yes, I may or may not have a [leathercraft addiction](https://medium.com/@yann.and.the.machines/yann-and-the-machines-50540e9ec088) 🙄)\nI'm also a people person: [changing the lives of coding bootcamp students](https://www.lewagon.com/blog/meet-our-team-yann) is what gets me out of bed every morning ❤️."
+        "400":
+          description: "`person` is missing or empty"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LookupError"
+              example:
+                error: Missing `person` query parameter
+                available: [camila, berta, nico, alyssa, yann]
+        "404":
+          description: Nobody by that name
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LookupError"
+              example:
+                error: "Unknown person: bob"
+                available: [camila, berta, nico, alyssa, yann]
+  /ask-yann:
+    post:
+      tags: [AI]
+      operationId: askYann
+      summary: Ask Yann a question
+      description: |
+        Sends the question to an n8n AI Agent (OpenAI-compatible chat model,
+        `Ministral-3-3B-Instruct`) prompted with Yann's bio. The agent answers in the
+        first person, as Yann, in 100 words or fewer.
+
+        The request must carry the shared secret as the **raw** value of the `Authorization`
+        header (no `Bearer ` prefix). Anything else gets a `401`.
+
+        Expect a few seconds to ~20 s of latency: the response is returned in one piece once the
+        model has finished (it is not streamed).
+
+        ```bash
+        curl -X POST "https://n8n.yannklein.dev/webhook/ask-yann" \
+          -H "Authorization: <secret>" \
+          -H "Content-Type: application/json" \
+          -d '{"question": "Where did you study?"}'
+        ```
+      security:
+        - sharedSecret: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AskYannRequest"
+            examples:
+              studies:
+                summary: Education
+                value:
+                  question: Where did you study?
+              japan:
+                summary: Japan years
+                value:
+                  question: What did you do in Japan?
+      responses:
+        "200":
+          description: The agent's answer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AskYannResponse"
+              example:
+                output: >-
+                  I did my engineering master's in IT at IMT Mines Albi in France, with an exchange
+                  semester in Chile, then an MS in Mechanical Engineering and Computer Science at
+                  Georgia Tech in Atlanta.
+        "401":
+          description: Missing or wrong `Authorization` header
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                error: Authentication needed 🥲
+        "500":
+          description: Workflow error (e.g. the model is unreachable)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Error in workflow
+components:
+  securitySchemes:
+    sharedSecret:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Shared secret sent as the raw `Authorization` header value (no `Bearer` prefix).
+  schemas:
+    Greeting:
+      type: object
+      required: [id, message]
+      properties:
+        id:
+          type: string
+          description: Constant item id (always `"1"`).
+          example: "1"
+        message:
+          type: string
+          example: Hi Adriana!
+    TeamGreeting:
+      type: object
+      required: [person, name, greeting]
+      properties:
+        person:
+          type: string
+          description: Normalised key that was looked up.
+          example: berta
+        name:
+          type: string
+          example: Berta
+        greeting:
+          type: string
+          format: markdown
+          description: The person's intro. May contain Markdown links and `\n` line breaks.
+    LookupError:
+      type: object
+      required: [error, available]
+      properties:
+        error:
+          type: string
+        available:
+          type: array
+          description: Valid `person` values.
+          items:
+            type: string
+    AskYannRequest:
+      type: object
+      required: [question]
+      properties:
+        question:
+          type: string
+          description: The question to put to "Yann".
+          example: Where did you study?
+    AskYannResponse:
+      type: object
+      required: [output]
+      properties:
+        output:
+          type: string
+          description: The agent's answer, written as Yann, 100 words or fewer.
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
