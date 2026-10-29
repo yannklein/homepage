@@ -2,7 +2,7 @@ import "./Card.css";
 import { useMemo } from 'react';
 import { FaReact, FaPython, FaVuejs, FaLine } from 'react-icons/fa';
 import { DiRuby, DiHeroku, DiPostgresql } from 'react-icons/di';
-import { SiThreedotjs, SiPrisma, SiGooglecloud, SiNextdotjs, SiOpenai, SiVite, SiGraphql, SiSvelte, SiVercel, SiFirebase, SiFlask, SiRubyonrails, SiJavascript, SiTypescript, SiAmazonwebservices } from 'react-icons/si';
+import { SiThreedotjs, SiPrisma, SiGooglecloud, SiNextdotjs, SiOpenai, SiVite, SiGraphql, SiSvelte, SiVercel, SiFirebase, SiFlask, SiRubyonrails, SiJavascript, SiTypescript, SiAmazonwebservices, SiN8N, SiClaude, SiDocker, SiDebian, SiCloudflare } from 'react-icons/si';
 
 type CardData = {
   type: string;
@@ -19,8 +19,12 @@ const Card = ({ type, url, img, title, description, langs, gif }: CardData) => {
   // Helper function for background image
   const isPad = () => /iPad/i.test(navigator.userAgent);
 
+  // Images starting with "/" are served from public/, the rest from Cloudinary
   const clBackgroundImage = (type: string) => {
-    return {backgroundImage: `url(https://res.cloudinary.com/yanninthesky/${type}/${img}${isPad() ? '.png' : '.webp'})`};
+    const src = img.startsWith('/')
+      ? img
+      : `https://res.cloudinary.com/yanninthesky/${type}/${img}${isPad() ? '.png' : '.webp'}`;
+    return {backgroundImage: `url(${src})`};
   };
 
   // Dynamically display the language icon
@@ -47,7 +51,12 @@ const Card = ({ type, url, img, title, description, langs, gif }: CardData) => {
       line: FaLine,
       vercel: SiVercel,
       typescript: SiTypescript,
-      aws: SiAmazonwebservices
+      aws: SiAmazonwebservices,
+      n8n: SiN8N,
+      claude: SiClaude,
+      docker: SiDocker,
+      debian: SiDebian,
+      cloudflare: SiCloudflare
     };
     return icons[lang as keyof typeof icons] || null;
   };

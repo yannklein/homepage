@@ -35,7 +35,7 @@ const formatEventArray = (data: Event[]) => {
   });
 };
 
-export const fetchTokyoEvents = (callback: (arg0: EventObject[]) => void) => {
+export const fetchTechEvents = (callback: (arg0: EventObject[]) => void) => {
   const url = 'https://tech-events-api.yannklein.dev/api/events?city=barcelona';
   fetch(url)
     .then(response => response.json())

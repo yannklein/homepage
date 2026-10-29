@@ -1,8 +1,68 @@
 [
-    {
+  {
+    "type": "maker",
+    "category": "hobby",
+    "url": "https://satellite.yannklein.dev",
+    "img": "/projects/satellite-station.webp",
+    "title": "Homemade satellite ground station 🛰️",
+    "description": "Two antennas catching Earth images from weather satellites.",
+    "langs": ["python", "debian"],
+    "gif": false
+  },
+  {
     "type": "code",
     "category": "hobby",
-    "url": "https://yannklein.github.io/tech-eventboard/?city=barcelona",
+    "url": "https://github.com/yannklein/satellite-images",
+    "img": "/projects/n8n-satellite.webp",
+    "title": "Satellite reception automation",
+    "description": "n8n tracks each pass, then records, decodes and publishes it.",
+    "langs": ["n8n", "docker"],
+    "gif": false
+  },
+  {
+    "type": "code",
+    "category": "hobby",
+    "url": "https://plants.yannklein.dev",
+    "img": "/projects/plants.webp",
+    "title": "How Not To Kill Your Plants 🪴",
+    "description": "Plants with moods, news and an AI gardener to diagnose them.",
+    "langs": ["nextjs", "typescript", "claude", "postgres"],
+    "gif": false
+  },
+  {
+    "type": "code",
+    "category": "hobby",
+    "url": "https://www.linkedin.com/in/yann-klein/recent-activity/all/",
+    "img": "/projects/n8n-news-feed.webp",
+    "title": "European tech news digests",
+    "description": "n8n + Claude draft my weekly European tech news digests.",
+    "langs": ["n8n", "claude"],
+    "gif": false
+  },
+  {
+    "type": "code",
+    "category": "hobby",
+    "url": "https://yannklein.github.io/sat-ground-track/",
+    "img": "/projects/ground-track.webp",
+    "title": "Ground Track 3D",
+    "description": "Live 3D tracker of the Elektro-L and Meteor-M satellites.",
+    "langs": ["three", "javascript"],
+    "gif": false
+  },
+  {
+    "type": "maker",
+    "category": "hobby",
+    "url": "https://home.yannklein.dev",
+    "img": "/projects/homelab.webp",
+    "title": "Homelab",
+    "description": "A retired MacBook turned Debian server for my side projects.",
+    "langs": ["debian", "docker", "cloudflare"],
+    "gif": false
+  },
+  {
+    "type": "code",
+    "category": "hobby",
+    "url": "https://tech-events.yannklein.dev/?city=barcelona",
     "img": "tech-calendar",
     "title": "AI powered Tech Event Calendar",
     "description": "Tech event calendar using AI agents to scrape and aggregate data daily.",
@@ -92,7 +152,7 @@
   {
     "type": "help",
     "category": "teaching",
-    "url": "https://lewagon-cinema.herokuapp.com/",
+    "url": "https://lewagon-cinema.yannklein.dev",
     "img": "lewagon-cinema",
     "title": "Le Wagon Cinema",
     "description": "Highlights of the 150+ web projects I have been tutoring at Le Wagon",

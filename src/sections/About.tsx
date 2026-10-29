@@ -12,13 +12,17 @@ const About: React.FC<AboutProps> = ({ togglePortFolioVisibility }) => {
         <div className="about-content">
           <article className="about-text" itemProp="mainEntity" itemScope itemType="https://schema.org/Person">
             <meta itemProp="name" content="Yann Klein" />
-            <meta itemProp="jobTitle" content="Software Developer & Bootcamp Manager" />
-            <meta itemProp="worksFor" content="Le Wagon" />
+            <meta itemProp="jobTitle" content="Senior Software Engineer | AI & Data Science Engineer and Educator" />
+            <meta itemProp="worksFor" content="Le Wagon, matinno.co, Code for People & Magic" />
+            <meta itemProp="homeLocation" content="Barcelona, Spain" />
             <p className="about-intro" itemProp="description">
-              I'm a maker who loves building things, web apps, VR/AR experiments, or AI models that sometimes behave like enthusiastic toddlers. With 15+ years in software engineering, cloud, and machine learning, I've led <a href="https://www.lewagon.com/blog/meet-our-team-yann" target="_blank" rel="noopener noreferrer">Le Wagon bootcamps</a> and helped hundreds of students launch tech careers.
+              I'm a maker who loves building things, web apps, VR/AR experiments, or AI models that sometimes behave like enthusiastic toddlers. With 15+ years in software engineering, cloud, and machine learning, I've led <a href="https://www.lewagon.com/blog/meet-our-team-yann" target="_blank" rel="noopener noreferrer">Le Wagon Tokyo's bootcamps</a> and helped hundreds of students launch tech careers.
             </p>
             <p itemProp="knowsAbout">
-              When I'm not teaching or coding, you'll find me <a href="https://medium.com/@yann.and.the.machines/yann-and-the-machines-50540e9ec088" target="_blank" rel="noopener noreferrer">crafting leather goods</a>, exploring new tech, or riding around discovering new places on wheels.
+              After more than ten years in Japan, I now live in Barcelona. I build product as a software engineer at <a href="https://matinno.co/" target="_blank" rel="noopener noreferrer">matinno.co</a>, teach web development and AI with Le Wagon, and run Code for People & Magic, my freelance studio at the intersection of AI automation, full-stack development, and positive impact.
+            </p>
+            <p itemProp="knowsAbout">
+              When I'm not teaching or coding, you'll find me pointing an antenna at the sky to <a href="https://satellite.yannklein.dev" target="_blank" rel="noopener noreferrer">catch pictures from weather satellites</a>, <a href="https://medium.com/@yann.and.the.machines/yann-and-the-machines-50540e9ec088" target="_blank" rel="noopener noreferrer">crafting leather goods</a>, or riding around discovering new places on wheels.
             </p>
             <p itemProp="knowsAbout">
               These days I split my coding between <a href="https://github.com/yannklein" target="_blank" rel="noopener noreferrer">GitHub</a> and <a href="https://gitlab.com/yannklein" target="_blank" rel="noopener noreferrer">GitLab</a>, keeping both platforms equally green with contributions.

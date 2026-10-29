@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Background from '../Background';
 import Navigation from '../Navigation';
 import Hero from '../sections/Hero';
@@ -9,14 +10,33 @@ import Blog from '../sections/Blog';
 import Contact from '../sections/Contact';
 import { talkToDevs } from '../utils/talkToDevs';
 
+// Survives route changes but not a full reload, so the intro plays once per visit
+let homeVisited = false;
+
 function HomePage() {
+  const { key, hash } = useLocation();
+  // Skip the intro if it already played (e.g. browser back from a blog post), or
+  // if we arrived through an in-app link: the router only gives the first page
+  // load the "default" key
+  const [skipIntro] = useState(homeVisited || key !== 'default');
+
+  useEffect(() => {
+    homeVisited = true;
+  }, []);
   const [activeSection, setActiveSection] = useState('home');
-  const [showContent, setShowContent] = useState(false);
+  const [showContent, setShowContent] = useState(skipIntro);
 
   useEffect(() => {
     talkToDevs();
     // setTimeout(() => setShowContent(true), 1000);
   }, []);
+
+  // Land on the section we came back to (e.g. "Back to Blog" links to /#blog)
+  useEffect(() => {
+    if (skipIntro && hash) {
+      document.getElementById(hash.slice(1))?.scrollIntoView();
+    }
+  }, [skipIntro, hash]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +67,7 @@ function HomePage() {
 
   return (
     <>
-      <Background setPortFolioVisible={setShowContent} portFolioVisible={showContent} />
+      <Background setPortFolioVisible={setShowContent} portFolioVisible={showContent} skipIntro={skipIntro} />
       <div className={`app-content ${showContent ? 'app-content-visible' : ''}`}>
         <Navigation activeSection={activeSection} />
         <Hero togglePortFolioVisibility={togglePortFolioVisibility}/>

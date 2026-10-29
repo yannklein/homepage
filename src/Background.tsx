@@ -12,15 +12,18 @@ import BackgroundLegend from './BackgroundLegend';
 const Background = ({
   setPortFolioVisible,
   portFolioVisible,
+  skipIntro,
 }: {
   setPortFolioVisible: React.Dispatch<React.SetStateAction<boolean>>;
   portFolioVisible: boolean;
+  skipIntro: boolean;
 }) => {
   const bgElement = useRef(null);
   const bgWorld = useRef<ThreeJSContext>(null);
   const [loaded, setLoaded] = useState(false);
-  const [isIntro, setIsIntro] = useState(true);
-  const [introPopupLoaded, setIntroPopupLoaded] = useState(false);
+  const [isIntro, setIsIntro] = useState(!skipIntro);
+  // No intro popup to wait for when it is skipped
+  const [introPopupLoaded, setIntroPopupLoaded] = useState(skipIntro);
   const [backgroundLoaded, setBackgroundLoaded] = useState(false);
   const bgInitialized = useRef(false);
 

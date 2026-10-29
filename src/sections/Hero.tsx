@@ -32,14 +32,15 @@ const Hero: React.FC<HeroProps> = ({ togglePortFolioVisibility }) => {
             </span>
           </h1>
           <p className="hero-subtitle" itemProp="jobTitle">
-            Software Developer & Bootcamp Manager
+            Senior Software Engineer · AI & Data Science Engineer and Educator
           </p>
           <p className="hero-description" itemProp="description">
-            I build products, explore{' '}
-            <span className="highlight">emerging tech</span> like AI and XR, and{' '}
-            <span className="highlight">help people</span> through coding. I’m a{' '}
-            <span className="highlight">maker</span> at heart, from robots to
-            leathercraft, and I love to discover new places on wheels.
+            From Barcelona, I build products, explore{' '}
+            <span className="highlight">emerging tech</span> like AI, automation
+            and space tech, and <span className="highlight">help people</span>{' '}
+            through coding. I’m a <span className="highlight">maker</span> at
+            heart, from satellite antennas to leathercraft, and I love to
+            discover new places on wheels.
           </p>
           <div className="hero-actions">
             <button

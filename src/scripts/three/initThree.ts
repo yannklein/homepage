@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { fetchGithubActivity } from '../github_activity';
-import { EventObject, fetchTokyoEvents, Event } from '../tokyo-events';
+import { EventObject, fetchTechEvents, Event } from '../tech-events';
 
 import porcelainImg from '../../assets/matcap-porcelain-white.jpg';
 
@@ -19,8 +19,6 @@ export type ThreeJSContext = {
 
 // GH username
 const username = 'yannklein';
-
-let textureLoaded = false;
 
 // Initialize ThreeJS canvas
 const initThree = (name: string, htmlElement: HTMLElement): ThreeJSContext => {
@@ -135,12 +133,6 @@ const addBackground = (
   textureLoader.load(
     porcelainImg,
     (porcelain) => {
-      if (textureLoaded) {
-        return;
-      } else {
-        textureLoaded = true;
-      }
-
       porcelain.colorSpace = THREE.SRGBColorSpace;
       porcelain.minFilter = THREE.LinearMipMapLinearFilter;
       porcelain.magFilter = THREE.LinearFilter;
@@ -180,7 +172,7 @@ const addBackground = (
         createEventCubes(eventObject, material, world, bgMeshes);
       };
 
-      fetchTokyoEvents(bindedCreateEventCubes);
+      fetchTechEvents(bindedCreateEventCubes);
 
       // create initial 3 edges torus
       const initialTorus = createTorus(3, material, bgMeshes, world);

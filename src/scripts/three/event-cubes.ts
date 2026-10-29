@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { EventObject, Event } from '../tokyo-events';
+import { EventObject, Event } from '../tech-events';
 import { ThreeJSContext } from './initThree';
 
 const formatEvents = (eventObject: EventObject[]) => {

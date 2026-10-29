@@ -1,6 +1,6 @@
 import './Skills.css';
-import { SiReact, SiRuby, SiJavascript, SiTypescript, SiNodedotjs, SiPostgresql, SiMongodb, SiRedis, SiDocker, SiGit, SiPython, SiVuedotjs, SiSvelte, SiThreedotjs, SiAmazon, SiGooglecloud, SiTensorflow, SiScikitlearn, SiUnity, SiCplusplus, SiPhp, SiSap, SiLinux, SiNumpy, SiPandas, SiPlotly, SiKeras, SiMysql, SiHeroku, SiGithubcopilot, SiOpenai, SiGooglegemini } from 'react-icons/si';
-import { TbBrandCSharp, TbSparkles } from 'react-icons/tb';
+import { SiReact, SiRuby, SiJavascript, SiTypescript, SiNodedotjs, SiPostgresql, SiMongodb, SiRedis, SiDocker, SiGit, SiPython, SiVuedotjs, SiSvelte, SiThreedotjs, SiAmazon, SiGooglecloud, SiTensorflow, SiScikitlearn, SiUnity, SiCplusplus, SiPhp, SiSap, SiLinux, SiNumpy, SiPandas, SiPlotly, SiKeras, SiMysql, SiHeroku, SiGithubcopilot, SiOpenai, SiGooglegemini, SiNextdotjs, SiGraphql, SiTailwindcss, SiClaude, SiAnthropic, SiN8N, SiCloudflare, SiDebian, SiNginx, SiDrizzle, SiPrisma } from 'react-icons/si';
+import { TbBrandCSharp, TbSparkles, TbRobot, TbPlug, TbServer, TbAntenna, TbSatellite, TbPlanet } from 'react-icons/tb';
 
 interface SkillsProps {
   togglePortFolioVisibility: () => void;
@@ -15,6 +15,9 @@ const Skills: React.FC<SkillsProps> = ({ togglePortFolioVisibility }) => {
         { name: 'JavaScript', icon: SiJavascript },
         { name: 'TypeScript', icon: SiTypescript },
         { name: 'React', icon: SiReact },
+        { name: 'Next.js', icon: SiNextdotjs },
+        { name: 'Tailwind CSS', icon: SiTailwindcss },
+        { name: 'GraphQL', icon: SiGraphql },
         { name: 'Vue.js', icon: SiVuedotjs },
         { name: 'Svelte', icon: SiSvelte },
         { name: 'Ruby on Rails', icon: SiRuby },
@@ -38,9 +41,21 @@ const Skills: React.FC<SkillsProps> = ({ togglePortFolioVisibility }) => {
       ],
     },
     {
+      title: 'AI Automation & Agents',
+      highlight: true,
+      skills: [
+        { name: 'n8n', icon: SiN8N },
+        { name: 'Claude API', icon: SiAnthropic },
+        { name: 'OpenAI API', icon: SiOpenai },
+        { name: 'AI Agents', icon: TbRobot },
+        { name: 'MCP', icon: TbPlug },
+      ],
+    },
+    {
       title: 'Augmented Programming',
       highlight: true,
       skills: [
+        { name: 'Claude Code', icon: SiClaude },
         { name: 'Cursor', icon: TbSparkles },
         { name: 'GitHub Copilot', icon: SiGithubcopilot },
         { name: 'OpenAI', icon: SiOpenai },
@@ -56,6 +71,10 @@ const Skills: React.FC<SkillsProps> = ({ togglePortFolioVisibility }) => {
         { name: 'Heroku', icon: SiHeroku },
         { name: 'Docker', icon: SiDocker },
         { name: 'Linux', icon: SiLinux },
+        { name: 'Debian homelab', icon: SiDebian },
+        { name: 'Coolify', icon: TbServer },
+        { name: 'Cloudflare', icon: SiCloudflare },
+        { name: 'Nginx', icon: SiNginx },
       ],
     },
     {
@@ -65,6 +84,16 @@ const Skills: React.FC<SkillsProps> = ({ togglePortFolioVisibility }) => {
         { name: 'MongoDB', icon: SiMongodb },
         { name: 'Redis', icon: SiRedis },
         { name: 'SQL', icon: SiMysql },
+        { name: 'Prisma', icon: SiPrisma },
+        { name: 'Drizzle ORM', icon: SiDrizzle },
+      ],
+    },
+    {
+      title: 'Radio & Space',
+      skills: [
+        { name: 'RTL-SDR', icon: TbAntenna },
+        { name: 'SatDump', icon: TbSatellite },
+        { name: 'Orbital mechanics (SGP4)', icon: TbPlanet },
       ],
     },
     {
@@ -87,7 +116,9 @@ const Skills: React.FC<SkillsProps> = ({ togglePortFolioVisibility }) => {
 
   const leadershipSkills = [
     'Program Management',
+    'Product Ownership',
     'Team Leadership',
+    'Workshops & Public Speaking',
     'Agile Methodologies',
     'Technical Training',
     'Cross-cultural',
@@ -98,10 +129,10 @@ const Skills: React.FC<SkillsProps> = ({ togglePortFolioVisibility }) => {
     <section id="skills" className="section skills-section" itemScope itemType="https://schema.org/ItemList" onClick={togglePortFolioVisibility}>
       <div className="section-container" onClick={event => event.stopPropagation()}>
         <h2 className="section-title" itemProp="name">Skills & Technologies</h2>
-        <meta itemProp="description" content="Technical skills and technologies that Yann Klein specializes in, including frontend, backend, database, and DevOps tools" />
+        <meta itemProp="description" content="Technical skills and technologies that Yann Klein specializes in, including frontend, backend, AI automation, database, and DevOps tools" />
 
         <div className="skills-intro">
-          <p>15+ years building web applications, machine learning models, and leading technical programs. Expertise spans full-stack development, data science, cloud infrastructure, and team management.</p>
+          <p>15+ years building web applications, machine learning models, and leading technical programs. Expertise spans full-stack development, AI automation, data science, cloud and self-hosted infrastructure, and team management.</p>
         </div>
 
         <div className="leadership-compact">

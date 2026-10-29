@@ -263,4 +263,74 @@ Free workshop, multiple dates throughout October 2025. Come build something inte
     external_url: 'https://barcelonaexpatlife.com/calendar/build-your-own-chatbot-with-ai/',
     read_time: 2
   },
+  {
+    id: '14',
+    title: "The Antenna That Wouldn't Stop Growing",
+    slug: 'the-antenna-that-wouldnt-stop-growing',
+    excerpt: 'How a $30 USB dongle turned into a weather-satellite ground station running across Barcelona and France, one "what if" at a time.',
+    content: `Right now, satellites are passing over your head and broadcasting pictures of the Earth, unencrypted, to anyone who cares to listen. With about 100 euros of hardware and a balcony facing the sky, you can catch them.
+
+**The story:** it started with a cheap RTL-SDR dongle and a black rectangle on my screen. It ended up as a distributed ground station: a resurrected laptop running as a Debian server in Barcelona, a second antenna installed by my dad on a ladder in Théding, France, and n8n workflows orchestrating everything in between.
+
+**What's inside:** the difference between polar orbiters and geostationary satellites, RF and antenna basics, orbital mechanics, decoding METEOR-M2 imagery with SatDump, and automating every pass so the images land in a [public gallery](https://satellite.yannklein.dev) without me lifting a finger.
+
+**The ending isn't written yet:** as I published it, the Elektro-L3 geostationary satellite was still drifting into the slot that would let me receive it from Europe.
+
+Also available [in French](https://dev.to/yannklein/lantenne-qui-narretait-pas-de-grandir-5c5i).`,
+    author: 'Yann Klein',
+    published_date: '2026-09-06',
+    tags: ['Satellite', 'RTL-SDR', 'n8n', 'Space', 'Homelab'],
+    image_url: 'https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fl487c52f7nsa34bryg49.png',
+    external_url: 'https://dev.to/yannklein/the-antenna-that-wouldnt-stop-growing-43jk',
+    read_time: 39
+  },
+  {
+    id: '15',
+    title: 'AI beyond ChatGPT: from conversations to workflows',
+    slug: 'ai-beyond-chatgpt-workshop-betahaus-barcelona',
+    excerpt: 'A hands-on AI workshop with DMK Tribe and Le Wagon Spain at betahaus Barcelona, later featured in DMK Tribe Magazine Issue 24 "Human, by Design".',
+    content: `Most people stop at chatting with AI. This workshop was about the next step: turning AI from a conversation partner into a set of workflows that quietly do the work for you.
+
+**The setting:** a full room at betahaus Barcelona, organised with DMK Tribe, a community of 9,000+ members across Lisbon, Barcelona, Milan, Paris, Valencia and Cascais, and Le Wagon Spain.
+
+**What we covered:** practical AI tips to make work and life easier, how to go beyond ChatGPT-style prompts, and how to chain AI steps into automations that run on their own.
+
+**In print:** the talk is one of the four conversations featured in DMK Tribe Magazine Issue 24, "Human, by Design", next to talks on money systems, trust on LinkedIn, and what happens to what we build with AI if the AI disappears tomorrow. The common thread: technology amplifies us, but judgment, trust and relationships remain human.`,
+    author: 'Yann Klein',
+    published_date: '2026-09-30',
+    tags: ['AI', 'Automation', 'Workshop', 'Barcelona', 'Le Wagon'],
+    image_url: '/blog/ai-beyond-chatgpt.webp',
+    external_url: 'https://www.linkedin.com/in/yann-klein/recent-activity/all/',
+    read_time: 3
+  },
+  {
+    id: '16',
+    title: 'The final frontier, European edition',
+    slug: 'the-final-frontier-european-spacetech-weekly',
+    excerpt: 'My weekly digest of European SpaceTech news on LinkedIn: launches, funding rounds and sovereignty debates, curated with a little help from AI.',
+    content: `Europe's space sector moves fast, and most of its news never makes the headlines. Every week, I pick the stories worth knowing about, from startup funding rounds in the Baltics to ESA programs and the race for space sovereignty, and sum each one up in a couple of lines.
+
+**How it's made:** an [n8n automation](https://www.linkedin.com/in/yann-klein/recent-activity/all/) reads a list of curated RSS sources, Claude scores every article for relevance and drafts the post, and I review and edit the draft in Slack before it goes out. 80% human-made, 20% AI-assisted.`,
+    author: 'Yann Klein',
+    published_date: '2026-10-23',
+    tags: ['SpaceTech', 'Europe', 'Weekly', 'LinkedIn', 'n8n'],
+    image_url: '/blog/spacetech-weekly.webp',
+    external_url: 'https://www.linkedin.com/in/yann-klein/recent-activity/all/',
+    read_time: 3
+  },
+  {
+    id: '17',
+    title: 'How green is Europe?',
+    slug: 'how-green-is-europe-climate-tech-weekly',
+    excerpt: 'My weekly digest of European Climate Tech news on LinkedIn: renewables, EV policy, climate funding and the startups making it happen.',
+    content: `Climate news is often either doom or hype. Every week, I look for the European Climate Tech stories that actually move things, from record wind turbines and grid tech to EU policy fights and the startups raising money to decarbonise, and sum each one up in a couple of lines.
+
+**How it's made:** an [n8n automation](https://www.linkedin.com/in/yann-klein/recent-activity/all/) reads a list of curated RSS sources, Claude scores every article for relevance and drafts the post, and I review and edit the draft in Slack before it goes out. 80% human-made, 20% AI-assisted.`,
+    author: 'Yann Klein',
+    published_date: '2026-10-28',
+    tags: ['Climate Tech', 'Europe', 'Weekly', 'LinkedIn', 'n8n'],
+    image_url: '/blog/climate-weekly.webp',
+    external_url: 'https://www.linkedin.com/in/yann-klein/recent-activity/all/',
+    read_time: 3
+  },
 ];

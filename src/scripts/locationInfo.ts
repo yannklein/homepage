@@ -4,13 +4,14 @@ const getLocation = (username: string, callback: (arg0: string) => void) => {
     .then(d => callback(d.location))
     .catch(error => {
       console.log(error);
-      callback('Tokyo, JP');
+      callback('Barcelona, ES');
     });
 };
 
 const getCountry = (username: string, callback: (arg0: string) => void) => {
   getLocation(username, (location: string) => {
-    callback(location.split(', ')[1].toLowerCase());
+    const country = location?.split(', ')[1] ?? 'ES';
+    callback(country.toLowerCase());
   });
 };
 

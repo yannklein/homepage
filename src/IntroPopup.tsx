@@ -6,9 +6,6 @@ import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 import { Font, FontLoader } from 'three/addons/loaders/FontLoader.js';
 import porcelainImg from './assets/matcap-porcelain-white.jpg';
 
-let textureLoaded = false;
-let fontLoaded = false;
-
 const IntroPopup = ({
   setIntroPopupLoaded,
   setPortFolioVisible,
@@ -60,11 +57,6 @@ const IntroPopup = ({
     {
       const textureLoader = new THREE.TextureLoader(manager);
       textureLoader.load(porcelainImg, (porcelain) => {
-        if (textureLoaded) {
-          return;
-        } else {
-          textureLoaded = true;
-        }
         porcelain.colorSpace = THREE.SRGBColorSpace;
         porcelain.minFilter = THREE.LinearMipMapLinearFilter;
         porcelain.magFilter = THREE.LinearFilter;
@@ -92,11 +84,6 @@ const IntroPopup = ({
       loader.load(
         'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/fonts/optimer_regular.typeface.json',
         (font: Font) => {
-          if (fontLoaded) {
-            return;
-          } else {
-            fontLoaded = true;
-          }
           geometry = new TextGeometry(text, {
             font,
             size,

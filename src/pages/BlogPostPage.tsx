@@ -7,6 +7,13 @@ import MarkdownIt from 'markdown-it';
 
 const md = new MarkdownIt();
 
+const externalLinkLabel = (url: string) => {
+  if (url.includes('medium.com')) return 'Read full article on Medium';
+  if (url.includes('dev.to')) return 'Read full article on dev.to';
+  if (url.includes('linkedin.com')) return 'Follow along on LinkedIn';
+  return 'Read more';
+};
+
 function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -127,7 +134,7 @@ function BlogPostPage() {
               rel="noopener noreferrer"
               className="external-link"
             >
-              Read full article on Medium <i className="fas fa-external-link-alt"></i>
+              {externalLinkLabel(post.external_url)} <i className="fas fa-external-link-alt"></i>
             </a>
           </div>
         )}
