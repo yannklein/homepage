@@ -5,6 +5,20 @@ import { ThreeJSContext } from './initThree';
 
 import { getCountry } from '../locationInfo';
 
+// SVG images come out black when uploaded straight to WebGL, so rasterize the
+// flag on a 3:2 canvas first
+const loadFlagTexture = (url: string, manager: THREE.LoadingManager, onLoad: (texture: THREE.Texture) => void) => {
+  new THREE.ImageLoader(manager).load(url, image => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 300;
+    canvas.height = 200;
+    canvas.getContext('2d')?.drawImage(image, 0, 0, canvas.width, canvas.height);
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.colorSpace = THREE.SRGBColorSpace;
+    onLoad(texture);
+  });
+};
+
 export const createSpaceShip =  (username: string, textureLoader: THREE.TextureLoader, porcelainMat: THREE.Material, bgMeshes: THREE.Group, world: ThreeJSContext) => {
   // Load 3D object
   const ship = new THREE.Group();
@@ -34,8 +48,9 @@ export const createSpaceShip =  (username: string, textureLoader: THREE.TextureL
       const geoFlag = new THREE.PlaneGeometry(0.12, 0.08);
       // Update country according to GH location
       getCountry(username, fetchedCountry => {
-        textureLoader.load(
+        loadFlagTexture(
           `https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/${fetchedCountry}.svg`,
+          textureLoader.manager,
           texFlag => {
             const matFlag = new THREE.MeshMatcapMaterial({
               side: THREE.DoubleSide,
