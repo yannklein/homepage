@@ -28,7 +28,7 @@ const About: React.FC<AboutProps> = ({ togglePortFolioVisibility }) => {
               These days I split my coding between <a href="https://github.com/yannklein" target="_blank" rel="noopener noreferrer">GitHub</a> and <a href="https://gitlab.com/yannklein" target="_blank" rel="noopener noreferrer">GitLab</a>, keeping both platforms equally green with contributions.
             </p>
             <p style={{ textAlign: 'center', margin: '2rem 0' }}>
-              <img src="https://raw.githubusercontent.com/yannklein/multi-platform-contrib-counter/refs/heads/main/public/contrib.svg" alt="Contribution graph" style={{ width: '100%', maxWidth: '800px' }} />
+              <img src="https://contrib.yannklein.dev/contrib.svg" alt="Contribution graph" style={{ width: '100%', maxWidth: '800px' }} />
             </p>
             <p itemProp="knowsAbout">
               Curious? Let's grab a coffee, or <a href="https://cal.com/yannklein/30min?user=yannklein" target="_blank" rel="noopener noreferrer">jump on Zoom</a>.
