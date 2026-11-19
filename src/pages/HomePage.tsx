@@ -31,7 +31,7 @@ function HomePage() {
     // setTimeout(() => setShowContent(true), 1000);
   }, []);
 
-  // Land on the section we came back to (e.g. "Back to Blog" links to /#blog)
+  // Land on the section we came back to (e.g. "Back to Writing & Talks" links to /#blog)
   useEffect(() => {
     if (skipIntro && hash) {
       document.getElementById(hash.slice(1))?.scrollIntoView();

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Blog.css';
 import { blogPosts } from '../data/blogPosts';
+import FeatureList from './FeatureList';
 
 interface BlogProps {
   togglePortFolioVisibility: () => void;
@@ -22,7 +23,7 @@ const Blog: React.FC<BlogProps> = ({ togglePortFolioVisibility }) => {
   return (
     <section id="blog" className="section blog-section" onClick={togglePortFolioVisibility}>
       <div className="section-container" onClick={event => event.stopPropagation()}>
-        <h2 className="section-title">Blog</h2>
+        <h2 className="section-title">Writing &amp; Talks</h2>
         <div className="blog-grid">
           {posts.map((post) => (
               <Link key={post.id} to={`/blog/${post.slug}`} className="blog-card">
@@ -49,6 +50,7 @@ const Blog: React.FC<BlogProps> = ({ togglePortFolioVisibility }) => {
               </Link>
             ))}
         </div>
+        <FeatureList />
       </div>
     </section>
   );

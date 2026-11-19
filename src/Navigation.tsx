@@ -29,7 +29,7 @@ const Navigation = ({ activeSection }: NavigationProps) => {
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
     { id: 'projects', label: 'Projects' },
-    { id: 'blog', label: 'Blog' },
+    { id: 'blog', label: 'Writing & Talks' },
     { id: 'contact', label: 'Contact' },
   ];
 

@@ -11,6 +11,8 @@ const externalLinkLabel = (url: string) => {
   if (url.includes('medium.com')) return 'Read full article on Medium';
   if (url.includes('dev.to')) return 'Read full article on dev.to';
   if (url.includes('linkedin.com')) return 'Follow along on LinkedIn';
+  if (url.includes('talentarena.tech')) return 'See the session on Talent Arena';
+  if (url.includes('latribune.fr')) return 'Read the interview on La Tribune (French)';
   return 'Read more';
 };
 
@@ -91,7 +93,7 @@ function BlogPostPage() {
       <article className="blog-post-container">
         <div className="blog-post-header">
           <Link to="/#blog" className="back-link">
-            <i className="fas fa-arrow-left"></i> Back to Blog
+            <i className="fas fa-arrow-left"></i> Back to Writing & Talks
           </Link>
 
           <div className="blog-post-meta">

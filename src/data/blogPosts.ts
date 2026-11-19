@@ -300,7 +300,7 @@ Also available [in French](https://dev.to/yannklein/lantenne-qui-narretait-pas-d
     published_date: '2026-09-30',
     tags: ['AI', 'Automation', 'Workshop', 'Barcelona', 'Le Wagon'],
     image_url: '/blog/ai-beyond-chatgpt.webp',
-    external_url: 'https://www.linkedin.com/in/yann-klein/recent-activity/all/',
+    external_url: 'https://www.linkedin.com/feed/update/urn:li:activity:7520931824324231169/',
     read_time: 3
   },
   {
@@ -332,5 +332,54 @@ Also available [in French](https://dev.to/yannklein/lantenne-qui-narretait-pas-d
     image_url: '/blog/climate-weekly.webp',
     external_url: 'https://www.linkedin.com/in/yann-klein/recent-activity/all/',
     read_time: 3
+  },
+  {
+    id: '18',
+    title: 'Stop prompting, start building real solutions with AI',
+    slug: 'stop-prompting-start-building-talent-arena-2026',
+    excerpt: 'A workshop and one-to-one mentoring at Talent Arena 2026, the digital talent event by Mobile World Capital Barcelona, invited by Le Wagon Spain.',
+    content: `Most people use AI as a chat window. This workshop was about moving past prompting and designing systems that do the work for you.
+
+**The event:** Talent Arena, the digital talent event by Mobile World Capital Barcelona, held from 2 to 4 March 2026 at Fira Montjuïc. I was invited by Le Wagon Spain to [run a workshop](https://talentarena.tech/sessions/stop-prompting-start-building-real-solutions-with-ai/) and to mentor in the event's mentor area.
+
+**What the workshop covered:**
+- **AI workflows:** automating repetitive tasks, turning hours of work into seconds
+- **Agentic AI:** AI agents that go beyond answering and take real-world action
+- **Vibe coding:** building working tools from plain English descriptions, whatever your coding experience
+
+All of it hands-on, with tools such as Make, Julius AI, Claude, Cursor and Lovable.
+
+**Mentoring:** on the afternoon of 4 March, attendees could bring their product ideas, AI challenges or career questions to a one-to-one session with me.
+
+[The announcement on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7434302119173591041/)`,
+    author: 'Yann Klein',
+    published_date: '2026-03-02',
+    tags: ['Talk', 'AI', 'Automation', 'Mentoring', 'Barcelona'],
+    image_url: '/blog/talent-arena.webp',
+    external_url: 'https://talentarena.tech/sessions/stop-prompting-start-building-real-solutions-with-ai/',
+    read_time: 2
+  },
+  {
+    id: '19',
+    title: 'Co-founding French Tech Japan',
+    slug: 'french-tech-japan-la-tribune',
+    excerpt: 'La Tribune interviewed the five French founders of French Tech Japan, a community bringing the French Tech movement to entrepreneurs in Japan.',
+    content: `In 2015, the French Tech movement was taking off in France, and the message from Paris was that it had to go international. In Tokyo, five of us had already started: Sylvain Pierre, Romain Resse, Mathieu Buglet, Yoann Boishardy and me.
+
+**The interview:** La Tribune's expat blog sat down with the five founders to explain what French Tech Japan was, why we started it, and where we wanted to take it. The article is in French.
+
+**What French Tech Japan was:** an open community, not an institution. A banner and a rallying point for French people in Japan to meet, help each other and build things together. As I put it then: "We don't help entrepreneurs, we are the entrepreneurs."
+
+**Why we did it:** a mix of giving back to France, which gave us a free, high-quality education, and making French tech visible abroad. We saw the community as complementary to institutions like the French Chamber of Commerce in Japan and Ubifrance, reaching people they found hard to reach.
+
+**Japan, honestly:** being a foreigner and an environment that was not yet startup-friendly were the two big hurdles. But Europeans stood out, and a lot was still left to build.
+
+**The ambition:** to go from an initiative to an ecosystem, and make French Tech Japan the first point of contact for French entrepreneurs coming to Japan.`,
+    author: 'La Tribune',
+    published_date: '2015-02-27',
+    tags: ['Press', 'French Tech', 'Entrepreneurship', 'Japan', 'Community'],
+    image_url: '/blog/french-tech-japan.webp',
+    external_url: 'https://www.latribune.fr/blogs/la-tribune-des-expats/20150227trib825b513cd/tout-ce-que-vous-avez-besoin-de-savoir-sur-la-french-tech-au-japon.html',
+    read_time: 2
   },
 ];
